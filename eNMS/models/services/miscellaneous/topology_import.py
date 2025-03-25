@@ -37,32 +37,41 @@ class TopologyImportService(Service):
         
     def query_netbox(self):
         import requests
+        from sqlalchemy.orm.exc import NoResultFound
+    
         session = requests.Session()
         session.verify = False
         nb = netbox_api(self.netbox_address, env.get_password(self.netbox_token))
         nb.http_session = session
+    
         for device in nb.dcim.devices.all():
             device_ip = device.primary_ip4 or device.primary_ip6
-            name = f"{device.name} ({device_ip})"
-            
-            # Check if the node with the same name already exists
-            existing_node = db.session.query(Node).filter_by(name=name).first()
-            
-            if existing_node:
-                # If the node exists, update its position and coordinates
-                existing_node.positions = device.position
-                existing_node.latitude = str(nb.dcim.sites.get(name=device.site).latitude)
-                existing_node.longitude = str(nb.dcim.sites.get(name=device.site).longitude)
-            else:
-                db.factory(
-                    "node",
-                    **{
-                        "name": name,
-                        "positions": device.position,
-                        "latitude": str(nb.dcim.sites.get(name=device.site).latitude),
-                        "longitude": str(nb.dcim.sites.get(name=device.site).longitude),
-                    },
-                )
+            device_name = device.name
+    
+            # Check if the device already exists in the database
+            existing_device = db.session.query(db.Device).filter_by(name=device_name).first()
+    
+            if existing_device:
+                print(f"Device {device_name} already exists, skipping insert.")
+                continue  # Skip inserting duplicate records
+    
+            # Insert new device
+            db.factory(
+                "device",
+                **{
+                    "name": device_name,
+                    "ip_address": str(device_ip).split("/")[0] if device_ip else None,
+                    "subtype": str(device.role) if device.role else None,
+                    "model": str(device.device_type) if device.device_type else None,
+                    "location": str(device.site) if device.site else None,
+                    "vendor": str(device.device_type.manufacturer) if device.device_type else None,
+                    "operating_system": str(device.platform) if device.platform else None,
+                    "latitude": str(nb.dcim.sites.get(name=device.site).latitude) if device.site else None,
+                    "longitude": str(nb.dcim.sites.get(name=device.site).longitude) if device.site else None,
+                },
+            )
+        
+        db.session.commit()
 
     def query_opennms(self):
         json_devices = http_get(
