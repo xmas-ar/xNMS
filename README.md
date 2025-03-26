@@ -4,6 +4,7 @@
 # Introduction
 
 eNMS is a vendor-agnostic NMS designed for building workflow-based network automation solutions.
+
 xNMS is a fork which focuses in improving the feature-set of eNMS
 
 [![eNMS](docs/source/_static/base/workflow.png)](https://www.demo.enms.io/workflow_builder)
