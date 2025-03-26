@@ -34,33 +34,29 @@ class TopologyImportService(Service):
     def job(self, run):
         getattr(self, f"query_{self.import_type}")()
         return {"success": True}
-        
-    def query_netbox(self):  # Line 39
+
+    def query_netbox(self):
         import requests
         session = requests.Session()
-        session.verify = False
         nb = netbox_api(self.netbox_address, env.get_password(self.netbox_token))
+        nb.http_session.verify = False
         nb.http_session = session
         for device in nb.dcim.devices.all():
             device_ip = device.primary_ip4 or device.primary_ip6
-    
-            # Check if the device already exists in the database
-            existing_device = db.session.query(db.Device).filter_by(name=device.name).first()
-            if not existing_device:
-                db.factory(
-                    "device",
-                    **{
-                        "name": device.name,
-                        "ip_address": str(device_ip).split("/")[0],
-                        "subtype": str(device.role),
-                        "model": str(device.device_type),
-                        "location": str(device.site),
-                        "vendor": str(device.device_type.manufacturer),
-                        "operating_system": str(device.platform),
-                        "latitude": str(nb.dcim.sites.get(name=device.site).latitude),
-                        "longitude": str(nb.dcim.sites.get(name=device.site).longitude),
-                    },
-                )
+            db.factory(
+                "device",
+                **{
+                    "name": device.name,
+                    "ip_address": str(device_ip).split("/")[0],
+                    "subtype": str(device.device_role),
+                    "model": str(device.device_type),
+                    "location": str(device.site),
+                    "vendor": str(device.device_type.manufacturer),
+                    "operating_system": str(device.platform),
+                    "latitude": str(nb.dcim.sites.get(name=device.site).latitude),
+                    "longitude": str(nb.dcim.sites.get(name=device.site).longitude),
+                },
+            )
 
     def query_opennms(self):
         json_devices = http_get(
