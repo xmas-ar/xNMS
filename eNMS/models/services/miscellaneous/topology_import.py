@@ -39,7 +39,7 @@ class TopologyImportService(Service):
         import requests
         session = requests.Session()
         nb = netbox_api(self.netbox_address, env.get_password(self.netbox_token))
-        nb.http_session.verify = False
+        session.verify = False
         nb.http_session = session
         for device in nb.dcim.devices.all():
             device_ip = device.primary_ip4 or device.primary_ip6
@@ -48,7 +48,7 @@ class TopologyImportService(Service):
                 **{
                     "name": device.name,
                     "ip_address": str(device_ip).split("/")[0],
-                    "subtype": str(device.device_role),
+                    "subtype": str(device.role),
                     "model": str(device.device_type),
                     "location": str(device.site),
                     "vendor": str(device.device_type.manufacturer),
