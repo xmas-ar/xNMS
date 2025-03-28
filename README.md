@@ -2,7 +2,13 @@
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
 <h1 align="center">Forked from eNMS, maintained by xmas-ar</h1>
 
-# Introduction
+Fork changelog:
+• 28/03/2025 - Modified topology_import service .py to disable https check with Netbox and corrected device.role.
+• WIP: Adding service template for L2 service configuration (vpls, telco standard, junos based). 
+• WIP: Adding service template for interface unit description correction (based of VPLS config).
+• 
+
+<h1 align="center"># Introduction</h1>
 
 xNMS is a vendor-agnostic NMS designed for building workflow-based network automation solutions.
 
