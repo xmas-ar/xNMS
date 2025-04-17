@@ -62,7 +62,7 @@ body {
 }
 
 .nav.side-menu > li.active > a {
-  background: linear-gradient(#334556, #2c4257), #747676;
+  background: linear-gradient(#3f3f3f, #545454), #747676;
 }
 
 .nav.navbar-nav > li > a {
