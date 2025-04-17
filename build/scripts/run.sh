@@ -20,16 +20,16 @@ function run() {
   if [[ -n "$path" ]]; then cd $path; fi
   if [ "$scheduler" = true ]; then
     cd scheduler
-    export ENMS_ADDR="http://192.168.56.102"
-    export ENMS_USER="admin"
-    export ENMS_PASSWORD="admin"
+    export xNMS_ADDR="http://192.168.56.102"
+    export xNMS_USER="admin"
+    export xNMS_PASSWORD="admin"
     gunicorn --config gunicorn.py scheduler:scheduler
     exit 0
   fi
   if [ "$redis" = true ]; then
     export REDIS_ADDR="192.168.56.103"
   fi
-  export SERVER_NAME="eNMS Server"
+  export SERVER_NAME="xNMS Server"
   export SERVER_ADDR="192.168.56.108"
   export SERVER_URL="http://192.168.56.108:5000"
   export SCHEDULER_ADDR="http://192.168.56.103:5000"
@@ -40,20 +40,20 @@ function run() {
   export FLASK_APP="app.py"
   export FLASK_DEBUG=1
   if [ "$database" = "mysql" ]; then
-    export DATABASE_URL="mysql://root:password@localhost/enms";
+    export DATABASE_URL="mysql://root:password@localhost/xNMS";
   elif [ "$database" = "pgsql" ]; then
-    export DATABASE_URL="postgresql://root:password@localhost:5432/enms"
+    export DATABASE_URL="postgresql://root:password@localhost:5432/xNMS"
   else
     export DATABASE_URL="sqlite:///database.db"
   fi
   if [ "$reload" = true ]; then
     if [ "$database" = "mysql" ]; then
-      sudo mysql -u root --password=password -e "DROP DATABASE enms;CREATE DATABASE enms;"
+      sudo mysql -u root --password=password -e "DROP DATABASE xNMS;CREATE DATABASE xNMS;"
       sudo mysql -u root --password=password -e "ALTER USER 'root'@'localhost'\
         IDENTIFIED WITH mysql_native_password BY 'password';"
     elif [ "$database" = "pgsql" ]; then
-      sudo -u postgres psql -c "DROP DATABASE enms"
-      sudo -u postgres psql -c "CREATE DATABASE enms;"
+      sudo -u postgres psql -c "DROP DATABASE xNMS"
+      sudo -u postgres psql -c "CREATE DATABASE xNMS;"
     else
       rm database.db
     fi

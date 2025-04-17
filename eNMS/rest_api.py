@@ -4,10 +4,10 @@ from threading import Thread
 from traceback import format_exc
 from uuid import getnode
 
-from eNMS.controller import controller
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.variables import vs
+from xNMS.controller import controller
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.variables import vs
 
 
 class RestApi:

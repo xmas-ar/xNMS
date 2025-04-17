@@ -54,7 +54,7 @@ sub-workflow.
 
 Motivation: You want to release (close) a device connection when you are done using it.
 Otherwise, the connection may not be closed until the end of the workflow!  This is just
-a good practice to be considerate of resource usage on devices as well as the eNMS 
+a good practice to be considerate of resource usage on devices as well as the xNMS 
 server(s).
 
 ![Close Connection](../_static/automation/services/service_editor_workflow_close_connection.png)
@@ -192,7 +192,7 @@ One option for trying to organize a set of related **Shared** Services is to put
 into a "container" Workflow.  This "container" (library) Workflow serves as 
 a common location in which to organize a group of shared services.
 
-While this has little to do with how the eNMS system operates, it is something that 
+While this has little to do with how the xNMS system operates, it is something that 
 larger workflow developers have used to help organize Shared services that are reused
 across multiple Workflows.  
 

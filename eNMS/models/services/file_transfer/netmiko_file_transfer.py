@@ -2,11 +2,11 @@ from netmiko import file_transfer
 from sqlalchemy import Boolean, Float, ForeignKey, Integer
 from wtforms.validators import InputRequired
 
-from eNMS.database import db
-from eNMS.fields import BooleanField, HiddenField, SelectField, StringField
-from eNMS.forms import NetmikoForm
-from eNMS.models.automation import ConnectionService
-from eNMS.variables import vs
+from xNMS.database import db
+from xNMS.fields import BooleanField, HiddenField, SelectField, StringField
+from xNMS.forms import NetmikoForm
+from xNMS.models.automation import ConnectionService
+from xNMS.variables import vs
 
 
 class NetmikoFileTransferService(ConnectionService):

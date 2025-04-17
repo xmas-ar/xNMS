@@ -40,7 +40,7 @@ from time import sleep
 from traceback import format_exc
 from uuid import getnode
 
-from eNMS.variables import vs
+from xNMS.variables import vs
 
 
 class Database:
@@ -549,7 +549,7 @@ class Database:
 
     def register_custom_models(self):
         for model in ("device", "link", "service"):
-            paths = [vs.path / "eNMS" / "models" / f"{model}s"]
+            paths = [vs.path / "xNMS" / "models" / f"{model}s"]
             load_examples = vs.settings["app"].get("startup_migration") == "examples"
             if vs.settings["paths"][f"custom_{model}s"]:
                 paths.append(Path(vs.settings["paths"][f"custom_{model}s"]))

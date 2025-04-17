@@ -1,6 +1,6 @@
 ## Services are Units of Work
 
-Services provide the smallest unit of automation in eNMS. Each service
+Services provide the smallest unit of automation in xNMS. Each service
 type provides unique functionality that is easily configured to perform
 complex operations in the network. Examples: remote command execution,
 REST API calls, Ansible playbook execution, and many more.
@@ -14,7 +14,7 @@ functionality. Common forms are available on every service for defining
 device targets, iteration, retries, pre and post processing, result
 validation, notifications, etc.
 
-eNMS comes with a number of service types based on network
+xNMS comes with a number of service types based on network
 automation frameworks such as `netmiko`, `napalm` and `ansible`, but
 custom service types can be created. Each service type must return a python
 dictionary as a result, and dictionaries are the primary means by which
@@ -47,14 +47,14 @@ Filtering and Bulk operations:
    browser. One or multiple services can be uploaded / imported in this way.
    
 !!! note
-    When importing a workflow .tgz file from another instance of eNMS, and
+    When importing a workflow .tgz file from another instance of xNMS, and
     that workflow already exists on this instance, first delete the existing
-    workflow.  This will prevent eNMS from merging the services and edges from
+    workflow.  This will prevent xNMS from merging the services and edges from
     the two workflows, which could result in an unintended workflow graph.
 
 !!! note
-    Do not attempt to import a workflow .tgz file from an instance of eNMS
-    that is running a different eNMS version.  Contact your system administrator
+    Do not attempt to import a workflow .tgz file from an instance of xNMS
+    that is running a different xNMS version.  Contact your system administrator
     regarding any necessary conversion.
 
 The following features operate on Bulk Services that are currently
@@ -95,7 +95,7 @@ button bar on the right that includes:
 	Exporting services: In addition to the .tgz file that is downloaded to
     the browser, a copy of the .tgz file is stored in the `files/services`
     directory. This is intended for administrators migrating services from
-    one instance of eNMS to another when deploying multiple instances.
+    one instance of xNMS to another when deploying multiple instances.
 
 ## Managing Service Access
 User maintained `Access Control` is available for service objects. This allows the `Owners` to select desired access.
@@ -191,7 +191,7 @@ the user's browser.
 
 ## Custom Service Types
 
-To define additional, custom Service Types not included in the built-in eNMS Service 
+To define additional, custom Service Types not included in the built-in xNMS Service 
 Types, please refer to [Customization](../../advanced/customization/#custom-service-types).
 
 ### Bulk Edit example 

@@ -16,7 +16,7 @@
     "rotation": {
       "level": "DEBUG",
       "formatter": "standard",
-      "filename": "logs/enms.log",
+      "filename": "logs/xNMS.log",
       "class": "logging.handlers.RotatingFileHandler",
       "maxBytes": 20000000,
       "backupCount": 10

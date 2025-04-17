@@ -3,7 +3,7 @@ from ruamel import yaml
 
 
 FILENAME = "scalability"
-PATH = Path.cwd().parent.parent.parent / "eNMS-prod" / "files" / "migrations"
+PATH = Path.cwd().parent.parent.parent / "xNMS-prod" / "files" / "migrations"
 PROPERTIES = {
     "device": ("name", "rbac_read", "rbac_edit"),
     "link": ("name", "source", "destination"),

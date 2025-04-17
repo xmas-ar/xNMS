@@ -9,19 +9,19 @@
   >
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.administration.getGitContent()"
+      onclick="xNMS.administration.getGitContent()"
     >
       Fetch Git Configurations
     </button>
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.administration.scanCluster()"
+      onclick="xNMS.administration.scanCluster()"
     >
       Scan Cluster Subnet
     </button>
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.base.showInstancePanel('parameters', 1)"
+      onclick="xNMS.base.showInstancePanel('parameters', 1)"
     >
       Parameters
     </button>
@@ -37,13 +37,13 @@
   >
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.administration.showMigrationPanel()"
+      onclick="xNMS.administration.showMigrationPanel()"
     >
       Migration Import / Export
     </button>
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.base.openPanel({
+      onclick="xNMS.base.openPanel({
         name: 'database_deletion', title: 'Database Deletion', size: '500 300'
       })"
     >
@@ -51,7 +51,7 @@
     </button>
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.base.openPanel({
+      onclick="xNMS.base.openPanel({
         name: 'result_log_deletion',
         title: 'Results & Logs Deletion',
         size: '700 300'
@@ -71,13 +71,13 @@
   >
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.inventory.showImportTopologyPanel()"
+      onclick="xNMS.inventory.showImportTopologyPanel()"
     >
       Excel Import
     </button>
     <button
       class="btn btn-primary btn-file"
-      onclick="eNMS.base.openPanel({
+      onclick="xNMS.base.openPanel({
         title: 'Export Inventory',
         name: 'excel_export',
         size: '400 200'

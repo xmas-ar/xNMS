@@ -260,7 +260,7 @@ export class Table {
       <ul class="pagination" style="margin: 0px;">
         <li>
           <a
-            onclick="eNMS.table.togglePaginationDisplay('${this.id}')"
+            onclick="xNMS.table.togglePaginationDisplay('${this.id}')"
             data-tooltip="Load Table Count"
             style="cursor: pointer;"
             >Load Table Count</a>
@@ -349,7 +349,7 @@ export class Table {
     return `
       <button
         class="btn btn-info"
-        onclick="eNMS.${showPanelFunction}"
+        onclick="xNMS.${showPanelFunction}"
         data-tooltip="Bulk Filtering"
         type="button"
       >
@@ -359,14 +359,14 @@ export class Table {
 
   createNewButton() {
     const onClick = this.relation
-      ? `eNMS.base.showAddInstancePanel(
+      ? `xNMS.base.showAddInstancePanel(
           '${this.id}', '${this.type}', ${this.relationString}
         )`
       : this.type == "service"
-      ? `eNMS.automation.openServicePanel()`
+      ? `xNMS.automation.openServicePanel()`
       : this.type == "device" || this.type == "link"
-      ? `eNMS.inventory.openObjectPanel('${this.type}')`
-      : `eNMS.base.showInstancePanel('${this.type}')`;
+      ? `xNMS.inventory.openObjectPanel('${this.type}')`
+      : `xNMS.base.showInstancePanel('${this.type}')`;
     return `
       <button
         class="btn btn-primary"
@@ -382,7 +382,7 @@ export class Table {
     return `
       <button
         class="btn btn-primary"
-        onclick="eNMS.table.exportTable('${this.id}')"
+        onclick="xNMS.table.exportTable('${this.id}')"
         data-tooltip="Export as .CSV"
         type="button"
       >
@@ -394,7 +394,7 @@ export class Table {
     return `
       <button
         class="btn btn-info"
-        onclick="eNMS.table.clearSearch('${this.id}', true)"
+        onclick="xNMS.table.clearSearch('${this.id}', true)"
         data-tooltip="Clear Search"
         type="button"
       >
@@ -406,7 +406,7 @@ export class Table {
     return `
       <button
         class="btn btn-info"
-        onclick="eNMS.table.refreshTable('${this.id}', true)"
+        onclick="xNMS.table.refreshTable('${this.id}', true)"
         data-tooltip="Refresh"
         type="button"
       >
@@ -418,7 +418,7 @@ export class Table {
     return `
       <button
         class="btn btn-info"
-        onclick="eNMS.table.copySelectionToClipboard('${this.id}')"
+        onclick="xNMS.table.copySelectionToClipboard('${this.id}')"
         data-tooltip="Copy Selection to Clipboard"
         type="button"
       >
@@ -434,7 +434,7 @@ export class Table {
     return `
       <button
         class="btn btn-primary"
-        onclick="eNMS.${showPanelFunction}"
+        onclick="xNMS.${showPanelFunction}"
         data-tooltip="Bulk Edit"
         type="button"
       >
@@ -444,8 +444,8 @@ export class Table {
 
   bulkDeletionButton() {
     const onClick = this.relation
-      ? `eNMS.table.bulkRemoval('${this.id}', '${this.model}', ${this.relationString})`
-      : `eNMS.table.showBulkDeletionPanel('${this.id}', '${this.model}')`;
+      ? `xNMS.table.bulkRemoval('${this.id}', '${this.model}', ${this.relationString})`
+      : `xNMS.table.showBulkDeletionPanel('${this.id}', '${this.model}')`;
     return `
       <button
         class="btn btn-danger"
@@ -459,10 +459,10 @@ export class Table {
 
   deleteInstanceButton(row) {
     const onClick = this.relation
-      ? `eNMS.base.removeInstance(
+      ? `xNMS.base.removeInstance(
           '${this.id}', ${row.instance}, ${this.relationString}
         )`
-      : `eNMS.base.showDeletionPanel(${row.instance}, '${this.id}')`;
+      : `xNMS.base.showDeletionPanel(${row.instance}, '${this.id}')`;
     return `
       <li>
         <button type="button" class="btn btn-sm btn-danger"
@@ -494,7 +494,7 @@ tables.device = class DeviceTable extends Table {
     for (const model of ["service", "task", "pool"]) {
       const from = model == "service" ? "target_devices" : "devices";
       const to = model == "service" ? `target_${model}s` : `${model}s`;
-      row[`${model}s`] = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+      row[`${model}s`] = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
         '${model}', ${row.instance}, {parent: '${this.id}', from: '${from}',
         to: '${to}'})">${model.charAt(0).toUpperCase() + model.slice(1)}s</a></b>`;
     }
@@ -522,7 +522,7 @@ tables.device = class DeviceTable extends Table {
       ` <button
         type="button"
         class="btn btn-success"
-        onclick="eNMS.automation.showRunServicePanel(
+        onclick="xNMS.automation.showRunServicePanel(
           {tableId: '${this.id}', type: '${this.type}'}
         )"
         data-tooltip="Run service on all devices in table"
@@ -538,28 +538,28 @@ tables.device = class DeviceTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px; width: 270px">
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.inventory.showDeviceData(${row.instance})"
+          onclick="xNMS.inventory.showDeviceData(${row.instance})"
           data-tooltip="Network Data"
             ><span class="glyphicon glyphicon-cog"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.inventory.showDeviceResultsPanel(${row.instance})"
+          onclick="xNMS.inventory.showDeviceResultsPanel(${row.instance})"
           data-tooltip="Results"
             ><span class="glyphicon glyphicon-list-alt"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-dark"
-          onclick="eNMS.inventory.showConnectionPanel(${row.instance})"
+          onclick="xNMS.inventory.showConnectionPanel(${row.instance})"
           data-tooltip="Connection"
             ><span class="glyphicon glyphicon-console"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${
       row.id
     }')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
@@ -567,14 +567,14 @@ tables.device = class DeviceTable extends Table {
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-success"
-          onclick="eNMS.automation.showRunServicePanel({instance: ${row.instance}})"
+          onclick="xNMS.automation.showRunServicePanel({instance: ${row.instance}})"
           data-tooltip="Run Service"><span class="glyphicon glyphicon-play">
           </span></button>
         </li>
@@ -593,7 +593,7 @@ tables.network = class NetworkTable extends Table {
     let row = super.addRow(kwargs);
     const rowName = sanitize(row.name);
     row.name = `<b><a href="/network_builder/${row.path}">${rowName}</a></b>`;
-    row.links = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row.links = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'link', ${row.instance}, {parent: '${this.id}', from: 'networks',
       to: 'links'})">Links</a></b>`;
     return row;
@@ -643,7 +643,7 @@ tables.network = class NetworkTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px; width: 120px">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${
       row.id
     }')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
@@ -651,7 +651,7 @@ tables.network = class NetworkTable extends Table {
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
@@ -728,21 +728,21 @@ tables.configuration = class ConfigurationTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px">
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.inventory.showDeviceData(${row.instance})"
+          onclick="xNMS.inventory.showDeviceData(${row.instance})"
           data-tooltip="Network Data"
             ><span class="glyphicon glyphicon-cog"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.inventory.showGitHistory(${row.instance})"
+          onclick="xNMS.inventory.showGitHistory(${row.instance})"
           data-tooltip="Historic"
             ><span class="glyphicon glyphicon-adjust"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${row.id}')"
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${row.id}')"
           data-tooltip="Edit"><span class="glyphicon glyphicon-edit">
           </span></button>
         </li>
@@ -753,7 +753,7 @@ tables.configuration = class ConfigurationTable extends Table {
 tables.link = class LinkTable extends Table {
   addRow(properties) {
     let row = super.addRow(properties);
-    row.pools = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row.pools = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'pool', ${row.instance}, {parent: '${this.id}', from: 'links', to: 'pools'})">
       Pools</a></b>`;
     return row;
@@ -786,7 +786,7 @@ tables.link = class LinkTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px; width: 120px">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${
       row.id
     }')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
@@ -794,7 +794,7 @@ tables.link = class LinkTable extends Table {
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
@@ -816,7 +816,7 @@ tables.pool = class PoolTable extends Table {
     for (const model of ["device", "link"]) {
       row.objectNumber += `${row[`${model}_number`]} ${model}s`;
       if (model !== "link") row.objectNumber += " - ";
-      row[`${model}s`] = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+      row[`${model}s`] = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
         '${model}', ${row.instance}, {parent: '${this.id}', from: 'pools',
         to: '${model}s'})">${model.charAt(0).toUpperCase() + model.slice(1)}s</a></b>`;
     }
@@ -834,7 +834,7 @@ tables.pool = class PoolTable extends Table {
       this.exportTableButton(),
       ` <button
         class="btn btn-primary"
-        onclick="eNMS.inventory.updatePools()"
+        onclick="xNMS.inventory.updatePools()"
         data-tooltip="Update all pools"
         type="button"
       >
@@ -843,7 +843,7 @@ tables.pool = class PoolTable extends Table {
       ` <button
         type="button"
         class="btn btn-success"
-        onclick="eNMS.automation.showRunServicePanel(
+        onclick="xNMS.automation.showRunServicePanel(
           {tableId: '${this.id}', type: '${this.type}'}
         )"
         data-tooltip="Run service on all pools in table"
@@ -859,26 +859,26 @@ tables.pool = class PoolTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px; width: 200px">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.inventory.updatePools('${row.id}')"
+          onclick="xNMS.inventory.updatePools('${row.id}')"
           data-tooltip="Update"><span class="glyphicon glyphicon-refresh">
           </span></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('pool', '${row.id}')" data-tooltip="Edit"
+          onclick="xNMS.base.showInstancePanel('pool', '${row.id}')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('pool', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('pool', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-success"
-          onclick="eNMS.automation.showRunServicePanel({instance: ${row.instance}})"
+          onclick="xNMS.automation.showRunServicePanel({instance: ${row.instance}})"
           data-tooltip="Run Service"><span class="glyphicon glyphicon-play">
           </span></button>
         </li>
@@ -896,12 +896,12 @@ tables.service = class ServiceTable extends Table {
       row.name = `<b><a href="/workflow_builder/${row.path}">${rowName}</a></b>`;
     }
     for (const model of ["device", "pool"]) {
-      row[`${model}s`] = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+      row[`${model}s`] = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
         '${model}', ${row.instance}, {parent: '${this.id}', from: 'target_services',
         to: 'target_${model}s'})">${model.charAt(0).toUpperCase() + model.slice(1)}s
         </a></b>`;
     }
-    row["runs"] = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row["runs"] = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'run', ${row.instance}, {parent: '${this.id}', from: 'services',
       to: 'runs'})">Runs</a></b>`;
     return row;
@@ -934,7 +934,7 @@ tables.service = class ServiceTable extends Table {
       `
       <button
         class="btn btn-info"
-        onclick="eNMS.table.refreshTable('service', true)"
+        onclick="xNMS.table.refreshTable('service', true)"
         data-tooltip="Refresh"
         type="button"
       >
@@ -954,7 +954,7 @@ tables.service = class ServiceTable extends Table {
       </button>`,
       `<button
         class="btn btn-primary"
-        onclick="eNMS.automation.showImportServicesPanel()"
+        onclick="xNMS.automation.showImportServicesPanel()"
         data-tooltip="Import Service"
         type="button"
       >
@@ -963,7 +963,7 @@ tables.service = class ServiceTable extends Table {
       `
       <button
         class="btn btn-primary"
-        onclick="eNMS.table.showBulkServiceExportPanel('${this.id}')"
+        onclick="xNMS.table.showBulkServiceExportPanel('${this.id}')"
         data-tooltip="Export Services as .tgz"
         type="button"
       >
@@ -982,14 +982,14 @@ tables.service = class ServiceTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px; width: 310px">
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.automation.showRuntimePanel('logs', ${row.instance})"
+          onclick="xNMS.automation.showRuntimePanel('logs', ${row.instance})"
           data-tooltip="Logs">
             <span class="glyphicon glyphicon-list"></span>
           </button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.automation.showRuntimePanel('results', ${row.instance}
+          onclick="xNMS.automation.showRuntimePanel('results', ${row.instance}
           ${runtimeArg})" data-tooltip="Results">
             <span class="glyphicon glyphicon-list-alt"></span>
           </button>
@@ -998,13 +998,13 @@ tables.service = class ServiceTable extends Table {
           <button
             type="button"
             class="btn btn-sm btn-primary"
-            onclick="eNMS.base.showInstancePanel('${row.type}', '${row.id}')"
+            onclick="xNMS.base.showInstancePanel('${row.type}', '${row.id}')"
             data-tooltip="Edit"
           ><span class="glyphicon glyphicon-edit"></span></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('${row.type}', '${row.id}',
+          onclick="xNMS.base.showInstancePanel('${row.type}', '${row.id}',
           'duplicate')" data-tooltip="Duplicate">
           <span class="glyphicon glyphicon-duplicate"></span></button>
         </li>
@@ -1017,14 +1017,14 @@ tables.service = class ServiceTable extends Table {
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-success"
-          onclick="eNMS.automation.runService({id: '${row.id}',
+          onclick="xNMS.automation.runService({id: '${row.id}',
           parametrization: ${row.mandatory_parametrization}})"
           data-tooltip="Run"><span class="glyphicon glyphicon-play"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-success"
-          onclick="eNMS.automation.runService({id: '${row.id}',
+          onclick="xNMS.automation.runService({id: '${row.id}',
           parametrization: true})" data-tooltip="Parameterized Run">
             <span class="glyphicon glyphicon-play-circle"></span
           ></button>
@@ -1059,21 +1059,21 @@ tables.run = class RunTable extends Table {
       row.name = `<b><a href="${rowLink}">${row.name}</a></b>`;
     }
     for (const model of ["device", "pool"]) {
-      row[`${model}s`] = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+      row[`${model}s`] = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
         '${model}', ${row.instance}, {parent: '${this.id}', from: 'runs',
         to: 'target_${model}s'})">${model.charAt(0).toUpperCase() + model.slice(1)}s
         </a></b>`;
     }
-    row[`services`] = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row[`services`] = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'service', ${row.instance}, {parent: '${this.id}', from: 'runs',
       to: 'services'})">Services</a></b>`;
     if (row.server_properties) {
-      row.server_link = `<b><a href="#" onclick="eNMS.base.showInstancePanel(
+      row.server_link = `<b><a href="#" onclick="xNMS.base.showInstancePanel(
         'server', '${row.server_properties.id}')">${row.server_properties.name}
         </a></b>`;
     }
     if (row.worker_properties) {
-      row.worker_link = `<b><a href="#" onclick="eNMS.base.showInstancePanel(
+      row.worker_link = `<b><a href="#" onclick="xNMS.base.showInstancePanel(
         'worker', '${row.worker_properties.id}')">${row.worker_properties.name}
         </a></b>`;
     }
@@ -1090,7 +1090,7 @@ tables.run = class RunTable extends Table {
       this.refreshTableButton(),
       ` <button
         class="btn btn-info"
-        onclick="eNMS.automation.displayCalendar('run')"
+        onclick="xNMS.automation.displayCalendar('run')"
         data-tooltip="Calendar"
         type="button"
       >
@@ -1108,25 +1108,25 @@ tables.run = class RunTable extends Table {
       `<ul class="pagination pagination-lg" style="margin: 0px; width: 150px">
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.automation.showRuntimePanel('logs', ${row.service},
+          onclick="xNMS.automation.showRuntimePanel('logs', ${row.service},
           '${row.runtime}')" data-tooltip="Logs">
           <span class="glyphicon glyphicon-list"></span></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.automation.showRuntimePanel('report', ${row.service},
+          onclick="xNMS.automation.showRuntimePanel('report', ${row.service},
           '${row.runtime}')" data-tooltip="Report">
           <span class="glyphicon glyphicon-modal-window"></span></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.automation.showRuntimePanel('results', ${row.service},
+          onclick="xNMS.automation.showRuntimePanel('results', ${row.service},
           '${row.runtime}')" data-tooltip="Results">
           <span class="glyphicon glyphicon-list-alt"></span></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-danger"
-          onclick="eNMS.automation.stopRun('${row.runtime}')"
+          onclick="xNMS.automation.stopRun('${row.runtime}')"
           data-tooltip="Stop Run">
             <span class="glyphicon glyphicon-stop"></span>
           </button>
@@ -1167,7 +1167,7 @@ tables.result = class ResultTable extends Table {
       this.columnDisplay(),
       `<button
         class="btn btn-info"
-        onclick="eNMS.automation.displayDiff('${this.type}', ${id})"
+        onclick="xNMS.automation.displayDiff('${this.type}', ${id})"
         data-tooltip="Compare"
         type="button"
       >
@@ -1188,7 +1188,7 @@ tables.result = class ResultTable extends Table {
     <ul class="pagination pagination-lg" style="margin: 0px; width: 90px">
       <li>
         <button type="button" class="btn btn-sm btn-info"
-        onclick="eNMS.automation.showResult('${row.id}')"
+        onclick="xNMS.automation.showResult('${row.id}')"
         data-tooltip="Results"><span class="glyphicon glyphicon-list-alt">
         </span></button>
       </li>
@@ -1197,7 +1197,7 @@ tables.result = class ResultTable extends Table {
           type="button"
           id="btn-result-${row.id}"
           class="btn btn-sm btn-info"
-          onclick="eNMS.automation.copyClipboard(
+          onclick="xNMS.automation.copyClipboard(
             'btn-result-${row.id}', ${row.instance}
           )"
           data-tooltip="Copy to clipboard"
@@ -1233,7 +1233,7 @@ tables.task = class TaskTable extends Table {
       row.periodicity = row.crontab_expression;
     }
     for (const model of ["device", "pool"]) {
-      row[`${model}s`] = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+      row[`${model}s`] = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
         '${model}', ${row.instance}, {parent: '${this.id}', from: 'tasks',
         to: '${model}s'})">${model.charAt(0).toUpperCase() + model.slice(1)}s</a></b>`;
     }
@@ -1248,7 +1248,7 @@ tables.task = class TaskTable extends Table {
       this.clearSearchButton(),
       ` <button
         class="btn btn-info"
-        onclick="eNMS.automation.displayCalendar('task')"
+        onclick="xNMS.automation.displayCalendar('task')"
         data-tooltip="Calendar"
         type="button"
       >
@@ -1259,7 +1259,7 @@ tables.task = class TaskTable extends Table {
       ` <button
         type="button"
         class="btn btn-success"
-        onclick="eNMS.automation.schedulerAction('resume')"
+        onclick="xNMS.automation.schedulerAction('resume')"
         data-tooltip="Bulk Resume"
       >
         <span class="glyphicon glyphicon-play"></span>
@@ -1267,7 +1267,7 @@ tables.task = class TaskTable extends Table {
       <button
         type="button"
         class="btn btn-danger"
-        onclick="eNMS.automation.schedulerAction('pause')"
+        onclick="xNMS.automation.schedulerAction('pause')"
         data-tooltip="Bulk Pause"
       >
         <span class="glyphicon glyphicon-pause"></span>
@@ -1282,25 +1282,25 @@ tables.task = class TaskTable extends Table {
       `<ul class="pagination pagination-lg" style="margin: 0px; width: 200px">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('task', '${row.id}')" data-tooltip="Edit"
+          onclick="xNMS.base.showInstancePanel('task', '${row.id}')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('task', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('task', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate">
           <span class="glyphicon glyphicon-duplicate"></span></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-success ${state[0]}" ${state[0]}
-          onclick="eNMS.automation.resumeTask('${row.id}')" data-tooltip="Play"
+          onclick="xNMS.automation.resumeTask('${row.id}')" data-tooltip="Play"
             ><span class="glyphicon glyphicon-play"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-danger ${state[1]}" ${state[1]}
-          onclick="eNMS.automation.pauseTask('${row.id}')" data-tooltip="Pause"
+          onclick="xNMS.automation.pauseTask('${row.id}')" data-tooltip="Pause"
             ><span class="glyphicon glyphicon-pause"></span
           ></button>
         </li>
@@ -1313,7 +1313,7 @@ tables.task = class TaskTable extends Table {
 tables.group = class GroupTable extends Table {
   addRow(kwargs) {
     let row = super.addRow(kwargs);
-    row.users = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row.users = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'user', ${row.instance}, {parent: '${this.id}', from: 'groups', to: 'users'})">
       Users</a></b>`;
     return row;
@@ -1331,7 +1331,7 @@ tables.group = class GroupTable extends Table {
       this.exportTableButton(),
       ` <button
         class="btn btn-primary"
-        onclick="eNMS.administration.updateDeviceRbac()"
+        onclick="xNMS.administration.updateDeviceRbac()"
         data-tooltip="Update Device RBAC from Pools"
         type="button"
       >
@@ -1347,7 +1347,7 @@ tables.group = class GroupTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px;">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('group', '${
+          onclick="xNMS.base.showInstancePanel('group', '${
             row.id
           }')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
@@ -1355,7 +1355,7 @@ tables.group = class GroupTable extends Table {
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('group', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('group', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
@@ -1369,7 +1369,7 @@ tables.group = class GroupTable extends Table {
 tables.user = class UserTable extends Table {
   addRow(kwargs) {
     let row = super.addRow(kwargs);
-    row.groups = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row.groups = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'group', ${row.instance}, {parent: '${this.id}', from: 'users', to: 'groups'})">
       Groups</a></b>`;
     return row;
@@ -1395,13 +1395,13 @@ tables.user = class UserTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px;">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('user', '${row.id}')" data-tooltip="Edit"
+          onclick="xNMS.base.showInstancePanel('user', '${row.id}')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
           ></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('user', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('user', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
@@ -1432,12 +1432,12 @@ tables.credential = class CredentialTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px;">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('credential', '${row.id}')"
+          onclick="xNMS.base.showInstancePanel('credential', '${row.id}')"
           data-tooltip="Edit"><span class="glyphicon glyphicon-edit"></span></button>
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('credential', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('credential', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
@@ -1451,10 +1451,10 @@ tables.credential = class CredentialTable extends Table {
 tables.server = class ServerTable extends Table {
   addRow(kwargs) {
     let row = super.addRow(kwargs);
-    row.runs = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row.runs = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'run', ${row.instance}, {parent: '${this.id}', from: 'server', to: 'runs'})">
       Runs</a></b>`;
-    row.workers = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row.workers = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'worker', ${row.instance}, {parent: '${this.id}', from: 'server', to: 'workers'})">
       Workers</a></b>`;
     return row;
@@ -1478,7 +1478,7 @@ tables.server = class ServerTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px;">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('server', '${
+          onclick="xNMS.base.showInstancePanel('server', '${
             row.id
           }')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span
@@ -1486,7 +1486,7 @@ tables.server = class ServerTable extends Table {
         </li>
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('server', '${row.id}', 'duplicate')"
+          onclick="xNMS.base.showInstancePanel('server', '${row.id}', 'duplicate')"
           data-tooltip="Duplicate"
             ><span class="glyphicon glyphicon-duplicate"></span
           ></button>
@@ -1529,7 +1529,7 @@ tables.session = class SessionTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px;">
         <li>
           <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.inventory.showSessionLog(${row.id})" data-tooltip="Session Log"
+          onclick="xNMS.inventory.showSessionLog(${row.id})" data-tooltip="Session Log"
             ><span class="glyphicon glyphicon-list"></span
           ></button>
         </li>
@@ -1542,7 +1542,7 @@ tables.file = class FileTable extends Table {
   addRow(properties) {
     let row = super.addRow(properties);
     if (row.type == "folder") {
-      row.filename = `<a href="#" onclick="eNMS.administration.enterFolder
+      row.filename = `<a href="#" onclick="xNMS.administration.enterFolder
         ({ folder: '${row.filename}'})">
           <span class="glyphicon glyphicon-folder-open" style="margin-left: 8px"></span>
           <b style="margin-left: 6px">${row.filename}</b>
@@ -1580,7 +1580,7 @@ tables.file = class FileTable extends Table {
       <a
         id="upward-folder-btn"
         class="btn btn-info ${status}"
-        onclick="eNMS.administration.enterFolder({parent: true})"
+        onclick="xNMS.administration.enterFolder({parent: true})"
         type="button"
       >
         <span class="glyphicon glyphicon-chevron-up"></span>
@@ -1588,7 +1588,7 @@ tables.file = class FileTable extends Table {
       `
       <button
         class="btn btn-primary parent-filtering"
-        onclick="eNMS.base.showInstancePanel('folder')"
+        onclick="xNMS.base.showInstancePanel('folder')"
         data-tooltip="Create New Folder"
         type="button"
       >
@@ -1596,7 +1596,7 @@ tables.file = class FileTable extends Table {
       </button>`,
       ` <button
         class="btn btn-primary parent-filtering"
-        onclick="eNMS.administration.showFileUploadPanel()"
+        onclick="xNMS.administration.showFileUploadPanel()"
         data-tooltip="Upload Files"
         type="button"
       >
@@ -1604,7 +1604,7 @@ tables.file = class FileTable extends Table {
       </button>`,
       ` <button
         class="btn btn-primary"
-        onclick="eNMS.administration.scanFolder()"
+        onclick="xNMS.administration.scanFolder()"
         data-tooltip="Scan Folder"
         type="button"
       >
@@ -1619,7 +1619,7 @@ tables.file = class FileTable extends Table {
     return `
       <li>
         <button type="button" class="btn btn-sm btn-info"
-          onclick="eNMS.base.copyToClipboard({text: '${filePath}${row.path}' })"
+          onclick="xNMS.base.copyToClipboard({text: '${filePath}${row.path}' })"
           data-tooltip="Copy Path to clipboard"
         >
           <span class="glyphicon glyphicon-copy"></span>
@@ -1645,7 +1645,7 @@ tables.file = class FileTable extends Table {
     return `
       <li>
         <button type="button" class="btn btn-sm btn-primary"
-        onclick="eNMS.base.showInstancePanel(
+        onclick="xNMS.base.showInstancePanel(
           'file', '${row.id}')" data-tooltip="Edit"
           ><span class="glyphicon glyphicon-edit"></span
         ></button>
@@ -1661,7 +1661,7 @@ tables.file = class FileTable extends Table {
           ${this.downloadButton(row)}
           <button type="button"
             class="btn btn-sm btn-primary"
-            onclick="eNMS.administration.showFileUploadPanel('${row.path}')"
+            onclick="xNMS.administration.showFileUploadPanel('${row.path}')"
             data-tooltip="Upload Files in Folder"
           >
             <span class="glyphicon glyphicon-import"></span>
@@ -1680,7 +1680,7 @@ tables.file = class FileTable extends Table {
           ${this.editButton(row)}
           <li>
             <button type="button" class="btn btn-sm btn-primary"
-            onclick="eNMS.administration.editFile(
+            onclick="xNMS.administration.editFile(
               '${row.id}', '${row.name}', '${row.path}')" data-tooltip="File Content">
               <span class="glyphicon glyphicon-list"></span>
             </button>
@@ -1718,11 +1718,11 @@ tables.file = class FileTable extends Table {
 tables.worker = class WorkerTable extends Table {
   addRow(kwargs) {
     let row = super.addRow(kwargs);
-    row.runs = `<b><a href="#" onclick="eNMS.table.displayRelationTable(
+    row.runs = `<b><a href="#" onclick="xNMS.table.displayRelationTable(
       'run', ${row.instance}, {parent: '${this.id}', from: 'worker', to: 'runs'})">
       Runs</a></b>`;
     if (row.server_properties) {
-      row.server_link = `<b><a href="#" onclick="eNMS.base.showInstancePanel(
+      row.server_link = `<b><a href="#" onclick="xNMS.base.showInstancePanel(
         'server', '${row.server_properties.id}')">${row.server_properties.name}
         </a></b>`;
     }
@@ -1739,7 +1739,7 @@ tables.worker = class WorkerTable extends Table {
       <ul class="pagination pagination-lg" style="margin: 0px;">
         <li>
           <button type="button" class="btn btn-sm btn-primary"
-          onclick="eNMS.base.showInstancePanel('worker', '${
+          onclick="xNMS.base.showInstancePanel('worker', '${
             row.id
           }')" data-tooltip="Edit"
             ><span class="glyphicon glyphicon-edit"></span

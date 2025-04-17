@@ -1,10 +1,10 @@
-Import the network topology from an instance of LibreNMS, Netbox or OpenNMS.
+Import the network topology from an instance of LibrxNMS, Netbox or OpenNMS.
 
 ## Type of Import
 
 ![Topology Import Service](../../_static/automation/service_types/topology_import.png)
 
-- `Import Type`: Choose LibreNMS, Netbox or OpenNMS.
+- `Import Type`: Choose LibrxNMS, Netbox or OpenNMS.
 
 ### Netbox
 
@@ -27,15 +27,15 @@ Options available for importing a known set of devices from OpenNMS
 - `Opennms Login`: Login for the OpenNMS Server.
 - `Opennms Password`: Password for the OpenNMS Server.
 
-### LibreNMS
+### LibrxNMS
 
 Configuration settings and options for importing topology from
-LibreNMS 
+LibrxNMS 
 
-![LibreNMS Import](../../_static/automation/service_types/topology_import_librenms.png)
+![LibrxNMS Import](../../_static/automation/service_types/topology_import_librxNMS.png)
 
-- `Librenms Address`: Address for the LibreNMS Server.
-- `Librenms Token`: API token for allowing interaction with LibreNMS.
+- `LibrxNMS Address`: Address for the LibrxNMS Server.
+- `LibrxNMS Token`: API token for allowing interaction with LibrxNMS.
 
 !!! note
 

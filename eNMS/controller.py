@@ -31,10 +31,10 @@ from xlrd import open_workbook
 from xlrd.biffh import XLRDError
 from xlwt import Workbook
 
-from eNMS.database import db
-from eNMS.forms import form_factory
-from eNMS.environment import env
-from eNMS.variables import vs
+from xNMS.database import db
+from xNMS.forms import form_factory
+from xNMS.environment import env
+from xNMS.variables import vs
 
 
 class Controller:
@@ -1531,8 +1531,8 @@ class Controller:
             "APP_ADDRESS": getenv("SERVER_URL", "https://0.0.0.0"),
             "DEVICE": str(device.id),
             "ENDPOINT": endpoint,
-            "ENMS_USER": getenv("ENMS_USER", "admin"),
-            "ENMS_PASSWORD": getenv("ENMS_PASSWORD", "admin"),
+            "xNMS_USER": getenv("xNMS_USER", "admin"),
+            "xNMS_PASSWORD": getenv("xNMS_PASSWORD", "admin"),
             "FLASK_APP": "app.py",
             "IP_ADDRESS": getattr(device, kwargs["address"]),
             "OPTIONS": options,

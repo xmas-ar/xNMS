@@ -11,8 +11,8 @@ from wtforms.form import FormMeta
 from wtforms.validators import InputRequired, NumberRange
 from wtforms.widgets import TextArea
 
-from eNMS.database import db
-from eNMS.fields import (
+from xNMS.database import db
+from xNMS.fields import (
     BooleanField,
     HiddenField,
     DictField,
@@ -26,7 +26,7 @@ from eNMS.fields import (
     SelectMultipleField,
     StringField,
 )
-from eNMS.variables import vs
+from xNMS.variables import vs
 
 
 class MetaForm(FormMeta):
@@ -214,7 +214,7 @@ class FormFactory:
                 (BaseForm,),
                 {
                     "form_type": HiddenField(default=f"add_{model}s"),
-                    "action": "eNMS.base.addInstancesToRelation",
+                    "action": "xNMS.base.addInstancesToRelation",
                     "model": HiddenField(default=model),
                     "relation_id": HiddenField(),
                     "relation_type": HiddenField(),
@@ -277,7 +277,7 @@ class FormFactory:
                     vs.form_properties["group"][property_name] = field_properties
 
     def generate_service_forms(self):
-        for file in (vs.path / "eNMS" / "forms").glob("**/*.py"):
+        for file in (vs.path / "xNMS" / "forms").glob("**/*.py"):
             spec = spec_from_file_location(str(file).split("/")[-1][:-3], str(file))
             spec.loader.exec_module(module_from_spec(spec))
 
@@ -316,7 +316,7 @@ class AddServiceForm(BaseForm):
 
 
 class AddToNetworkForm(BaseForm):
-    action = "eNMS.networkBuilder.addObjectsToNetwork"
+    action = "xNMS.networkBuilder.addObjectsToNetwork"
     form_type = HiddenField(default="add_to_network")
     nodes = MultipleInstanceField("Nodes", model="node")
     add_connected_links = BooleanField("Add connected links", default=False)
@@ -384,7 +384,7 @@ class CredentialForm(BaseForm):
 
 
 class DatabaseDeletionForm(BaseForm):
-    action = "eNMS.administration.databaseDeletion"
+    action = "xNMS.administration.databaseDeletion"
     form_type = HiddenField(default="database_deletion")
     deletion_choices = vs.dualize(db.import_export_models)
     deletion_types = SelectMultipleField(
@@ -443,7 +443,7 @@ class DeviceDataForm(BaseForm):
 
 
 class ExcelExportForm(BaseForm):
-    action = "eNMS.inventory.exportTopology"
+    action = "xNMS.inventory.exportTopology"
     form_type = HiddenField(default="excel_export")
     export_filename = StringField("Filename")
 
@@ -490,7 +490,7 @@ class FileEditorForm(BaseForm):
 
 
 class ImportServices(BaseForm):
-    action = "eNMS.automation.importServices"
+    action = "xNMS.automation.importServices"
     template = "upload_services"
     form_type = HiddenField(default="import_services")
 
@@ -576,7 +576,7 @@ class RbacForm(BaseForm):
 
 
 class RestartWorkflowForm(BaseForm):
-    action = "eNMS.workflowBuilder.restartWorkflow"
+    action = "xNMS.workflowBuilder.restartWorkflow"
     form_type = HiddenField(default="restart_workflow")
     start_services = HiddenField()
     restart_runtime = SelectField(
@@ -595,7 +595,7 @@ class RestartWorkflowForm(BaseForm):
 
 
 class ResultLogDeletionForm(BaseForm):
-    action = "eNMS.administration.resultLogDeletion"
+    action = "xNMS.administration.resultLogDeletion"
     form_type = HiddenField(default="result_log_deletion")
     deletion_types = SelectMultipleField(
         "Instances do delete",
@@ -620,7 +620,7 @@ class RunForm(BaseForm):
 
 
 class RunServiceForm(BaseForm):
-    action = "eNMS.automation.runServicesOnTargets"
+    action = "xNMS.automation.runServicesOnTargets"
     button_label = "Run Service"
     button_class = "primary"
     form_type = HiddenField(default="run_service")
@@ -1102,7 +1102,7 @@ class UploadFilesForm(BaseForm):
 
 class UserProfileForm(BaseForm):
     form_type = HiddenField(default="profile")
-    action = "eNMS.administration.saveProfile"
+    action = "xNMS.administration.saveProfile"
     name = StringField("Name")
     email = StringField("Email")
     landing_page = SelectField("Landing Page", choices=[], validate_choice=False)
@@ -1132,7 +1132,7 @@ class UserProfileForm(BaseForm):
 
 class WorkflowLabelForm(BaseForm):
     form_type = HiddenField(default="label")
-    action = "eNMS.builder.createLabel"
+    action = "xNMS.builder.createLabel"
     text = StringField(widget=TextArea(), render_kw={"rows": 15})
     size = IntegerField("Font Size", default=14)
     alignment = SelectField(

@@ -1,7 +1,7 @@
 # This class serves as a template example for the user to understand
-# how to implement their own custom services to eNMS.
+# how to implement their own custom services to xNMS.
 
-# To create a new service in eNMS, you need to implement:
+# To create a new service in xNMS, you need to implement:
 # - A service class, which defines the service parameters stored in the database.
 # - A service form, which defines what is displayd in the GUI.
 
@@ -21,9 +21,9 @@ from wtforms.validators import (
     ValidationError,
 )
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import (
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import (
     BooleanField,
     DictField,
     FloatField,
@@ -33,7 +33,7 @@ from eNMS.fields import (
     SelectField,
     StringField,
 )
-from eNMS.models.automation import Service
+from xNMS.models.automation import Service
 
 
 class ExampleService(Service):

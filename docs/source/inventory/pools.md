@@ -131,7 +131,7 @@ In summary, all `Ethernet Link`(s) starting with source devices whose name inclu
 
 ## Default Pools
 
-Three pools are created by default in eNMS:
+Three pools are created by default in xNMS:
 
 - `All objects`: A pool that matches all Devices and Links.
 - `Devices only`: A pool that matches all Devices, no Links.
@@ -162,7 +162,7 @@ In `Service Edit Panel -> Step 3`, select Device(s) and/or Pool(s) as target(s).
 
 ## Pool Recalculation
 
-All Pools are subject to automatic updates by eNMS (contingent upon the
+All Pools are subject to automatic updates by xNMS (contingent upon the
 fact that the Pool's `Manually Defined` flag is NOT set). Pool recalculations occur
 in the following cases:
 

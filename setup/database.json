@@ -363,7 +363,7 @@
     "service": [
       "custom_password",
       "jump_password",
-      "librenms_token",
+      "librxNMS_token",
       "netbox_token",
       "opennms_password",
       "password"

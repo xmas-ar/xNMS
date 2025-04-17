@@ -1,6 +1,6 @@
 # Scheduling
 
-The ability to schedule eNMS services to run without user input
+The ability to schedule xNMS services to run without user input
 is a key feature of the platform. Services can be configured to trigger at
 a certain time, repeat at a given frequency, and even stop recurring after a 
 specified date, allowing the user to limit the number of times
@@ -18,13 +18,13 @@ what they do:
 
 | Field | Required? | Description |
 | - | - | - |
-| Name | Yes | The name by which eNMS will refer to the task |
+| Name | Yes | The name by which xNMS will refer to the task |
 | Creator | (Read-only) | User that created this Task |
 | Admin Only | No | True to allow only admins to view, edit, or run/pause the Task  |
 | Scheduling Mode | Yes | Either "Standard" or "Crontab"; see [Scheduling Modes](#scheduling-modes) for more |
 | Description | No | A brief description of what the task does |
 | Start Date | Only in [Standard Mode](#standard-scheduling) | the calendar date on which the task will begin running at the specified interval |
-| End Date | No | The calendar date on which eNMS will stop running the task | 
+| End Date | No | The calendar date on which xNMS will stop running the task | 
 | Frequency | No | A numerical value used to determine how often the task will repeat after its initial trigger is met |
 | Frequency Unit | Yes | Assigns a unit of time to the Frequency field. Can be "Seconds", "Minutes", "Hours", or "Days", and defaults to "Seconds" |
 | Crontab Expression | Only in [Crontab Mode](#crontab-scheduling) | the expression used to calculate the frequency of the task |
@@ -46,7 +46,7 @@ User maintained `Access Control` is available for this object. This allows the `
 
 ## Scheduling Modes
 
-Currently, eNMS offers two scheduling modes:
+Currently, xNMS offers two scheduling modes:
 
 ### Standard Scheduling
 
@@ -93,7 +93,7 @@ When specifying a start time, one must take into account the server's
 time zone configuration, as it may not match the user's local time zone. 
 Often in network administration, the server will be set to UTC (Coordinated
 Universal Time), but for verification, the current server time will always be
-displayed in the bottom-left corner of eNMS in the navigation panel:
+displayed in the bottom-left corner of xNMS in the navigation panel:
 
 ![](../_static/automation/scheduling/nav_panel_time.png)
 
@@ -103,7 +103,7 @@ or crontab expression is adjusted to the server time.
 ## Task Calendar
 
 In addition to displaying the next runtime of a task and the time remaining, once
-a task is scheduled and active eNMS also sends the event information to an in-app
+a task is scheduled and active xNMS also sends the event information to an in-app
 calendar. This view can be accessed from the main controls of the task table:
 
 ![](../_static/automation/scheduling/calendar_button.png)

@@ -5,17 +5,17 @@ from sqlalchemy import Boolean, Float, ForeignKey, Integer
 from sqlalchemy.orm import load_only
 from wtforms import FormField
 
-from eNMS.database import db
-from eNMS.forms import NetmikoForm, CommandsForm, ReplacementForm
-from eNMS.fields import (
+from xNMS.database import db
+from xNMS.forms import NetmikoForm, CommandsForm, ReplacementForm
+from xNMS.fields import (
     BooleanField,
     FieldList,
     HiddenField,
     SelectField,
     StringField,
 )
-from eNMS.models.automation import ConnectionService
-from eNMS.variables import vs
+from xNMS.models.automation import ConnectionService
+from xNMS.variables import vs
 
 
 class NetmikoBackupService(ConnectionService):

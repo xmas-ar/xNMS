@@ -1,10 +1,10 @@
-from eNMS.controller import controller
-from eNMS.custom import CustomApp  # noqa: F401
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.forms import form_factory
-from eNMS.server import server
-from eNMS.variables import vs
+from xNMS.controller import controller
+from xNMS.custom import CustomApp  # noqa: F401
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.forms import form_factory
+from xNMS.server import server
+from xNMS.variables import vs
 
 
 def initialize():

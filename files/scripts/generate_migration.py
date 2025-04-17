@@ -11,7 +11,7 @@ service_type = [
 
 PATH = (
     Path.cwd().parent.parent.parent
-    / "eNMS-prod"
+    / "xNMS-prod"
     / "files"
     / "migrations"
     / "model_scalability"

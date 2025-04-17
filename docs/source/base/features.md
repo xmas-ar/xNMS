@@ -6,7 +6,7 @@ title: Features
 ## Creation of the network
 
 Network topology can be created manually or imported from an external 
-Source of Truth (OpenNMS, LibreNMS, or Netbox). Once created, it is displayed in
+Source of Truth (OpenNMS, LibrxNMS, or Netbox). Once created, it is displayed in
 a sortable and searchable table. A dashboard provides a graphical overview of 
 the network with dynamic charts: clicking on a portion of a graph opens an
 inventory table panel to that group of data.
@@ -20,7 +20,7 @@ grouped into pools.
 
 ## Network Visualization
 
-eNMS can display network data on a world map (Google Map or Open Street Map). 
+xNMS can display network data on a world map (Google Map or Open Street Map). 
 Each device is displayed at its GPS coordinates. Click on a device to display 
 its properties, configuration, or start an SSH terminal session.
 
@@ -45,16 +45,16 @@ current status information.
 
 ## Device and Link Management  
 
-Devices provide one or more interfaces to allow remote management from eNMS. 
+Devices provide one or more interfaces to allow remote management from xNMS. 
 Services and workflows orchestrate the device interactions, and links control 
 the traversal of interactions through the automation.
 
-Additionally, eNMS provides a Web-based SSH session feature to facilitate manual device 
+Additionally, xNMS provides a Web-based SSH session feature to facilitate manual device 
 interactions and includes security and logging features.
 
 ## Configuration Management
 
-eNMS can be used as a network device configuration backup tool and replace 
+xNMS can be used as a network device configuration backup tool and replace 
 platforms such as Oxidized/Rancid.  It supports the following features:
 
 -   Communication over standard protocols like SSH, REST, or NETCONF.
@@ -84,7 +84,7 @@ regardless of active status.
 ![Calendar](../_static/base/sched_tasks_tabular.png)
 *Scheduling Task Table* 
 
-Services can also be executed programmatically. eNMS has a REST API and a CLI 
+Services can also be executed programmatically. xNMS has a REST API and a CLI 
 interface that can be used to create, update and delete managed objects, 
 but also to trigger the execution of a service.
 

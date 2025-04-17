@@ -2,7 +2,7 @@
 
 ## Overview 
 
-A Device represents a piece of network equipment that is managed by eNMS.
+A Device represents a piece of network equipment that is managed by xNMS.
 
 ![Devices Table](../_static/inventory/devices/devices_table_1.png)
 

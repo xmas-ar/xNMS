@@ -1,7 +1,7 @@
 # REST API Index
 
 In this section, the word `instance` refers to any object type supported
-by eNMS. In a request, `<instance_type>` can be any of the following:
+by xNMS. In a request, `<instance_type>` can be any of the following:
 `device`, `link`, `user`, `service`, `task`, `pool`, `result`.
 
 
@@ -27,7 +27,7 @@ by eNMS. In a request, `<instance_type>` can be any of the following:
 - [Retrieve device configuration](endpoint_types/device_config.md) 
   Returns the device configuration stored for a device. 
 - [Migrate between applications](endpoint_types/migrate.md) 
-  Provides import/export functionality to migrate data between eNMS instances.
+  Provides import/export functionality to migrate data between xNMS instances.
 - [Ping application](endpoint_types/ping.md) 
   Tests whether the application is running and responding.
 - [Get worker stats](endpoint_types/workers.md) 

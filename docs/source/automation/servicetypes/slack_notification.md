@@ -1,5 +1,5 @@
 This service will send a message to the slack server that is configured
-in the eNMS settings.
+in the xNMS settings.
 
 ![Slack Notification Service](../../_static/automation/service_types/slack_notification.png)
 

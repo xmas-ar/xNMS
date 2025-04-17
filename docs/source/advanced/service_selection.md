@@ -15,8 +15,8 @@ unstructured data must be parsed to isolate an individual data element. There
 also exists semi-structured data which is structured but still needs some
 amount of parsing to isolate data elements.
 
-Note that eNMS uses structured data dictionaries internally to pass data
-along the workflow from service to service. So, using eNMS, the user will
+Note that xNMS uses structured data dictionaries internally to pass data
+along the workflow from service to service. So, using xNMS, the user will
 spend a lot of time considering how to either retrieve structured data
 directly from the device or most-easily convert unstructured or semi-structured
 data from the device to structured data.  This section will discuss and rate

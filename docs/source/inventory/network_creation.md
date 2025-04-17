@@ -3,10 +3,10 @@ title: Network Creation
 ---
 # Network Creation
 
-The network topology within eNMS originates from the Device and Link
+The network topology within xNMS originates from the Device and Link
 inventory that gets loaded. There are several ways below to add this
-information into eNMS. Having accurate device and link inventory data
-available to the various processing features of eNMS is critically
+information into xNMS. Having accurate device and link inventory data
+available to the various processing features of xNMS is critically
 important to device security and automation accuracy.
 
 ## From the UI Manually (One at a Time)
@@ -54,7 +54,7 @@ following are supported:
 
 - OpenNMS.
 - Netbox.
-- LibreNMS.
+- LibrxNMS.
 
 This is accomplished by creating and running a `Topology Import` service from
 the `Automation -> Services` page. Step 2 of the service allows you to select

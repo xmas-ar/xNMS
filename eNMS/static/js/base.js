@@ -4,7 +4,7 @@ alertify: false
 CodeMirror: false
 settings: true
 csrf_token: false
-eNMS: true
+xNMS: true
 formProperties: false
 job: false
 jsPanel: false
@@ -716,7 +716,7 @@ export function showInstancePanel(type, id, mode, tableId, edge) {
           id="${formType}-action-btn"
           type="button"
           class="btn btn-success btn-id add-id"
-          value="eNMS.base.processData"
+          value="xNMS.base.processData"
         >
           Save
         </button>
@@ -822,7 +822,7 @@ function buildBulkEditPanel(panel, type, tableId) {
       $(`#${type}-action-btn-${tableId}`)
         .attr(
           "onclick",
-          `eNMS.table.showBulkEditPanel(
+          `xNMS.table.showBulkEditPanel(
           '${type}', '${model}', '${tableId}', ${number})`
         )
         .text("Bulk Edit");
@@ -910,8 +910,8 @@ function buildBulkFilterPanel(panel, type, formType, tableId) {
     `);
   }
   const filteringFunction = tableId
-    ? `eNMS.table.refreshTable('${tableId}', true, true)`
-    : `eNMS.visualization.displayNetwork()`;
+    ? `xNMS.table.refreshTable('${tableId}', true, true)`
+    : `xNMS.visualization.displayNetwork()`;
   $(`#${formType}-action-btn${tableSuffix}`)
     .attr("onclick", filteringFunction)
     .text("Bulk Filter");
@@ -942,7 +942,7 @@ function updateProperty(instance, el, property, value, type) {
     value.forEach((o) => {
       const uiLink = `
       <button type="button" title="" class="btn btn-link btn-select2"
-      onclick="eNMS.base.showInstancePanel('${o.type}', '${o.id}')">
+      onclick="xNMS.base.showInstancePanel('${o.type}', '${o.id}')">
       ${o.ui_name || o.name}</button>`;
       el.append(new Option(uiLink, o[idProperty]));
     });
@@ -1212,7 +1212,7 @@ export function createAlerts() {
     ${getAlerts(true)}
     <li style="margin: 3px 6px 0; padding: 10px; margin-bottom: 6px;">
       <div class="text-center">
-        <a class="dropdown-item" onclick="eNMS.base.showAllAlerts()">
+        <a class="dropdown-item" onclick="xNMS.base.showAllAlerts()">
           <strong>See All Alerts</strong>
           <i class="fa fa-angle-right"></i>
         </a>
@@ -1220,7 +1220,7 @@ export function createAlerts() {
     </li>
     <li style="margin: 3px 6px 0; padding: 10px; margin-bottom: 6px;">
       <div class="text-center">
-        <a class="dropdown-item" onclick="eNMS.base.clearAlerts()">
+        <a class="dropdown-item" onclick="xNMS.base.clearAlerts()">
           <strong>Clear All Alerts</strong>
           <i class="fa fa-remove"></i>
         </a>
@@ -1230,8 +1230,8 @@ export function createAlerts() {
 }
 
 export function configureNamespace(namespace, functions) {
-  eNMS[namespace] = {};
-  functions.forEach((f) => (eNMS[namespace][f.name] = f));
+  xNMS[namespace] = {};
+  functions.forEach((f) => (xNMS[namespace][f.name] = f));
 }
 
 function fullScreen() {
@@ -1310,8 +1310,8 @@ function initSidebar() {
 
   let switchMenu = function() {
     if ($("body").hasClass("nav-sm")) {
-      $("#eNMS").css({ "font-size": "17px" });
-      $("#eNMS-version").css({ "font-size": "15px" });
+      $("#xNMS").css({ "font-size": "17px" });
+      $("#xNMS-version").css({ "font-size": "15px" });
       $("#sidebar-menu")
         .find("li.active ul")
         .hide();
@@ -1322,8 +1322,8 @@ function initSidebar() {
         .find("li.active")
         .removeClass("active");
     } else {
-      $("#eNMS").css({ "font-size": "30px" });
-      $("#eNMS-version").css({ "font-size": "20px" });
+      $("#xNMS").css({ "font-size": "30px" });
+      $("#xNMS-version").css({ "font-size": "20px" });
       $("#sidebar-menu")
         .find("li.active-sm ul")
         .show();
@@ -1367,7 +1367,7 @@ function initSidebar() {
 }
 
 $(document).ready(function() {
-  $("#eNMS").on("click", function(event) {
+  $("#xNMS").on("click", function(event) {
     if (!event.altKey || !event.shiftKey || !user.is_admin) return;
     openDebugPanel();
   });

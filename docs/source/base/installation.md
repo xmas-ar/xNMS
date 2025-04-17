@@ -1,26 +1,26 @@
 # Installation
 
-eNMS is a Flask web application designed to run on a **Unix server**
-with Python **3.8+**. The first section below describes how to get eNMS up
+xNMS is a Flask web application designed to run on a **Unix server**
+with Python **3.8+**. The first section below describes how to get xNMS up
 and running quickly in demo mode to help in understanding what it is.  The
 following sections give details for setting up a production environment.
     
 ## First steps
 
 The first step is to download the application. The user can download the
-latest release of eNMS directly to the browser by going to the
-[Release section](https://github.com/eNMS-automation/eNMS/releases) of
-eNMS github repository.
+latest release of xNMS directly to the browser by going to the
+[Release section](https://github.com/xNMS-automation/xNMS/releases) of
+xNMS github repository.
 
 The other option is to clone the master branch of the git repository
 from github:
 
     # download the code from github:
-    git clone https://github.com/eNMS-automation/eNMS.git
-    cd eNMS
+    git clone https://github.com/xNMS-automation/xNMS.git
+    cd xNMS
 
-Once the application is installed, the user must go to the `eNMS` folder and
-install eNMS python dependencies:
+Once the application is installed, the user must go to the `xNMS` folder and
+install xNMS python dependencies:
 
     # install the requirements:
     pip install -r build/requirements/requirements.txt
@@ -40,13 +40,13 @@ recommended requirements:
 
 ### Database
 
-By default, eNMS will use [SQLite database](https://www.sqlite.org/index.html).
+By default, xNMS will use [SQLite database](https://www.sqlite.org/index.html).
 The user can configure a different database from [SQLAlchemy's list of supported
 databases](https://docs.sqlalchemy.org/en/14/core/engines.html#database-urls)
 
 For example, for a MySQL database, change the DATABASE_URL environment variable:
 
-    export DATABASE_URL="mysql://root:password@localhost/enms"
+    export DATABASE_URL="mysql://root:password@localhost/xNMS"
 
 ### Flask Secret key
 
@@ -57,14 +57,14 @@ Provide a secret key used by Flask to sign sessions:
 
 ### Server Address
 
-The address is needed when eNMS needs to provide a link back to the application, which is the case with webssh and mail notifications. When left empty, eNMS will try to guess the
+The address is needed when xNMS needs to provide a link back to the application, which is the case with webssh and mail notifications. When left empty, xNMS will try to guess the
 URL. This might not work consistently depending on the user's environment (nginx configuration, proxy, ...).
 
     export SERVER_ADDR="http://192.168.56.102"
 
 ### WSGI server
 
-A WSGI HTTP server such as gunicorn is required to run eNMS in production, 
+A WSGI HTTP server such as gunicorn is required to run xNMS in production, 
 instead of the Flask development server.
 
 A recommended configuration file for gunicorn is in the main folder: `gunicorn.py`;
@@ -78,23 +78,23 @@ it is recommended to run the application with the following command:
 [Dramatiq](https://dramatiq.io/), a distributed task queue, can be used for executing automations:
 
 1. In setup/settings.json set `"use_task_queue": true`
-2. Set the `REDIS_ADDR` environment variable and run `dramatiq eNMS` from the project root. 
+2. Set the `REDIS_ADDR` environment variable and run `dramatiq xNMS` from the project root. 
     - The number of worker processes and threads can be configured (among other things). Run `dramatiq --help` to see the full list of dramatiq's command-line options.
 ### Hashicorp Vault
 
 All credentials should be stored in a Hashicorp Vault: the settings
 variable `use_vault : true` under the `vault` section of the
-`setup/settings.json` file tells eNMS that a vault has been setup.
+`setup/settings.json` file tells xNMS that a vault has been setup.
 Follow the manufacturer instructions and options for how to setup a
 [Hashicorp Vault](https://www.vaultproject.io/)
 
-Tell eNMS how to connect to the Vault with environment variables:
+Tell xNMS how to connect to the Vault with environment variables:
 
 - `VAULT_ADDRESS`
 - `VAULT_TOKEN`
 
 
-eNMS can also unseal the Vault automatically at start time. This
+xNMS can also unseal the Vault automatically at start time. This
 mechanism is disabled by default. To activate it, one must set
 `unseal_vault : true` in `setup/settings.json` and set the UNSEAL_VAULT_KEY
 environment variables :
@@ -106,7 +106,7 @@ environment variables :
 
 ### Plugin Installation 
 
-Any initial eNMS Plugins - like the sample eNMS CLI Plugin - can also be installed here. 
+Any initial xNMS Plugins - like the sample xNMS CLI Plugin - can also be installed here. 
 See [Plugins](/advanced/customization/#example-plugins) for more details.
 
 ## Environment variables
@@ -120,34 +120,34 @@ exported from Unix and include:
 
 ## Example Systemd Unit and Socket files and Nginx config with proxy-pass
 
-### enms.gunicorn.socket
+### xNMS.gunicorn.socket
 
     [Unit]
-    Description=gunicorn socket for enms
+    Description=gunicorn socket for xNMS
 
     [Socket]
-    ListenStream=/run/gunicorn/enms.gunicorn.socket
+    ListenStream=/run/gunicorn/xNMS.gunicorn.socket
 
     [Install]
     WantedBy=sockets.target
     
-### enms.gunicorn.service
+### xNMS.gunicorn.service
 
     [Unit]
-    Description=Gunicorn instance to serve enms
-    Requires=enms.gunicorn.socket
+    Description=Gunicorn instance to serve xNMS
+    Requires=xNMS.gunicorn.socket
     Requires=vault.service
     After=network.target
     After=mysqld.service
-    After=enms.gunicorn_scheduler.service
+    After=xNMS.gunicorn_scheduler.service
     After=vault.service
 
     [Service]
     PermissionsStartOnly=true
-    PIDFile=/run/gunicorn/enms.gunicorn.pid
+    PIDFile=/run/gunicorn/xNMS.gunicorn.pid
     User=centos
     Group=centos
-    WorkingDirectory=/home/centos/enms
+    WorkingDirectory=/home/centos/xNMS
     ExecStartPre=/bin/mkdir -p /run/gunicorn/
     ExecStartPre=/bin/chown -R centos:centos /run/gunicorn/
     # Add the virtualenv to the PATH
@@ -169,10 +169,10 @@ exported from Unix and include:
     Environment="SERVER_NAME=CHANGE_ME"
     Environment="SERVER_ADDR=CHANGE_ME"
     # Use Fernet Key additional encryption for stored passwords - not compatible with loading
-    # eNMS example migration files (comment out for examples)
+    # xNMS example migration files (comment out for examples)
     Environment="FERNET_KEY=SOME_FERNET_VALID_KEY"
-    Environment="ENMS_ADDR=https://127.0.0.1"
-    Environment="ENMS_PASSWORD=ENMS_PASSWORD_CHANGEME"
+    Environment="xNMS_ADDR=https://127.0.0.1"
+    Environment="xNMS_PASSWORD=xNMS_PASSWORD_CHANGEME"
     Environment="REDIS_ADDR=127.0.0.1"
     Environment="LDAP_ADDR=ldap://MYCOMPANY_CHANGEME"
     Environment="LDAP_USERDN=MYCOMPANY_CHANGEME"
@@ -186,8 +186,8 @@ exported from Unix and include:
     Environment="NET_TEXTFSM=/home/centos/ntc_textfsm/"
     Environment="GUNICORN_ACCESS_LOG=logs/access.log"
     Environment="GUNICORN_LOG_LEVEL=debug"
-    Environment="DATABASE_URL=mariadb+mysqldb://root:PASSWORD@localhost/enms?charset=utf8mb4"
-    ExecStart=/opt/python3-virtualenv/bin/bin/gunicorn --pid /run/gunicorn/enms.gunicorn.pid --worker-tmp-dir /tmpfs-gunicorn --bind unix:/run/gunicorn/enms.gunicorn.socket --chdir /home/centos/enms --config /home/centos/enms/gunicorn.py app:app
+    Environment="DATABASE_URL=mariadb+mysqldb://root:PASSWORD@localhost/xNMS?charset=utf8mb4"
+    ExecStart=/opt/python3-virtualenv/bin/bin/gunicorn --pid /run/gunicorn/xNMS.gunicorn.pid --worker-tmp-dir /tmpfs-gunicorn --bind unix:/run/gunicorn/xNMS.gunicorn.socket --chdir /home/centos/xNMS --config /home/centos/xNMS/gunicorn.py app:app
     ExecReload=/bin/kill -s HUP $MAINPID
     ExecStop=/bin/kill -s TERM $MAINPID
     TimeoutStopSec=60
@@ -196,7 +196,7 @@ exported from Unix and include:
     [Install]
     WantedBy=multi-user.target
 
-### enms.dramatiq.service
+### xNMS.dramatiq.service
     [Unit]
     Description=Dramatiq instance to run workers
     After=network.target
@@ -208,7 +208,7 @@ exported from Unix and include:
     PermissionsStartOnly=true
     User=centos
     Group=centos
-    WorkingDirectory=/home/centos/eNMS
+    WorkingDirectory=/home/centos/xNMS
     # Add the virtualenv to the PATH
     Environment="PATH=/opt/python3-virtualenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:."
     ExecStartPre=/bin/echo Setting application PATH to $PATH
@@ -229,8 +229,8 @@ exported from Unix and include:
     Environment="SERVER_ADDR=CHANGE_ME"
     # Use Fernet Key additional encryption for stored passwords - not compatible with loading
     Environment="FERNET_KEY=SOME_FERNET_VALID_KEY"
-    Environment="ENMS_ADDR=https://127.0.0.1"
-    Environment="ENMS_PASSWORD=ENMS_PASSWORD_CHANGEME"
+    Environment="xNMS_ADDR=https://127.0.0.1"
+    Environment="xNMS_PASSWORD=xNMS_PASSWORD_CHANGEME"
     Environment="REDIS_ADDR=127.0.0.1"
     Environment="LDAP_ADDR=ldap://MYCOMPANY_CHANGEME"
     Environment="LDAP_USERDN=MYCOMPANY_CHANGEME"
@@ -240,8 +240,8 @@ exported from Unix and include:
     Environment="SLACK_TOKEN=CHANGEME"
     # PATH to TextFSM repo for Netmiko: https://pynet.twb-tech.com/blog/automation/netmiko-textfsm.html
     Environment="NET_TEXTFSM=/home/centos/ntc_textfsm/"
-    Environment="DATABASE_URL=mariadb+mysqldb://root:PASSWORD@localhost/enms?charset=utf8mb4"
-    ExecStart=/opt/python3-virtualenv/bin/dramatiq eNMS
+    Environment="DATABASE_URL=mariadb+mysqldb://root:PASSWORD@localhost/xNMS?charset=utf8mb4"
+    ExecStart=/opt/python3-virtualenv/bin/dramatiq xNMS
     ExecReload=/bin/kill -s HUP $MAINPID
     TimeoutStopSec=60
     LimitNOFILE=100000
@@ -291,7 +291,7 @@ exported from Unix and include:
             # port to listen on. Can also be set to an IP:PORT
             listen 443 http2 ssl default_server;
             listen [::]:443 http2 ssl default_server;
-            server_name enms-hub;
+            server_name xNMS-hub;
             server_name_in_redirect on;
             server_tokens off;
             ssl_certificate /etc/ssl/certs/nginx.pem;
@@ -336,7 +336,7 @@ exported from Unix and include:
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                 proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_pass http://unix:/run/gunicorn/enms.gunicorn.socket;
+                proxy_pass http://unix:/run/gunicorn/xNMS.gunicorn.socket;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "upgrade";
@@ -364,7 +364,7 @@ exported from Unix and include:
                 location = /50x.html {
             }
 
-            # Setup enms Documentation link
+            # Setup xNMS Documentation link
             location /docs/ {
                 proxy_set_header Host $http_host;
                 proxy_set_header X-Real-IP $remote_addr;
@@ -376,14 +376,14 @@ exported from Unix and include:
         server {
             listen 8000;
             listen [::]:8000;
-            server_name enms-scheduler;
+            server_name xNMS-scheduler;
             root  /usr/share/nginx/html;
             location / {
                  proxy_set_header Host $http_host;
                  proxy_set_header X-Real-IP $remote_addr;
                  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                  proxy_set_header X-Forwarded-Proto $scheme;
-                 proxy_pass http://unix:/run/gunicorn/enms.gunicorn_scheduler.socket;
+                 proxy_pass http://unix:/run/gunicorn/xNMS.gunicorn_scheduler.socket;
                  proxy_connect_timeout 300s; 
                  # Should match the gunicorn timeout:
                  proxy_read_timeout 7200s;
@@ -403,7 +403,7 @@ exported from Unix and include:
     
 !!! note
 
-    Deploying eNMS into an environment that uses proxy url redirection 
+    Deploying xNMS into an environment that uses proxy url redirection 
     requires that the `http_proxy=`, `https_proxy=`, and `NO_PROXY=`
     environment variables be set if that is needed to reach certain endpoints,
     such as the network_data repository for device configuration data.
@@ -449,7 +449,7 @@ logger destinations as needed for workflows.
 By default, the two loggers are configured:
 
 -   The default logger has handlers for sending logs to the stdout
-    console as well as a rotating log file `logs/enms.log`.
+    console as well as a rotating log file `logs/xNMS.log`.
 -   A security logger captures logs for: User A ran Service/Workflow
     B on Devices \[C,D,E\...\] to log file `logs/security.log`.
 
@@ -459,7 +459,7 @@ data to remote time series databases for dashboarding and longer term
 storage of automation results data.
 
 Additionally, the `external loggers` section allows for changing the log
-levels for the various libraries used by eNMS.
+levels for the various libraries used by xNMS.
 
 With multiple gunicorn workers, please consider:
 
@@ -494,7 +494,7 @@ workflow's post-processing section or via python snippet service:
     "rotation": {
       "level": "DEBUG",
       "formatter": "standard",
-      "filename": "logs/enms.log",
+      "filename": "logs/xNMS.log",
       "class": "logging.handlers.WatchedFileHandler"
     },
     "security": {
@@ -541,8 +541,8 @@ workflow's post-processing section or via python snippet service:
 
 The `setup/properties.json` file includes:
 
-1. Allowing for additional custom properties to be defined in eNMS for
-devices and links. In this way, eNMS device inventory can be extended to
+1. Allowing for additional custom properties to be defined in xNMS for
+devices and links. In this way, xNMS device inventory can be extended to
 include additional columns/fields.
 2. Allowing for additional custom parameters to be added to services
  and workflows.
@@ -574,23 +574,23 @@ back to settings.json file` is selected.
 -   `config_mode` (default: `"debug"`) Must be set to `"debug"` or
     `"production"`.
 -   `documentation_url` (default:
-    `"https://enms.readthedocs.io/en/latest/"`) Can be changed if one
+    `"https://xNMS.readthedocs.io/en/latest/"`) Can be changed if one
     wants to host one's own version of the documentation locally. Points
     to the online documentation by default.
 -   `git_repository` (default: `""`) Git is used as a version control
     system for device configurations: this variable is the address of
-    the remote git repository where eNMS will push all device
+    the remote git repository where xNMS will push all device
     configurations.
--   `plugin_path`: (default: `"eNMS/plugins"`) location of eNMS plugin
+-   `plugin_path`: (default: `"xNMS/plugins"`) location of xNMS plugin
     extensions and customizations.
 -   `session_timeout_minutes`: (default: `90`).
 -   `startup_migration` (default: `"examples"`) Name of the migration to
-    load when eNMS starts for the first time.
-    -   By default, when eNMS loads for the first time, it will create a
+    load when xNMS starts for the first time.
+    -   By default, when xNMS loads for the first time, it will create a
         network topology and a number of services and workflows as
         examples of what the user can do.
     -   One can set the migration to `"default"` instead, in which case
-        eNMS will only load what is required for the application to
+        xNMS will only load what is required for the application to
         function properly.
 
 #### `authentication` section
@@ -598,7 +598,7 @@ back to settings.json file` is selected.
 Lists the methods available for users to login (in order of which they
 are shown in the login screen pulldown list).  Default authentication is
 specified here.  Because authentication can be custom for many
-environments, `eNMS/custom.py` allows the user to customize how the
+environments, `xNMS/custom.py` allows the user to customize how the
 authentication needs to occur. It can be modified to fit a company's
 ldap active directory system, etc.
 
@@ -608,7 +608,7 @@ ldap active directory system, etc.
 - `use_task_queue` use dramatiq for service execution (default: false).
 
 #### `cluster` section
-Section used for detecting other running instances of eNMS.
+Section used for detecting other running instances of xNMS.
 - `active` (default: `false`).
 - `id` (default: `true`).
 - `scan_subnet` (default: `"192.168.105.0/24"`).
@@ -641,8 +641,8 @@ Control how the app tracks files on the filesystem.
 - `server` (default: `"smtp.googlemail.com"`).
 - `port` (default: `587`).
 - `use_tls` (default: `true`).
-- `username` (default: `"eNMS-user"`).
-- `sender` (default: `"eNMS@company.com"`).
+- `username` (default: `"xNMS-user"`).
+- `sender` (default: `"xNMS@company.com"`).
 
 #### `mattermost` section
 
@@ -667,7 +667,7 @@ This section is covered in depth in the [administration panel](../administration
 
 #### `paths` section
 
-- `files` (default:`""`) Path to eNMS managed files needed by services
+- `files` (default:`""`) Path to xNMS managed files needed by services
   and workflows. For example, files to upload to devices.
 - `custom_code` (default: `""`) Path to custom libraries that can be
   utilized within services and workflows.
@@ -691,7 +691,7 @@ This section allows configuration of the Redis queue.
 
 Allows for tuning of the Python Requests library internal structures for
 connection pooling. Tuning these might be necessary depending on the
-load on eNMS.
+load on xNMS.
 
 - Pool
 
@@ -709,7 +709,7 @@ load on eNMS.
 #### `security` section
 
 - `forbidden_python_libraries` (default:
-  `["eNMS","os","subprocess","sys"]`) There are a number of places in
+  `["xNMS","os","subprocess","sys"]`) There are a number of places in
   the UI where the user is allowed to run custom python scripts. The user
   can configure which python libraries cannot be imported for security
   reasons.
@@ -743,7 +743,7 @@ Configure the refresh rates of a table in the UI in milliseconds. By default, th
 
 #### `vault` section
 
-For eNMS to use a Vault to store all sensitive data (user and network
+For xNMS to use a Vault to store all sensitive data (user and network
 credentials), one must set the `active` variable to `true`, provide an
 address and export:
 
@@ -783,22 +783,22 @@ Key parameters to note:
 Key parameters for the network builder:
 
 - `display_nodes_as_images` (`true`): displaying nodes as images can be slower if there are too many nodes.
-- `max_allowed_nodes` (`500`): threshold above which eNMS will not try to display a network (too much data).
+- `max_allowed_nodes` (`500`): threshold above which xNMS will not try to display a network (too much data).
 
 ## Scheduler
 
 The scheduler, used for running tasks at a later time, is a web
-application that is distinct from eNMS. It can be installed on the same
-server as eNMS, or a remote server.
+application that is distinct from xNMS. It can be installed on the same
+server as xNMS, or a remote server.
 
 Before running the scheduler, one must configure the following
-environment variables so it knows where eNMS is located and what
+environment variables so it knows where xNMS is located and what
 credentials to authenticate with:
 
--   `ENMS_ADDR`: URL of the remote server (example:
+-   `xNMS_ADDR`: URL of the remote server (example:
     `"http://192.168.56.102"`).
--   `ENMS_USER`: eNMS login.
--   `ENMS_PASSWORD`: eNMS password.
+-   `xNMS_USER`: xNMS login.
+-   `xNMS_PASSWORD`: xNMS password.
 
 The scheduler is an asynchronous application that must be deployed with
 gunicorn :
@@ -808,45 +808,45 @@ gunicorn :
 
 ### Example Systemd Unit and Socket files
 
-Above nginx.conf sample has a section for eNMS Scheduler
+Above nginx.conf sample has a section for xNMS Scheduler
 
-### enms.gunicorn_scheduler.socket
+### xNMS.gunicorn_scheduler.socket
 
     [Unit]
-    Description=Gunicorn socket for eNMS scheduler
+    Description=Gunicorn socket for xNMS scheduler
     
     [Socket]
-    ListenStream=/run/gunicorn/enms.gunicorn_scheduler.socket
+    ListenStream=/run/gunicorn/xNMS.gunicorn_scheduler.socket
     
     [Install]
     WantedBy=sockets.target
     
-### enms.gunicorn_scheduler.service
+### xNMS.gunicorn_scheduler.service
 
     [Unit]
-    Description=Start eNMS Scheduler service using Gunicorn
-    Requires=enms.gunicorn_scheduler.socket
+    Description=Start xNMS Scheduler service using Gunicorn
+    Requires=xNMS.gunicorn_scheduler.socket
     After=network.target
     After=mysqld.service
     
     [Service]
     PermissionsStartOnly=true
-    PIDFile=/run/gunicorn/enms.gunicorn_scheduler.pid
+    PIDFile=/run/gunicorn/xNMS.gunicorn_scheduler.pid
     User=centos
     Group=centos
-    WorkingDirectory=/home/centos/enms/eNMS
+    WorkingDirectory=/home/centos/xNMS/xNMS
     ExecStartPre=/bin/mkdir -p /run/gunicorn/
     ExecStartPre=/bin/chown -R centos:centos /run/gunicorn/
-    Environment="ENMS_ADDR=https://127.0.0.1"
-    Environment="ENMS_PASSWORD=CHANGE_ME"
-    Environment="ENMS_USER=admin"
+    Environment="xNMS_ADDR=https://127.0.0.1"
+    Environment="xNMS_PASSWORD=CHANGE_ME"
+    Environment="xNMS_USER=admin"
     Environment="VERIFY_CERTIFICATE=0"
     Environment="REDIS_ADDR=127.0.0.1"
     Environment="SCHEDULER_ADDR=http://127.0.0.1:8000"
-    Environment="GUNICORN_ACCESS_LOG=/home/centos/enms/logs/access_scheduler.log"
+    Environment="GUNICORN_ACCESS_LOG=/home/centos/xNMS/logs/access_scheduler.log"
     Environment="GUNICORN_LOG_LEVEL=info"
-    Environment="DATABASE_URL=mysql://root:PASSWORD@localhost/enms?charset=utf8"
-    ExecStart=/opt/python3-virtualenv/bin/gunicorn --pid /run/gunicorn/enms.gunicorn_scheduler.pid --worker-tmp-dir /tmpfs-gunicorn --bind unix:/run/gunicorn/enms.gunicorn_scheduler.socket --chdir /home/centos/enms/scheduler --config /home/centos/enms/scheduler/gunicorn.py scheduler:scheduler
+    Environment="DATABASE_URL=mysql://root:PASSWORD@localhost/xNMS?charset=utf8"
+    ExecStart=/opt/python3-virtualenv/bin/gunicorn --pid /run/gunicorn/xNMS.gunicorn_scheduler.pid --worker-tmp-dir /tmpfs-gunicorn --bind unix:/run/gunicorn/xNMS.gunicorn_scheduler.socket --chdir /home/centos/xNMS/scheduler --config /home/centos/xNMS/scheduler/gunicorn.py scheduler:scheduler
     ExecReload=/bin/kill -s HUP $MAINPID
     ExecStop=/bin/kill -s TERM $MAINPID
     TimeoutStopSec=60
@@ -857,12 +857,12 @@ Above nginx.conf sample has a section for eNMS Scheduler
     
 ### `scheduler.json`
 
-The `setup/scheduler.json` file controls the behavior of the eNMS Scheduler
+The `setup/scheduler.json` file controls the behavior of the xNMS Scheduler
 application.
 
 ## Network Data Merge Driver
 
-eNMS features easy access to up-to-date device configurations and 
+xNMS features easy access to up-to-date device configurations and 
 network data. A service can be configured to periodically collect the latest
 configurations direct from devices in a network, after which a backend 
 process can leverage Git to synchronize data between all instances of the 

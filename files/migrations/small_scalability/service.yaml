@@ -221,7 +221,7 @@
     'Regression Workflow M: Unix command & shell, ping, - jump on connect - mechanism': &id056 [
       -382, 39]
     'Regression Workflow M: Unix command & shell, ping, jump server': [-341, 17]
-    'Regression Workflow N: Topology Import (netbox, librenms, opennms)': &id055 [
+    'Regression Workflow N: Topology Import (netbox, librxNMS, opennms)': &id055 [
       -141, 21]
     'Regression Workflow O: Scrapli': *id035
     'Regression Workflow P: large workflow (scalability)': *id012
@@ -290,7 +290,7 @@
       -197, -103]
     'Regression Workflow: SxS Service Targets with Run Once + Skip': &id068 [-436,
       94]
-    'Regression Workflow: Topology Import (netbox, librenms, opennms)': *id055
+    'Regression Workflow: Topology Import (netbox, librxNMS, opennms)': *id055
     'Regression Workflow: Unix Command & Chell, Ping Service, Jump on Connect mechanism': *id056
     'Regression Workflow: Using get_var, set_var, get_result functions': *id010
     'Regression Workflow: VRF Creation and Deletion with Napalm': *id057
@@ -328,7 +328,7 @@
     SxS Service Targets with Run Once + Skip: *id068
     Target Restriction Mechanism: *id049
     Text Reports with Normal Templates: *id071
-    Topology Import Service (netbox, librenms, opennms): &id072 [-141, 21]
+    Topology Import Service (netbox, librxNMS, opennms): &id072 [-141, 21]
     Topology Import Services: *id072
     Unix Command & Chell, Ping Service, Jump on Connect mechanism: *id056
     Using get_var, set_var, and get_result Functions: *id010
@@ -710,7 +710,7 @@
     'Regression Workflow M: Unix command & shell, ping, - jump on connect - mechanism': &id147 [
       560, 9]
     'Regression Workflow M: Unix command & shell, ping, jump server': [560, 9]
-    'Regression Workflow N: Topology Import (netbox, librenms, opennms)': &id146 [
+    'Regression Workflow N: Topology Import (netbox, librxNMS, opennms)': &id146 [
       636, 24]
     'Regression Workflow O: Scrapli': *id126
     'Regression Workflow P: large workflow (scalability)': *id103
@@ -780,7 +780,7 @@
       380]
     'Regression Workflow: SxS Service Targets with Skip Global + Query': !!python/tuple [
       500, 0]
-    'Regression Workflow: Topology Import (netbox, librenms, opennms)': *id146
+    'Regression Workflow: Topology Import (netbox, librxNMS, opennms)': *id146
     'Regression Workflow: Unix Command & Chell, Ping Service, Jump on Connect mechanism': *id147
     'Regression Workflow: Using get_var, set_var, get_result functions': *id101
     'Regression Workflow: VRF Creation and Deletion with Napalm': *id148
@@ -823,7 +823,7 @@
     Target Restriction Mechanism: *id140
     Text Reports with Normal Templates: *id162
     Text Reports with Normal and Jinja2 Templates: !!python/tuple [500, 0]
-    Topology Import Service (netbox, librenms, opennms): &id163 [636, 24]
+    Topology Import Service (netbox, librxNMS, opennms): &id163 [636, 24]
     Topology Import Services: *id163
     Unix Command & Chell, Ping Service, Jump on Connect mechanism: *id147
     Using get_var, set_var, and get_result Functions: *id101
@@ -1000,7 +1000,7 @@
   default_uuid: 74eee826-e9e4-499e-9742-9ec6bf2818bb
   definition: Definition
   delete_spaces_before_matching: false
-  description: Monitor eNMS cluster
+  description: Monitor xNMS cluster
   device_query: ''
   device_query_property: ip_address
   dict_match: {}
@@ -6602,7 +6602,7 @@
     9a8d7756-d57d-48bd-97fe-1f3df896110c:
       alignment: left
       content: "This workflow is testing a specific case of the iteration target mechanism,\r\
-        \nwhere the iteration variable is a dictionary: eNMS iterates over the values\r\
+        \nwhere the iteration variable is a dictionary: xNMS iterates over the values\r\
         \nof the dictionary.\r\nThe workflow proceeds to using the dictionary values\
         \ with netmiko to\r\nshow the associated VRFs via the \"show vrf {{...}}\"\
         \ command."
@@ -7906,7 +7906,7 @@
   send_notification_method: mail
   services: ['[Shared] Start', '[Shared] End', '[(R) Unix Command & Chell, Ping Service,
       Jump on Connect mechanism] Unix command: ps -ef | grep test', '[(R) Unix Command
-      & Chell, Ping Service, Jump on Connect mechanism] Unix shell: ping eNMS server
+      & Chell, Ping Service, Jump on Connect mechanism] Unix shell: ping xNMS server
       from remote server', '[(R) Unix Command & Chell, Ping Service, Jump on Connect
       mechanism] Ping Washington', '[(R) Unix Command & Chell, Ping Service, Jump
       on Connect mechanism] Validation: jump on server 2 from Washington', '[(R) Unix
@@ -8073,7 +8073,7 @@
   maximum_runs: 1
   multiprocessing: false
   name: '[(R) Unix Command & Chell, Ping Service, Jump on Connect mechanism] Unix
-    shell: ping eNMS server from remote server'
+    shell: ping xNMS server from remote server'
   negative_logic: false
   notification_header: ''
   number_of_retries: 0
@@ -8109,7 +8109,7 @@
   reserved: false
   restrict_to_owners: []
   run_method: per_device
-  scoped_name: 'Unix shell: ping eNMS server from remote server'
+  scoped_name: 'Unix shell: ping xNMS server from remote server'
   send_notification: false
   send_notification_method: mail
   shared: false
@@ -8361,8 +8361,8 @@
   iteration_variable_name: iteration_value
   last_modified: '2022-11-09 01:23:32.547814'
   last_modified_by: admin
-  librenms_address: http://librenms.example.com
-  librenms_token: ''
+  librxNMS_address: http://librxNMS.example.com
+  librxNMS_token: ''
   log_level: 1
   mail_recipient: ''
   mandatory_parameter: Default Value
@@ -8393,10 +8393,10 @@
     \ default=15)"
   parameterized_form_template: ''
   positions:
-    'Regression Workflow N: Topology Import (netbox, librenms, opennms)': &id271 [
+    'Regression Workflow N: Topology Import (netbox, librxNMS, opennms)': &id271 [
       113, -104]
-    'Regression Workflow: Topology Import (netbox, librenms, opennms)': *id271
-    Topology Import Service (netbox, librenms, opennms): &id272 [221, -123]
+    'Regression Workflow: Topology Import (netbox, librxNMS, opennms)': *id271
+    Topology Import Service (netbox, librxNMS, opennms): &id272 [221, -123]
     Topology Import Services: *id272
   postprocessing: ''
   postprocessing_mode: always
@@ -9662,7 +9662,7 @@
     554f2ec4-ec4d-4ebf-96f3-489c4a748f13:
       alignment: left
       content: "Check that a.bin, bc.bin and bd.bin are all on the disk\r\nin the\
-        \ enms_files directory."
+        \ xNMS_files directory."
       positions: [219, 249]
       size: 14
   last_modified: '2022-12-07 14:46:15.974118'
@@ -9735,7 +9735,7 @@
 - admin_only: false
   auto_find_prompt: true
   close_connection: false
-  commands: dir enms_files
+  commands: dir xNMS_files
   completion_time: 1
   config_mode: false
   config_mode_command: ''
@@ -9868,7 +9868,7 @@
   definition: Definition
   delete_spaces_before_matching: false
   description: ''
-  destination_file: enms_files/a.bin
+  destination_file: xNMS_files/a.bin
   device_query: ''
   device_query_property: name
   dict_match: {}
@@ -9943,7 +9943,7 @@
   skip: {}
   skip_query: ''
   skip_value: success
-  source_file: /media/sf_shared/eNMS-prod/files/file_transfer/a.bin
+  source_file: /media/sf_shared/xNMS-prod/files/file_transfer/a.bin
   source_file_includes_globbing: false
   target_devices: []
   target_pools: []
@@ -9961,7 +9961,7 @@
 - admin_only: false
   auto_find_prompt: true
   close_connection: false
-  commands: dir enms_files
+  commands: dir xNMS_files
   completion_time: 1
   config_mode: false
   config_mode_command: ''
@@ -10096,7 +10096,7 @@
   definition: Definition
   delete_spaces_before_matching: false
   description: ''
-  destination_file: enms_files
+  destination_file: xNMS_files
   device_query: ''
   device_query_property: name
   dict_match: {}
@@ -10172,7 +10172,7 @@
   skip: {}
   skip_query: ''
   skip_value: success
-  source_file: /media/sf_shared/eNMS-prod/files/file_transfer/?[c|d].bi*
+  source_file: /media/sf_shared/xNMS-prod/files/file_transfer/?[c|d].bi*
   source_file_includes_globbing: true
   target_devices: [Washington]
   target_pools: []
@@ -10190,7 +10190,7 @@
 - admin_only: false
   auto_find_prompt: true
   close_connection: false
-  commands: delete flash:/enms_files/*.bin
+  commands: delete flash:/xNMS_files/*.bin
   completion_time: 1
   config_mode: false
   config_mode_command: ''
@@ -10323,7 +10323,7 @@
   definition: Definition
   delete_spaces_before_matching: false
   description: ''
-  destination_file: enms_files
+  destination_file: xNMS_files
   device_query: ''
   device_query_property: name
   dict_match: {}
@@ -18386,7 +18386,7 @@
     201f02ff-4201-4e48-ac16-a25fb877787c:
       alignment: left
       content: "For this workflow, the \"MAIL_PASSWORD\" env variable must be set\
-        \ for\r\neNMS to be able to send notifications.\r\nAll services are configured\
+        \ for\r\nxNMS to be able to send notifications.\r\nAll services are configured\
         \ to send mail notification, as well as the workflow\r\nitself."
       positions: [49, -29]
     91b037b9-22e5-42ba-8e3e-fb7a1e24dd57:
@@ -18724,7 +18724,7 @@
   rbac_edit: [Full UI Read + Edit Access]
   rbac_read: [Full UI Read + Edit Access]
   rbac_run: [Full UI Read + Edit Access]
-  reply_to: afourmy@enms.io
+  reply_to: afourmy@xNMS.io
   report: ''
   report_format: text
   report_jinja2_template: false
@@ -18789,7 +18789,7 @@
       positions: [24, 143]
     1d4c6192-870d-4a22-bd34-a61abed491bb:
       alignment: left
-      content: Command "delete enms_files/netmiko_file"
+      content: Command "delete xNMS_files/netmiko_file"
       positions: [197, -169]
     2392b78f-eb3a-41e3-b824-f1d446b9a4b6:
       alignment: left
@@ -18797,7 +18797,7 @@
       positions: [366, 126]
     b6e20ed0-9419-4755-942d-77ba613c4370:
       alignment: left
-      content: "Run command \"dir enms_files\", use negative logic to\r\nmake sure\
+      content: "Run command \"dir xNMS_files\", use negative logic to\r\nmake sure\
         \ that \"netmiko_file\" is not in the output."
       positions: [-329, 141]
   last_modified: '2022-12-07 15:53:59.908550'
@@ -18847,7 +18847,7 @@
   send_notification: false
   send_notification_method: mail
   services: ['[Shared] Start', '[Shared] End', '[(R) Netmiko File Transfer Service]
-      Check no file in enms_files directory', '[(R) Netmiko File Transfer Service]
+      Check no file in xNMS_files directory', '[(R) Netmiko File Transfer Service]
       Transfer netmiko_file', '[(R) Netmiko File Transfer Service] Check file in directory',
     '[(R) Netmiko File Transfer Service] Delete netmiko_file', '[(R) Netmiko File
       Transfer Service] Check netmiko_file is deleted']
@@ -18869,7 +18869,7 @@
 - admin_only: false
   auto_find_prompt: true
   close_connection: false
-  commands: dir enms_files
+  commands: dir xNMS_files
   completion_time: 1
   config_mode: false
   config_mode_command: ''
@@ -18928,7 +18928,7 @@
   max_processes: 15
   maximum_runs: 1
   multiprocessing: false
-  name: '[(R) Netmiko File Transfer Service] Check no file in enms_files directory'
+  name: '[(R) Netmiko File Transfer Service] Check no file in xNMS_files directory'
   negative_logic: true
   notification_header: ''
   number_of_retries: 0
@@ -18962,7 +18962,7 @@
   restrict_to_owners: []
   results_as_list: false
   run_method: per_device
-  scoped_name: Check no file in enms_files directory
+  scoped_name: Check no file in xNMS_files directory
   send_notification: false
   send_notification_method: mail
   shared: false
@@ -19003,7 +19003,7 @@
   definition: Definition
   delete_spaces_before_matching: false
   description: ''
-  destination_file: enms_files/netmiko_file
+  destination_file: xNMS_files/netmiko_file
   device_query: ''
   device_query_property: name
   dict_match: {}
@@ -19080,7 +19080,7 @@
   skip: {}
   skip_query: ''
   skip_value: success
-  source_file: /media/sf_shared/eNMS-prod/files/file_transfer/a.bin
+  source_file: /media/sf_shared/xNMS-prod/files/file_transfer/a.bin
   start_new_connection: false
   target_devices: []
   target_pools: []
@@ -19097,7 +19097,7 @@
 - admin_only: false
   auto_find_prompt: true
   close_connection: false
-  commands: dir enms_files
+  commands: dir xNMS_files
   completion_time: 1
   config_mode: false
   config_mode_command: ''
@@ -19217,7 +19217,7 @@
 - admin_only: false
   auto_find_prompt: true
   close_connection: false
-  commands: delete enms_files/netmiko_file
+  commands: delete xNMS_files/netmiko_file
   completion_time: 1
   config_mode: false
   config_mode_command: ''
@@ -19337,7 +19337,7 @@
 - admin_only: false
   auto_find_prompt: true
   close_connection: false
-  commands: dir enms_files
+  commands: dir xNMS_files
   completion_time: 1
   config_mode: false
   config_mode_command: ''
@@ -29758,7 +29758,7 @@
         \ tests the gateway mechanism in case there is one, reachable gateway. It\
         \ has one target, \"Router behind Gateway 1\"\r\nwhose \"gateways\" field\
         \ is set to \"Gateway 1\". \r\n- the second service tests the priority tie\
-        \ break mechanism: eNMS tries the gateways,\r\nfrom the highest to the lowest\
+        \ break mechanism: xNMS tries the gateways,\r\nfrom the highest to the lowest\
         \ priority until one is reachable.\r\nIt has one target: \"Router behind Gateway\
         \ 1, 2 and 3\".\r\nGateway 3 has the highest priority, it should be selected\
         \ but is unreachable (wrong IP).\r\nIt should then try Gateway 2 (higher priority\
@@ -30449,7 +30449,7 @@
       alignment: left
       content: "The parameterized form contains all target related properties:\r\n\
         \"target_devices\", \"target_pools\", \"device_query\"\r\nand \"device_query_property\"\
-        .\r\nAs soon as one of these \"target properties\" is detected by eNMS\r\n\
+        .\r\nAs soon as one of these \"target properties\" is detected by xNMS\r\n\
         in the parameterized form, it takes precedence over what is defined\r\nin\
         \ the parent workflow.\r\nThe parent workflow is configured to run on Austin\
         \ (devices),\r\nWashington (pools) and Atlanta (device query).\r\n1) Run the\
@@ -34498,7 +34498,7 @@
         \ tests the gateway mechanism in case there is one, reachable gateway. It\
         \ has one target, \"Router behind Gateway 1\"\r\nwhose \"gateways\" field\
         \ is set to \"Gateway 1\". \r\n- the second service tests the priority tie\
-        \ break mechanism: eNMS tries the gateways,\r\nfrom the highest to the lowest\
+        \ break mechanism: xNMS tries the gateways,\r\nfrom the highest to the lowest\
         \ priority until one is reachable.\r\nIt has one target: \"Router behind Gateway\
         \ 1, 2 and 3\".\r\nGateway 3 has the highest priority, it should be selected\
         \ but is unreachable (wrong IP).\r\nIt should then try Gateway 2 (higher priority\
@@ -37911,7 +37911,7 @@
         \ the following HTML custom form (simplified version below):\r\n<form id=\"\
         {{ form_type }}-form\">\r\n  <div class=\"modal-body\">\r\n      ... 4 fields:\
         \ name of the run, field A, B, C ....\r\n    <center>\r\n      <button\r\n\
-        \        id=\"{{ form_type }}-action-btn\"\r\n        value=\"eNMS.automation.submitInitialForm\"\
+        \        id=\"{{ form_type }}-action-btn\"\r\n        value=\"xNMS.automation.submitInitialForm\"\
         \r\n      >\r\n        Run Service with Custom Parameterized Template\r\n\
         \      </button>\r\n    </center>\r\n  </div>\r\n</form>\r\n<script>\r\n \
         \ $('input[name=\"name\"]').focus();\r\n  $('input[name=\"field_a\"]').val(\"\
@@ -37962,7 +37962,7 @@
     \ add-id\"\r\n          ) }}\r\n        </div>\r\n    </div>\r\n    <center>\r\
     \n      <button\r\n        id=\"{{ form_type }}-action-btn\"\r\n        type=\"\
     button\"\r\n        class=\"btn btn-primary add-id btn-id\"\r\n        value=\"\
-    eNMS.automation.submitInitialForm\"\r\n      >\r\n        Run Service with Custom\
+    xNMS.automation.submitInitialForm\"\r\n      >\r\n        Run Service with Custom\
     \ Parameterized Template\r\n      </button>\r\n    </center>\r\n  </div>\r\n</form>\r\
     \n<script>\r\n  $('input[name=\"name\"]').focus();\r\n  $('input[name=\"field_a\"\
     ]').val(\"Set programmatically with Javascript\");\r\n</script>"

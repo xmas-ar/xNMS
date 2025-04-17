@@ -1,9 +1,9 @@
 {
-  "name": "eNMS",
+  "name": "xNMS",
   "version": "4.6.0",
   "description": "A enterprise-grade vendor-agnostic network automation platform.",
   "scripts": {
-    "prettier": "prettier --config build/linting/.prettierrc --ignore-path build/linting/.prettierignore --write eNMS/**/* setup/**/*",
+    "prettier": "prettier --config build/linting/.prettierrc --ignore-path build/linting/.prettierignore --write xNMS/**/* setup/**/*",
     "lint": "eslint --config build/linting/.eslintrc --ignore-path build/linting/.eslintignore ."
   },
   "engines": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/afourmy/eNMS"
+    "url": "https://github.com/afourmy/xNMS"
   },
   "keywords": [
     "node"

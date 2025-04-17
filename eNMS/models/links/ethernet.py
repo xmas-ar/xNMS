@@ -1,9 +1,9 @@
 from sqlalchemy import ForeignKey, Integer
 
-from eNMS.database import db
-from eNMS.forms import LinkForm
-from eNMS.fields import HiddenField, SelectField, StringField
-from eNMS.models.inventory import Link
+from xNMS.database import db
+from xNMS.forms import LinkForm
+from xNMS.fields import HiddenField, SelectField, StringField
+from xNMS.models.inventory import Link
 
 
 class EthernetLink(Link):

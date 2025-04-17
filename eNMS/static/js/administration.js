@@ -62,7 +62,7 @@ export function displayFolderPath() {
       currentPath += folder == "files" ? "" : `/${folder}`;
       htmlPath.push(`<b> / </b>
         <button type="button" class="btn btn-xs btn-primary"
-        onclick="eNMS.administration.enterFolder({path: '${currentPath}'})">
+        onclick="xNMS.administration.enterFolder({path: '${currentPath}'})">
           ${folder}
         </button>
       `);

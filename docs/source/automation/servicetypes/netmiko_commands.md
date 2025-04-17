@@ -5,7 +5,7 @@ examples of how it is used in a workflow.
 ![Netmiko Validation Service](../../_static/automation/service_types/netmiko_commands.png)
 
 Each command is sent to the device and the output is saved as the
-service result.  eNMS collects output from each command until
+service result.  xNMS collects output from each command until
 either the prompt or the `expect string` is matched in the output, or until
 the `timeout` has elapsed.
 

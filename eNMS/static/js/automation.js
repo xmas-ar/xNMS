@@ -129,7 +129,7 @@ function buildLinks(result, id) {
         <input id="link-${id}" type="text" class="form-control" value='${link}'>
         <span class="input-group-btn">
           <button class="btn btn-default"
-            onclick="eNMS.base.copyToClipboard({text: 'link-${id}', isId: true})"
+            onclick="xNMS.base.copyToClipboard({text: 'link-${id}', isId: true})"
             type="button"
           >
             <span class="glyphicon glyphicon-copy"></span>
@@ -198,7 +198,7 @@ function showResult(id) {
         >
         <span class="input-group-btn">
           <button class="btn btn-default pull-right"
-            onclick="eNMS.base.copyToClipboard({text: 'result-path-${id}', isId: true})"
+            onclick="xNMS.base.copyToClipboard({text: 'result-path-${id}', isId: true})"
             type="button"
           >
             <span class="glyphicon glyphicon-copy"></span>
@@ -314,7 +314,7 @@ export const showRuntimePanel = function(
             <div style="width: 30px; float: left; margin-left: 15px;">
               <button
                 class="btn btn-default pull-right"
-                onclick="eNMS.automation.downloadRun('${panelType}', ${service.id})"
+                onclick="xNMS.automation.downloadRun('${panelType}', ${service.id})"
                 data-tooltip="Download"
                 type="button"
               >
@@ -343,7 +343,7 @@ export const showRuntimePanel = function(
           <div style="width: 30px; float: left; margin-left: 15px;">
             <button
               class="btn btn-info pull-right"
-              onclick="eNMS.automation.showRuntimePanel(
+              onclick="xNMS.automation.showRuntimePanel(
                 'results', ${JSON.stringify(serviceProperties).replace(/"/g, "'")},
                 '#runtimes-${panelId}', 'result', null, true)"
               data-tooltip="All Results"
@@ -526,19 +526,19 @@ function displayResultsTree(service, runtime) {
               <div style="position: absolute; top: 0px; right: 50px">
                 <button type="button"
                   class="btn btn-xs btn-primary"
-                  onclick='eNMS.automation.showRuntimePanel(
+                  onclick='xNMS.automation.showRuntimePanel(
                     "logs", ${data}, "${runtime}"
                   )'><span class="glyphicon glyphicon-list"></span>
                 </button>
                 <button type="button"
                   class="btn btn-xs btn-primary"
-                  onclick='eNMS.automation.showRuntimePanel(
+                  onclick='xNMS.automation.showRuntimePanel(
                     "report", ${data}, "${runtime}"
                   )'><span class="glyphicon glyphicon-modal-window"></span>
                 </button>
                 <button type="button"
                   class="btn btn-xs btn-primary"
-                  onclick='eNMS.automation.showRuntimePanel(
+                  onclick='xNMS.automation.showRuntimePanel(
                     "results", ${data}, "${runtime}", "result"
                   )'>
                   <span class="glyphicon glyphicon-list-alt"></span>
@@ -697,7 +697,7 @@ function pauseTask(id) {
     url: `/task_action/pause/${id}`,
     callback: function() {
       $(`#pause-resume-${id}`)
-        .attr("onclick", `eNMS.automation.resumeTask('${id}')`)
+        .attr("onclick", `xNMS.automation.resumeTask('${id}')`)
         .text("Resume");
       refreshTable("task");
       notify("Task paused.", "success", 5);
@@ -710,7 +710,7 @@ function resumeTask(id) {
     url: `/task_action/resume/${id}`,
     callback: function() {
       $(`#pause-resume-${id}`)
-        .attr("onclick", `eNMS.automation.pauseTask('${id}')`)
+        .attr("onclick", `xNMS.automation.pauseTask('${id}')`)
         .text("Pause");
       refreshTable("task");
       notify("Task resumed.", "success", 5);

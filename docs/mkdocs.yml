@@ -1,9 +1,9 @@
-copyright: Copyright &copy; 2017 - 2021 eNMS Automation
+copyright: Copyright &copy; 2017 - 2021 xNMS Automation
 docs_dir: source
-repo_url: https://github.com/eNMS-automation
+repo_url: https://github.com/xNMS-automation
 edit_uri: ""
 site_dir: build
-site_name: eNMS
+site_name: xNMS
 nav:
   - Getting Started:
       - Overview: index.md
@@ -120,13 +120,13 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/eNMS-automation/eNMS
+      link: https://github.com/xNMS-automation/xNMS
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/AutomationEnms
+      link: https://twitter.com/AutomationxNMS
     - icon: fontawesome/solid/link
-      link: https://www.enms.io
+      link: https://www.xNMS.io
     - icon: fontawesome/solid/envelope
-      link: mailto://contact@enms.io
+      link: mailto://contact@xNMS.io
   generator: false
   no_auto_expand:
     - "Service Types"

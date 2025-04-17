@@ -1,9 +1,9 @@
 from sqlalchemy import ForeignKey, Integer
 
-from eNMS.database import db
-from eNMS.forms import NapalmForm
-from eNMS.fields import HiddenField
-from eNMS.models.automation import ConnectionService
+from xNMS.database import db
+from xNMS.forms import NapalmForm
+from xNMS.fields import HiddenField
+from xNMS.models.automation import ConnectionService
 
 
 class NapalmRollbackService(ConnectionService):

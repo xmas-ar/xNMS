@@ -1,11 +1,11 @@
 # Local Server CLI interface
 
 The local instance terminal can be used as a CLI interface that interacts
-with the eNMS application and supports the following operations:
+with the xNMS application and supports the following operations:
 
 ## Run a service
 
-If an eNMS service has been created on the application, the user can run a
+If an xNMS service has been created on the application, the user can run a
 service via this CLI Interface.
 
 General syntax:
@@ -48,7 +48,7 @@ Examples:
 ## Refresh Network Configuration Data
 
 The Network Configuration data can be gathered and then stored in a
-central location, namely the git repository. eNMS can be used to fetch
+central location, namely the git repository. xNMS can be used to fetch
 the Network Configuration from git and have it stored locally in `network_data/`
 
 General syntax:

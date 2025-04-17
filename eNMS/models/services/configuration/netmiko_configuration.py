@@ -1,10 +1,10 @@
 from sqlalchemy import Boolean, Float, ForeignKey, Integer
 from wtforms.widgets import TextArea
 
-from eNMS.database import db
-from eNMS.fields import BooleanField, HiddenField, StringField
-from eNMS.forms import NetmikoForm
-from eNMS.models.automation import ConnectionService
+from xNMS.database import db
+from xNMS.fields import BooleanField, HiddenField, StringField
+from xNMS.forms import NetmikoForm
+from xNMS.models.automation import ConnectionService
 
 
 class NetmikoConfigurationService(ConnectionService):

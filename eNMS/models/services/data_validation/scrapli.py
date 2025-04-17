@@ -2,10 +2,10 @@ from jinja2 import Template
 from sqlalchemy import Boolean, ForeignKey, Integer, Float
 from wtforms.widgets import TextArea
 
-from eNMS.database import db
-from eNMS.fields import BooleanField, HiddenField, StringField
-from eNMS.forms import ScrapliForm
-from eNMS.models.automation import ConnectionService
+from xNMS.database import db
+from xNMS.fields import BooleanField, HiddenField, StringField
+from xNMS.forms import ScrapliForm
+from xNMS.models.automation import ConnectionService
 
 
 class ScrapliService(ConnectionService):

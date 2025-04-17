@@ -3,10 +3,10 @@ from sqlalchemy import Boolean, ForeignKey, Integer
 import xmltodict
 from wtforms.widgets import TextArea
 
-from eNMS.database import db
-from eNMS.fields import BooleanField, HiddenField, SelectField, StringField
-from eNMS.forms import ConnectionForm
-from eNMS.models.automation import ConnectionService
+from xNMS.database import db
+from xNMS.fields import BooleanField, HiddenField, SelectField, StringField
+from xNMS.forms import ConnectionForm
+from xNMS.models.automation import ConnectionService
 
 
 class NetconfService(ConnectionService):

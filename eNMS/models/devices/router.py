@@ -1,9 +1,9 @@
 from sqlalchemy import ForeignKey, Integer
 
-from eNMS.database import db
-from eNMS.forms import DeviceForm
-from eNMS.fields import HiddenField, StringField
-from eNMS.models.inventory import Device
+from xNMS.database import db
+from xNMS.forms import DeviceForm
+from xNMS.fields import HiddenField, StringField
+from xNMS.models.inventory import Device
 
 
 class Router(Device):

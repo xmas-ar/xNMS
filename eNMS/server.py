@@ -24,12 +24,12 @@ from tarfile import open as open_tar
 from traceback import format_exc
 from werkzeug.exceptions import Forbidden, NotFound
 
-from eNMS import controller
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.forms import form_factory
-from eNMS.rest_api import RestApi
-from eNMS.variables import vs
+from xNMS import controller
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.forms import form_factory
+from xNMS.rest_api import RestApi
+from xNMS.variables import vs
 
 
 class Server(Flask):
@@ -49,7 +49,7 @@ class Server(Flask):
     }
 
     def __init__(self):
-        static_folder = str(vs.path / "eNMS" / "static")
+        static_folder = str(vs.path / "xNMS" / "static")
         super().__init__(__name__, static_folder=static_folder)
         self.rest_api = RestApi()
         self.update_config()
@@ -75,7 +75,7 @@ class Server(Flask):
     def register_plugins(self):
         for plugin, settings in vs.plugins_settings.items():
             try:
-                module = import_module(f"eNMS.plugins.{plugin}")
+                module = import_module(f"xNMS.plugins.{plugin}")
                 module.Plugin(self, controller, db, vs, env, **settings)
             except Exception:
                 env.log("error", f"Could not import plugin '{plugin}':\n{format_exc()}")

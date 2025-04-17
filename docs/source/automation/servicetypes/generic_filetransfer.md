@@ -1,4 +1,4 @@
-Transfer a one or multiple files to/from the eNMS server to the device using
+Transfer a one or multiple files to/from the xNMS server to the device using
 either SFTP or SCP.
 
 ![Generic Filetransfer Service](../../_static/automation/service_types/generic_filetransfer.png)
@@ -14,15 +14,15 @@ Configuration parameters for creating this service instance:
   filesystem.
 - `Protocol`: Use SCP or SFTP to perform the transfer.
 - `Source file`: For Get, source file is the path-plus-filename on the
-  device to retrieve to the eNMS server. For Put, source file is the
-  path-plus-filename on the eNMS server to send to the device.
+  device to retrieve to the xNMS server. For Put, source file is the
+  path-plus-filename on the xNMS server to send to the device.
 - `Destination file`: For Get, destination file is the
-  path-plus-filename on the eNMS server to store the file to. For Put,
+  path-plus-filename on the xNMS server to store the file to. For Put,
   destination file is the path-plus-filename on the device to store
   the file to.
 - `Missing Host Key Policy`: If checked, auto-add the host key policy
   on the ssh connection.
-- `Load Known Host Keys`: If checked, load host keys on the eNMS server
+- `Load Known Host Keys`: If checked, load host keys on the xNMS server
   before attempting the connection.
 - `Source file includes glob pattern (Put Direction only)`: Flag
   indicates that for Put Direction transfers only, the above Source

@@ -21,14 +21,14 @@ function run() {
     echo "No plugin specified";
     exit 1;
   fi
-  cd eNMS/plugins
+  cd xNMS/plugins
   if [ "$mode" = "update" ]; then
     cd $plugin
     git pull
   elif [ "$mode" = "remove" ]; then
     rm -r $plugin
   else
-    git clone git@github.com:eNMS-automation/$plugin.git
+    git clone git@github.com:xNMS-automation/$plugin.git
   fi
 }
 

@@ -1,4 +1,4 @@
-The UNIX Command Service allows for a command to be issued on this eNMS
+The UNIX Command Service allows for a command to be issued on this xNMS
 server instance. This is useful for transferring or setting file
 permissions prior to using a file in a workflow.
 

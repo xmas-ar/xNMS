@@ -26,7 +26,7 @@
   delete_requests: []
   description: Admin User
   device_access: []
-  email: admin@enms.io
+  email: admin@xNMS.io
   force_read_access: true
   get_requests: []
   link_access: []

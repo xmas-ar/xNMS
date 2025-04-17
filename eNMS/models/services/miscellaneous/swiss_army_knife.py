@@ -1,11 +1,11 @@
 from requests import get
 from sqlalchemy import ForeignKey, Integer
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import HiddenField
-from eNMS.models.automation import Service
-from eNMS.variables import vs
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import HiddenField
+from xNMS.models.automation import Service
+from xNMS.variables import vs
 
 
 class SwissArmyKnifeService(Service):

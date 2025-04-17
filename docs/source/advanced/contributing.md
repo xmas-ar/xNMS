@@ -2,7 +2,7 @@
 
 ## Environment
 
-eNMS uses:
+xNMS uses:
 
 -   Black for python code formatting.
 -   Flake8 to make sure that the python code is PEP8-compliant.
@@ -61,4 +61,4 @@ mkdocs serve
 ```
 
 This server will automatically update and refresh whenever any filesystem
-changes are made in the `enms/docs` folder or `mkdocs.yml`
+changes are made in the `xNMS/docs` folder or `mkdocs.yml`

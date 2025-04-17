@@ -1,17 +1,17 @@
 ---
-title: What is eNMS
+title: What is xNMS
 ---
 
-## What is eNMS
+## What is xNMS
 
-eNMS is a vendor-agnostic Network Management System (NMS) designed for building
+xNMS is a vendor-agnostic Network Management System (NMS) designed for building
 workflow-based network automation solutions.
 
-![eNMS Introduction](./_static/base/workflow.png)
+![xNMS Introduction](./_static/base/workflow.png)
 
-eNMS simplifies interaction with a wide variety of network device types for
+xNMS simplifies interaction with a wide variety of network device types for
 automating complex operations like network audits or upgrades without 
-worrying about the details of communication with each device.  eNMS developers
+worrying about the details of communication with each device.  xNMS developers
 focus on the data not the communication.
 
 For an overview, [see this diagram](#system-overview), below.
@@ -25,7 +25,7 @@ The following aspects of network automation are addressed:
 - **Ansible Service**: Store and run Ansible playbooks.
 - **REST Service**: Send REST calls with variable URL and payload.
 - **Python Script Service**: Any python script can be integrated
-    into the web UI. eNMS will automatically generate a form in the UI
+    into the web UI. xNMS will automatically generate a form in the UI
     for the script input parameters.
 - **Workflows**: Services can be combined graphically in a workflow.
 - **Scheduling**: Services and workflows can be scheduled to start
@@ -36,5 +36,5 @@ The following aspects of network automation are addressed:
 
 ## System Overview
 
-![eNMS System Overview](./_static/eNMS_overview.PNG)
+![xNMS System Overview](./_static/xNMS_overview.PNG)
 
