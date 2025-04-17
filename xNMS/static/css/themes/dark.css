@@ -22,7 +22,7 @@
 
 /* Main Page */
 body {
-  background: #4b5f71;
+  background: #202123;
   color: #e0e0e0;
 }
 
@@ -93,11 +93,11 @@ body {
 }
 
 table.dataTable tr.odd {
-  background-color: #000;
+  background-color: #5b5b5b;
 }
 
 table.dataTable tr.even {
-  background-color: #000;
+  background-color: #5b5b5b;
 }
 
 table.dataTable tr:hover {
