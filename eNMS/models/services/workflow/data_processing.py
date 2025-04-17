@@ -12,10 +12,10 @@ try:
 except ImportError as exc:
     warn(f"Couldn't import ttp module ({exc})")
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import HiddenField, SelectField, StringField
-from eNMS.models.automation import Service
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import HiddenField, SelectField, StringField
+from xNMS.models.automation import Service
 
 
 class DataProcessingService(Service):

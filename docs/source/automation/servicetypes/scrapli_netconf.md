@@ -39,8 +39,8 @@ Scrapli Project Documentation can be reviewed
 ## Connection Parameters
 
 - `Credentials`: Select between:
-    - `Device Credentials`: eNMS will select the most appropriate credential
-      object for each device. If there are multiple credentials available, eNMS
+    - `Device Credentials`: xNMS will select the most appropriate credential
+      object for each device. If there are multiple credentials available, xNMS
       will use the `Type of Credential` and `Priority` properties as a tiebreaker.
     - `Named Credentials`: Allows users to reference a specific credential for 
       all targets. Selecting this option requires additional selections below.

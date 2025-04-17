@@ -2,7 +2,7 @@
 title: WebSSH Connection
 ---
 # WebSSH Connection
-WebSSH provides terminal access to a device where eNMS establishes 
+WebSSH provides terminal access to a device where xNMS establishes 
 a Telnet or SSH session to the device using the information stored in the
 network inventory.  There are multiple ways to establish a WebSSH connection.
 
@@ -29,7 +29,7 @@ of the following options:
     - `Name`: This is the name property of the selected device.
     - `Console 1`: The value stored in the Console 1 property for the device.
     - `Console 2`: The value stored in the Console 2 property for the device.
-- `Automatically authenticate`: (SSH only) eNMS uses one of these sets of 
+- `Automatically authenticate`: (SSH only) xNMS uses one of these sets of 
   credentials to automatically authenticate to the network device:
     - `device credentials`: (default) credentials stored in the inventory.
     - `custom credentials`: provided by the user in the connection dialog
@@ -48,7 +48,7 @@ above is used to complete the connection process.
 
 !!! note 
     
-    As a security feature, eNMS stores device interactions initiated via the WebSSH
+    As a security feature, xNMS stores device interactions initiated via the WebSSH
     Connection feature into Session objects. 
     [Refer here for more details on `Sessions`.](../system/sessions.md) 
 

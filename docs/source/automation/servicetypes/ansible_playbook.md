@@ -7,7 +7,7 @@ with a command / pattern mechanism, like the `Data Validation Service`.
 Configuration parameters for creating this service instance:
 
 - `Playbook Path`: path and filename to the Ansible Playbook. The
-  location for displaying playbooks is configurable in eNMS settings.
+  location for displaying playbooks is configurable in xNMS settings.
 - `Arguments`: ansible-playbook command line options, which are
   documented **[here](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)**.
 - `Pass device properties to the playbook`: Pass inventory properties

@@ -2,10 +2,10 @@ from socket import error, gaierror, socket, timeout
 from subprocess import run as sub_run
 from sqlalchemy import ForeignKey, Integer
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import HiddenField, IntegerField, SelectField, StringField
-from eNMS.models.automation import Service
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import HiddenField, IntegerField, SelectField, StringField
+from xNMS.models.automation import Service
 
 
 class PingService(Service):

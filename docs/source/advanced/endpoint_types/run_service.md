@@ -13,11 +13,11 @@ Initiate execution of a service passing in values to control its operation.
  - `pools`: (default: `[]`) Same as devices but for pools.
  - `ip_addresses`: (default: `[]`) Same as devices but using ip_addresses.
  - `async`: (default: `false`) boolean.
-     -   `false`: eNMS runs the service and responds to your request
+     -   `false`: xNMS runs the service and responds to your request
          when the service completes. The response contains
          the result of the service, but the connection might time out
          if the service takes too long to run.
-     -   `true`: eNMS runs the service in a different thread and
+     -   `true`: xNMS runs the service in a different thread and
          immediately responds with the service ID. (Recommended)
  - user_created: (optional) this could be list, dictionary, or string as
    desired. pass in as many as needed. (see user_identified_key & aid in

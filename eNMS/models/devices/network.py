@@ -2,15 +2,15 @@ from sqlalchemy import ForeignKey, Integer
 from sqlalchemy.orm import relationship
 from wtforms.widgets import TextArea
 
-from eNMS.database import db, vs
-from eNMS.forms import BaseForm
-from eNMS.fields import (
+from xNMS.database import db, vs
+from xNMS.forms import BaseForm
+from xNMS.fields import (
     HiddenField,
     MultipleInstanceField,
     SelectField,
     StringField,
 )
-from eNMS.models.inventory import Node
+from xNMS.models.inventory import Node
 
 
 class Network(Node):

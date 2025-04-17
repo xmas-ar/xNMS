@@ -18,7 +18,7 @@ Configuration parameters include:
 
 - `Type of Minutes`: Whether the time estimate is given `Per Device` or `For the whole Workflow`
 
-- `Total Number of Minutes`: The sum of all times this workflow has run on this instance of eNMS.
+- `Total Number of Minutes`: The sum of all times this workflow has run on this instance of xNMS.
   This value is read-only and for display purposes only.
   
 - `Superworkflow`: Select from a workflow from the list that will act as a 

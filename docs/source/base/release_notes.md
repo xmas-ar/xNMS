@@ -95,7 +95,7 @@ Version 4.5.0: Custom Parameterized Form, Bulk Filtering & File Management
   - new "Parameterized Form Template" field in service panel > step 1 for the HTML code
   - supports JavaScript code inside <script></script> tag
   - must follow the same template as the default parameterized form ("form_type" variable,
-  add-id / btn-id CSS class, eNMS.automation.submitInitialForm run function, etc...)
+  add-id / btn-id CSS class, xNMS.automation.submitInitialForm run function, etc...)
 - Improve performances of migration import mechanism (~ x10)
   - Use CLoader to load migration files
   - Use a dictionary to store SQLAlchemy objects so that they are only fetched once
@@ -149,11 +149,11 @@ Version 4.5.0: Custom Parameterized Form, Bulk Filtering & File Management
   - Prevent uploading the same file twice in the file upload panel (or another file
     with the same name)
   - Add trash mechanism for files. Two options:
-    - 1) Put trash outside of files folder (not tracked by eNMS). When deleting a file, the database
+    - 1) Put trash outside of files folder (not tracked by xNMS). When deleting a file, the database
     object is deleted and the associated unix file is moved to the trash folder, with the current
     time as prefix.
     - 2) Put trash inside the files folder: the same mechanism applies, but the trash folder is
-    being tracked by eNMS. Files can be restored (by moving them from the trash folder to another
+    being tracked by xNMS. Files can be restored (by moving them from the trash folder to another
     directory), and whenever a file in the trash folder is deleted, it is removed (rm) from the
     filesystem. Files are moved to trash via the "update" function so that the file metadata is
     preserved.
@@ -232,7 +232,7 @@ Version 4.4.0: RBAC and Credentials
   - Forbid frequency to be 0 when a task has an end date (= is periodic)
 - Fix URL encoding for links to workflow builder with runtime (encode space to %20) (#278)
 - Add Clear Search button in file table
-- Use SQL Alchemy `regexp_match` mechanism (new from 1.4, replaced eNMS custom per DB regex match mechanism)
+- Use SQL Alchemy `regexp_match` mechanism (new from 1.4, replaced xNMS custom per DB regex match mechanism)
   Link: https://docs.sqlalchemy.org/en/14/core/sqlelement.html#sqlalchemy.sql.expression.ColumnOperators.regexp_match
   Commit: a6af8a88f197b891928986dd492ce2ff39fc629a
 - Add "creator" properties in all edit panels
@@ -360,14 +360,14 @@ Version 4.3.0
   the last column).
 - Add export service button in Workflow Builder.
 - New Files Management System:
-  * defined via settings / paths / files (default: eNMS / files folder)
+  * defined via settings / paths / files (default: xNMS / files folder)
   * files are automatically scanned when starting the application, and can be rescanned via the UI
   * files have a "Status" property showing the last action (updated, moved, deleted, etc)
   * last_modified is the unix last modified timestamp
   * files can be displayed hierarchically or flat in the table (default: hierarchical display)
   * both files and folder can be exported to browser; folders are compressed as tgz before export
   * new files can be uploaded to any folder from the UI
-  * deleting a file or folder in eNMS will delete it locally
+  * deleting a file or folder in xNMS will delete it locally
   * a folder can be created in currently displayed folder, not a file because a file must be
     associated with a local file.
   * watchdog is used to keep track of all files change done outside of the app
@@ -440,7 +440,7 @@ Version 4.2.0
 - Always show security logs, even when logging is disabled. Add "allow_disable" (default: True) keyword argument
   to log function to prevent logs from being disabled if necessary.
 - Add new 'deactivate_rbac_on_read' property in rbac.json, under 'advanced' key. Set to true by default.
-  When true, eNMS no longer applies rbac for reading from the database. (=> better performances)
+  When true, xNMS no longer applies rbac for reading from the database. (=> better performances)
 - Make the vendor, operating_system and model properties a custom list for devices, links and services,
   and category for sites and workflows. The drop-down list choices can be configured in properties.json > property_list key.
 - Add support for renaming objects from the REST API (with key "new_name")
@@ -486,7 +486,7 @@ Version 4.1.0
 - Separate progress for main devices & iteration devices in workflow builder
 - Fix bug where subworkflow device counters not displayed in results when device iteration is used
   Bug report mail: "No status for services in subworkflow with device iteration"
-- HTTP requests logging: all requests are now logged by eNMS and not by werkzeug like before.
+- HTTP requests logging: all requests are now logged by xNMS and not by werkzeug like before.
 - Add duplicate button in service table
 - Refactor the geographical and Logical View to behave like the workflow builder:
 
@@ -505,9 +505,9 @@ Version 4.1.0
   auto safe restart code that uses it must be updated accordingly.
 - Store and commit web SSH session content in backend instead of relying on send beacon mechanism and
   onbeforeunload callback so that the saving of a session does not depend on user behavior
-- Refactoring of the forms: all forms are now in eNMS.forms.py. Impact on form import:
-  eNMS.forms.automation -> eNMS.forms
-- Refactoring of the setup file: replace "from eNMS.setup" with "from eNMS.variables"
+- Refactoring of the forms: all forms are now in xNMS.forms.py. Impact on form import:
+  xNMS.forms.automation -> xNMS.forms
+- Refactoring of the setup file: replace "from xNMS.setup" with "from xNMS.variables"
 - Change model_properties in model from list of properties to dict of property with associated type
 - Custom properties defined in properties.json: change type from "boolean" to "bool" and "string" to "str"
   for consistency with rest of codebase
@@ -636,9 +636,9 @@ Version 4.0.0
 - Add ability to hard-code logic to mask password hashes when config is displayed in custom controller.
 - Add workflow tree in the workflow builder to visualize workflow and subworkflows as a tree with buttons:
   edit / new mechanism: highlight to teleport to any service. Makes it easier to work with large multi-level workflows.
-- Replace gotty with pure python implementation. Save session output with webssh. Need to set ENMS_USER and ENMS_PASSWORD
+- Replace gotty with pure python implementation. Save session output with webssh. Need to set xNMS_USER and xNMS_PASSWORD
   like with the scheduler to save the session via REST API. For this to work, admin credentials must be defined via
-  two new environment variables: ENMS_USER and ENMS_PASSWORD (same as scheduler)
+  two new environment variables: xNMS_USER and xNMS_PASSWORD (same as scheduler)
 - Fix bug connection not cached when using iteration values with a standalone service
 - Fix bug when exporting table to .csv - column shift if comma in property value
 - When scheduling a task, the creator of the service run is not properly set to the user who scheduled
@@ -649,7 +649,7 @@ Version 4.0.0
   builder.
 - Include private properties (custom password, ...) when exporting a service, or migration files.
 - New color property for workflow edges.
-- Export service now exports to user browser besides exporting the tgz to the eNMS instance.
+- Export service now exports to user browser besides exporting the tgz to the xNMS instance.
 - Remove Create Pool endpoint in the rest API
 - Add python snippet mechanism to troubleshooting (ctrl + alt + click on upper left logo)
 - Refactor REST service in case status code is not in (200, 300) to fix validation bug
@@ -741,7 +741,7 @@ Version 3.22
   for a given logger should also be logged as changelog or service log by default.
 - RBAC
 - Fix authentication bug flask_login and add session timeout mechanism
-- Make plugins separate from eNMS in their own folder, add bash script to install/update/uninstall them
+- Make plugins separate from xNMS in their own folder, add bash script to install/update/uninstall them
 - Make the CLI interface a plugins
 - Remove summary from service state to improve workflow refresh performances
 - Add Dark mode and theme mechanism
@@ -834,7 +834,7 @@ Version 3.21
 - Ability to display config older config from GIT
 - Ability to compare currently displayed config/data to any point in time in the past.
 - Syntax highlight option: ability to highlight certain keywords based on regular expression match,
-  defined in eNMS/static/lib/codemirror/logsMode. Can be customized.
+  defined in xNMS/static/lib/codemirror/logsMode. Can be customized.
 - New logging property to configure log level for a service or disable logging.
 - Fix bug when typing invalid regex for table search (eg "(" )
 - Dont display Start / End services in service table
@@ -949,7 +949,7 @@ Version 3.18.2
 - Add "devices" keyword for result postprocessing
 - Allow restart from top-level workflow when restarting from a subworkflow service
 - New "Skip value" property to decide whether skip means success or failure
-- Fix the workflow builder progress display when devices are skipped. Now eNMS shows how many devices
+- Fix the workflow builder progress display when devices are skipped. Now xNMS shows how many devices
   are skipped, and it no longer shows anything when it's 0 ("0 failed", "0 passed" etc are no longer displayed)
 - Netmiko session log code improvement for netmiko validation / prompt service
 
@@ -1111,7 +1111,7 @@ Version 3.15
 - New env variable: CUSTOM_CODE_PATH to define a path to a folder that contains custom code that
   you can use in your custom services.
 - Advanced search: per relationship system
-- eNMS version now displayed in the UI. The version number is read from the package.json file.
+- xNMS version now displayed in the UI. The version number is read from the package.json file.
 - Real-time log mechanism with multiprocessing enabled.
 - Workflow restartability improvement:
 - Fixed bug in tables: jump to bottom after page 1 when table is refreshed.

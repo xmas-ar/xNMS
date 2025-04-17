@@ -88,9 +88,9 @@ class Scheduler(Flask):
     @staticmethod
     def run_service(task_id):
         post(
-            f"{getenv('ENMS_ADDR')}/rest/run_task/{task_id}",
+            f"{getenv('xNMS_ADDR')}/rest/run_task/{task_id}",
             json={},
-            auth=HTTPBasicAuth(getenv("ENMS_USER"), getenv("ENMS_PASSWORD")),
+            auth=HTTPBasicAuth(getenv("xNMS_USER"), getenv("xNMS_PASSWORD")),
             verify=int(getenv("VERIFY_CERTIFICATE", 1)),
         )
 

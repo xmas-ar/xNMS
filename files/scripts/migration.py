@@ -3,7 +3,7 @@ from ruamel import yaml
 
 
 FILENAME = "examples"
-PATH = Path.cwd().parent.parent.parent / "eNMS-prod" / "files" / "migrations"
+PATH = Path.cwd().parent.parent.parent / "xNMS-prod" / "files" / "migrations"
 
 
 def migrate_from_4_to_4_2():

@@ -1,4 +1,4 @@
-# Functions provided by eNMS
+# Functions provided by xNMS
 # flake8: noqa
 
 # Factory: create a new instance

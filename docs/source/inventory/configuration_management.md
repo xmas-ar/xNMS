@@ -2,7 +2,7 @@
 
 ## Overview 
 
-eNMS can be used as a device configuration backup utility, like Oxidized/RANCID,
+xNMS can be used as a device configuration backup utility, like Oxidized/RANCID,
 with the following features:
 
 -   Poll network devices and store the latest configuration in the
@@ -22,7 +22,7 @@ with the following features:
 From the `Inventory -> Configurations` tab, the user can search for a specific 
 word, a string that is included in a pattern or a regular expression in 
 the current configuration of all devices, using the *Configuration*
-column. eNMS will filter the list of devices based on whether the
+column. xNMS will filter the list of devices based on whether the
 current configuration of the device contains the search criteria. Select
 the "Lines of Context" slider at the top of the UI to see up to 5
 lines, before and after the specified word that was searched.
@@ -83,11 +83,11 @@ files, located in `network_data/`, which are mapped in the `settings.json` to a 
 repository.
 
 Git is used for storing historical revisions of the data, and each additional
-instance of eNMS can retrieve the Git history using the
+instance of xNMS can retrieve the Git history using the
 `Admin Button -> Fetch Git Configurations Button`. Git fetch can also be
 configured in cron to periodically get triggered through the CLI to
 update the Configurations that were pushed into Git by another instance
-of eNMS.
+of xNMS.
 
 !!! note
  
@@ -104,7 +104,7 @@ repository folder to a remote (if one is configured).
 
 !!! attention
 
-    Multiple instances of eNMS pushing to the same `network_data/` repository
+    Multiple instances of xNMS pushing to the same `network_data/` repository
     may result in merge conflicts on some or all instances which will halt
     further updates. 
 

@@ -7,11 +7,11 @@ try:
 except ImportError as exc:
     warn(f"Couldn't import pynetbox module ({exc})")
 
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.fields import HiddenField, PasswordField, SelectField, StringField
-from eNMS.forms import ServiceForm
-from eNMS.models.automation import Service
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.fields import HiddenField, PasswordField, SelectField, StringField
+from xNMS.forms import ServiceForm
+from xNMS.models.automation import Service
 
 
 class TopologyImportService(Service):
@@ -24,8 +24,8 @@ class TopologyImportService(Service):
     opennms_devices = db.Column(db.SmallString)
     opennms_login = db.Column(db.SmallString)
     opennms_password = db.Column(db.SmallString)
-    librenms_address = db.Column(db.SmallString)
-    librenms_token = db.Column(db.SmallString)
+    librxNMS_address = db.Column(db.SmallString)
+    librxNMS_token = db.Column(db.SmallString)
 
     import_type = db.Column(db.SmallString)
 
@@ -89,10 +89,10 @@ class TopologyImportService(Service):
                     devices[device]["ip_address"] = interface["ipAddress"]
                     db.factory("device", **devices[device])
 
-    def query_librenms(self):
+    def query_librxNMS(self):
         devices = http_get(
-            f"{self.librenms_address}/api/v0/devices",
-            headers={"X-Auth-Token": env.get_password(self.librenms_token)},
+            f"{self.librxNMS_address}/api/v0/devices",
+            headers={"X-Auth-Token": env.get_password(self.librxNMS_token)},
         ).json()["devices"]
         for device in devices:
             db.factory(
@@ -114,7 +114,7 @@ class TopologyImportForm(ServiceForm):
     form_type = HiddenField(default="topology_import_service")
     import_type = SelectField(
         choices=(
-            ("librenms", "LibreNMS"),
+            ("librxNMS", "LibrxNMS"),
             ("netbox", "Netbox"),
             ("opennms", "OpenNMS"),
         )
@@ -125,8 +125,8 @@ class TopologyImportForm(ServiceForm):
     opennms_devices = StringField()
     opennms_login = StringField()
     opennms_password = PasswordField()
-    librenms_address = StringField(default="http://librenms.example.com")
-    librenms_token = PasswordField()
+    librxNMS_address = StringField(default="http://librxNMS.example.com")
+    librxNMS_token = PasswordField()
     groups = {
         "Type of Import": {"commands": ["import_type"], "default": "expanded"},
         "Netbox": {
@@ -142,8 +142,8 @@ class TopologyImportForm(ServiceForm):
             ],
             "default": "expanded",
         },
-        "LibreNMS": {
-            "commands": ["librenms_address", "librenms_token"],
+        "LibrxNMS": {
+            "commands": ["librxNMS_address", "librxNMS_token"],
             "default": "expanded",
         },
     }

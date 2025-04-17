@@ -94,7 +94,7 @@ The Service Editor Panel is accessible from the following locations:
 	The retry will affect only the devices for which the service failed.
 	Let's consider a service configured to run on 3 devices D1, D2, and D3
 	with 2 "retries". If it fails on D2 and D3 when the service runs for
-	the first time, eNMS will run the service again for D2 and D3 at the
+	the first time, xNMS will run the service again for D2 and D3 at the
 	first retry. If D2 succeeds and D3 fails, the second and last retry will
 	run on D3 only.    
     
@@ -150,7 +150,7 @@ generally provide more benefits for Service(s) that run inside of a Workflow.
 
 #### Custom Properties
 
-The eNMS administrator can add extra properties to the service form that
+The xNMS administrator can add extra properties to the service form that
 are saved on the service instance.  These Custom Property definitions are added
 in `setup/properties.json`.  A field for entry of Custom Property values is
 included in the [Custom Properties section](../../advanced/customization/#custom-properties).
@@ -294,7 +294,7 @@ target device.
         allowing operations against a set of devices related to the
         original target.
     -   `Iteration Devices Property`: Indicates whether iterable
-        `Iteration Devices` contains IP addresses or names, for eNMS to
+        `Iteration Devices` contains IP addresses or names, for xNMS to
         look up actual devices from the inventory.
     -   NOTE: When using `Iteration Devices` and  `Skip Query` the skip query
         will evaluate both the service's targets from Targets/Devices and 
@@ -430,11 +430,11 @@ at the end of execution.
 When a service finishes, the user can choose to receive a notification with
 the results. There are three types of notifications:
 
-**Mail notification**: eNMS sends an email to provided address(es)
+**Mail notification**: xNMS sends an email to provided address(es)
 
-**Slack notification**: eNMS sends a message to a provided Slack channel
+**Slack notification**: xNMS sends a message to a provided Slack channel
 
-**Mattermost notification**: eNMS sends a message to a provided Mattermost
+**Mattermost notification**: xNMS sends a message to a provided Mattermost
 channel
 
 Configure the following parameters:

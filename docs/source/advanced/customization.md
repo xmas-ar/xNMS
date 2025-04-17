@@ -7,7 +7,7 @@ of customization.
 
 ### Additional Properties  
 
-The base objects in eNMS (Device, Link, Service, Workflow) can be extended with
+The base objects in xNMS (Device, Link, Service, Workflow) can be extended with
 "custom" properties to add additional properties.  In `properties.json` file,
 these properties are stored under the `"custom"` key.
 
@@ -75,7 +75,7 @@ Example for a Service property:
 
 Example of a default_function attribute:
 ```python
-# eNMS/custom.py
+# xNMS/custom.py
 from uuid import uuid4
 
 class CustomApp
@@ -102,7 +102,7 @@ class CustomApp
 
 !!! tip
 
-    Custom properties are defined ONCE, prior to eNMS starting up for
+    Custom properties are defined ONCE, prior to xNMS starting up for
     the first time, since they are mapped into the database schema. Changes
     to customized properties require the database to be altered or dropped
     and reloaded to allow the object relational mapping to recreate the
@@ -111,7 +111,7 @@ class CustomApp
 ### Dashboard Configuration
 
 The `"dashboard"` key in `properties.json` defines the model data (e.g.,
-`"device"`) and properties to display in the eNMS Dashboard.
+`"device"`) and properties to display in the xNMS Dashboard.
 
 This data associated with this key allows determines how the [Dashboard](../system/dashboard.md):
 1. chooses which object types (Devices, Links, etc.) to display, and  
@@ -137,7 +137,7 @@ inventory, configuration, and pools tables, as well as the service, results,
 and task browsers.
 
 The `"tables"` key in `properties.json` defines the properties displayed by the
-eNMS tables for Devices, Links, etc. Any new, custom properties can also be
+xNMS tables for Devices, Links, etc. Any new, custom properties can also be
 added here.
 
 Example of this configuration data:  
@@ -162,8 +162,8 @@ also be added here - if they should be used to filter the table.
 
 ## Custom Devices and Links
 
-eNMS provides the ability to define specialized Device and Link classes.
-The **Gateway** class (`eNMS/models/devices/gateway.py`) provides an example of this.
+xNMS provides the ability to define specialized Device and Link classes.
+The **Gateway** class (`xNMS/models/devices/gateway.py`) provides an example of this.
 
 ## Custom Libraries
 
@@ -174,10 +174,10 @@ ability to import these modules.
 
 ## Custom Service Types
 
-In addition to the service types provided by eNMS, custom Service
+In addition to the service types provided by xNMS, custom Service
 Types can be created. When the application starts, it loads all Python
-files in the `eNMS/services` folder. Custom service types are then 
-loaded from the folder specified in eNMS `settings.json`, section `paths`.
+files in the `xNMS/services` folder. Custom service types are then 
+loaded from the folder specified in xNMS `settings.json`, section `paths`.
 
 Creating a Service Type means adding a new Python file in that folder 
 (creating sub-folders are fine to organize the custom services; they are
@@ -187,7 +187,7 @@ custom Service file must contain:
 -   A **job()** function: that handles the action to be performed.
 -   A **model** class: The service parameters, and what the service is
     doing via a `job` function.
--   A **form** class: The different fields eNMS displays in the UI, and
+-   A **form** class: The different fields xNMS displays in the UI, and
     their corresponding validation.
  
 After adding a new custom Service type, the application must be reloaded,
@@ -195,7 +195,7 @@ which causes the resulting schema for the custom service type(s) to be mapped
 into the database by the SQLAlchemy ORM. Then, the new custom Service type
 will appear in the Service Type pull-down in the UI.
 
-An example custom Service file exists in `eNMS/models/services/examples/example.py`
+An example custom Service file exists in `xNMS/models/services/examples/example.py`
 
 !!! tip
 
@@ -207,13 +207,13 @@ An example custom Service file exists in `eNMS/models/services/examples/example.
 A Plugin represents a more advanced form of customization - that can include new data 
 models, user interface components, API and form endpoints, and Custom Service Types.  
 
-Self-contained extensions to the eNMS platform represent good candidates for plugins.
+Self-contained extensions to the xNMS platform represent good candidates for plugins.
 
-At startup, eNMS loads any plugins it finds inside the `eNMS/plugins` folder. 
+At startup, xNMS loads any plugins it finds inside the `xNMS/plugins` folder. 
 
 ### Example Plugins 
 
-Some example eNMS plugins can be found here:
+Some example xNMS plugins can be found here:
 
-- [An example eNMS plugin](https://github.com/eNMS-automation/template-plugin)  
-- [A sample eNMS Command-Line Interface (CLI)](https://github.com/eNMS-automation/cli-plugin)
+- [An example xNMS plugin](https://github.com/xNMS-automation/template-plugin)  
+- [A sample xNMS Command-Line Interface (CLI)](https://github.com/xNMS-automation/cli-plugin)

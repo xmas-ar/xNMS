@@ -17,8 +17,8 @@ from wtforms.validators import ValidationError
 from wtforms.widgets import html_params
 
 
-from eNMS.database import db
-from eNMS.variables import vs
+from xNMS.database import db
+from xNMS.variables import vs
 
 
 class MetaField(type):

@@ -4,9 +4,9 @@ from sqlalchemy import or_
 from sqlalchemy.ext.mutable import MutableDict, MutableList
 from sqlalchemy.sql.expression import false
 
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.variables import vs
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.variables import vs
 
 
 class AbstractBase(db.base):

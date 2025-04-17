@@ -657,7 +657,7 @@ function getTree() {
                       type="button"
                       class="btn btn-xs btn-info"
                       data-tooltip="Find"
-                      onclick='eNMS.builder.highlightNode(${JSON.stringify(node.data)})'
+                      onclick='xNMS.builder.highlightNode(${JSON.stringify(node.data)})'
                     >
                       <span class="glyphicon glyphicon-screenshot"></span>
                     </button>
@@ -665,7 +665,7 @@ function getTree() {
                       type="button"
                       class="btn btn-xs btn-primary"
                       data-tooltip="Edit"
-                      onclick='eNMS.base.showInstancePanel(
+                      onclick='xNMS.base.showInstancePanel(
                         "${node.data.type}", ${node.data.id}
                       )'
                     >

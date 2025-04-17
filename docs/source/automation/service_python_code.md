@@ -281,7 +281,7 @@ are made available to the user.
 
 -   `settings`
 
-    -   **Meaning**: eNMS settings, editable from the top-level `Settings`
+    -   **Meaning**: xNMS settings, editable from the top-level `Settings`
         Icon. It is initially set to the content of `settings.json`, and
         it stays synchronized if the option to write changes back to 
         `settings.json` is used.
@@ -294,10 +294,10 @@ are made available to the user.
     -   `title`: (**string, mandatory**).
     -   `content`: (**string, mandatory**).
     -   `sender`: (**string, optional**) Email address of the sender.
-        Defaults to the sender address in eNMS settings.
+        Defaults to the sender address in xNMS settings.
     -   `recipients`: (**string, optional**) Mail addresses of the
         recipients, separated by comma. Defaults to the recipients'
-        addresses in eNMS settings.
+        addresses in xNMS settings.
     -   `reply_to`: (**string, optional**) Single mail address for
         replies to notifications.
     -   `filename`: (**string, optional**) Name of the attached file.
@@ -334,7 +334,7 @@ background, lets the user include python code inside double curved brackets
 (`{{user python code}}`). For example, the URL of a REST call service is
 a substitution field. If the service is running on device targets, use 
 the global variable `device` in the URL. When the service is
-running, eNMS will evaluate the python code in brackets and replace it
+running, xNMS will evaluate the python code in brackets and replace it
 with its value. See [variables](#variables)
 for the full list of variables and functions available within substitution
 fields.

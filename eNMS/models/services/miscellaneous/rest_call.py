@@ -3,9 +3,9 @@ from sqlalchemy import Boolean, ForeignKey, Integer
 from sqlalchemy.orm import relationship
 from sqlalchemy.types import JSON
 
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.fields import (
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.fields import (
     BooleanField,
     DictField,
     HiddenField,
@@ -15,8 +15,8 @@ from eNMS.fields import (
     SelectField,
     StringField,
 )
-from eNMS.forms import ServiceForm
-from eNMS.models.automation import Service
+from xNMS.forms import ServiceForm
+from xNMS.models.automation import Service
 
 
 class RestCallService(Service):

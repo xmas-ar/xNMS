@@ -1,4 +1,4 @@
-Implements a Ping from this eNMS instance to the selected devices
+Implements a Ping from this xNMS instance to the selected devices
 from inventory, or a custom IP Address, using either ICMP or TCP.
 
 ![ICMP / TCP Ping Service](../../_static/automation/service_types/icmp_tcp_ping.png)

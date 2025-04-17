@@ -84,7 +84,7 @@ like:
 ## Connection Cache
 
 When using netconf, netmiko, napalm, and scrapli services in a workflow,
-eNMS will cache and reuse the connection automatically. In the Step2
+xNMS will cache and reuse the connection automatically. In the Step2
 `Connection Parameters` section of a service, there are some properties to
 change this behavior :
 
@@ -103,7 +103,7 @@ change this behavior :
 
 ## Waiting Times and Retries
 
-Services and Workflows have a `Time to Wait` property: this tells eNMS
+Services and Workflows have a `Time to Wait` property: this tells xNMS
 how much time it should wait after the service has run before it begins
 the next service.
 

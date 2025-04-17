@@ -2,10 +2,10 @@ from git import Repo
 from pathlib import Path
 from sqlalchemy import Boolean, ForeignKey, Integer
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import BooleanField, HiddenField, SelectMultipleField, StringField
-from eNMS.models.automation import Service
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import BooleanField, HiddenField, SelectMultipleField, StringField
+from xNMS.models.automation import Service
 
 
 class GitService(Service):

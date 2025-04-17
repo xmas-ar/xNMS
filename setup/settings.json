@@ -1,10 +1,10 @@
 {
   "app": {
     "config_mode": "debug",
-    "documentation_url": "https://enms.readthedocs.io/en/latest/",
+    "documentation_url": "https://xNMS.readthedocs.io/en/latest/",
     "git_repository": "git@github.com:afourmy/gitpython-test.git",
     "max_content_length": 104857600,
-    "plugin_path": "eNMS/plugins",
+    "plugin_path": "xNMS/plugins",
     "session_timeout_minutes": 30,
     "startup_migration": "examples",
     "version": 4.6
@@ -141,7 +141,7 @@
     }
   },
   "security": {
-    "forbidden_python_libraries": ["eNMS", "os", "subprocess", "sys"]
+    "forbidden_python_libraries": ["xNMS", "os", "subprocess", "sys"]
   },
   "slack": {
     "channel": "random"

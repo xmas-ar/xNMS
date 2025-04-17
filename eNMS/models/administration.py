@@ -11,10 +11,10 @@ from sqlalchemy import Boolean, ForeignKey, Integer, Float
 from sqlalchemy.orm import relationship
 from time import ctime
 
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.models.base import AbstractBase
-from eNMS.variables import vs
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.models.base import AbstractBase
+from xNMS.variables import vs
 
 
 class Server(AbstractBase):

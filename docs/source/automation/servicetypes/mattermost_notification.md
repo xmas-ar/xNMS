@@ -1,5 +1,5 @@
 This service will send a message to a mattermost server that is
-configured in the eNMS settings.
+configured in the xNMS settings.
 
 ![Mattermost Notification Service](../../_static/automation/service_types/mattermost_notification.png)
 

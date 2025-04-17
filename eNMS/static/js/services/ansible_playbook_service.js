@@ -1,11 +1,11 @@
 /*
 global
-eNMS: false
+xNMS: false
 */
 
 // eslint-disable-next-line
 function job(id) {
-  eNMS.base.call({
+  xNMS.base.call({
     url: `/scan_playbook_folder`,
     callback: function(playbooks) {
       const fieldId = id ? `playbook_path-${id}` : "playbook_path";
@@ -17,7 +17,7 @@ function job(id) {
       });
       field.selectpicker("refresh");
       if (id) {
-        eNMS.base.call({
+        xNMS.base.call({
           url: `/get/ansible_playbook_service/${id}`,
           callback: function(instance) {
             field.val(instance.playbook_path);

@@ -247,7 +247,7 @@ function displayNetworkData({ type, name, id, result, datetime }) {
             )}
           </select>
           <button
-            onclick="eNMS.inventory.downloadNetworkData('${id}', '${name}')"
+            onclick="xNMS.inventory.downloadNetworkData('${id}', '${name}')"
             type="button"
             class="btn btn-primary"
             style="margin-left: 10px"
@@ -392,7 +392,7 @@ function showGitHistory(device) {
                     `<button
                       type="button"
                       class="btn btn-sm btn-info"
-                      onclick="eNMS.inventory.showGitConfiguration(
+                      onclick="xNMS.inventory.showGitConfiguration(
                         ${JSON.stringify(device).replace(/"/g, "'")},
                         ${JSON.stringify(commit).replace(/"/g, "'")}
                       )"

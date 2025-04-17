@@ -1,6 +1,6 @@
 # Changelog
 
-The eNMS changelog is found under `System / Changelog`
+The xNMS changelog is found under `System / Changelog`
 
 ![Filtering System.](../_static/system/changelog.png)
 

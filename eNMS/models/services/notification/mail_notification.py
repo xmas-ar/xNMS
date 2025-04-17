@@ -1,11 +1,11 @@
 from sqlalchemy import ForeignKey, Integer
 from wtforms.widgets import TextArea
 
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.fields import HiddenField, StringField
-from eNMS.forms import ServiceForm
-from eNMS.models.automation import Service
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.fields import HiddenField, StringField
+from xNMS.forms import ServiceForm
+from xNMS.models.automation import Service
 
 
 class MailNotificationService(Service):

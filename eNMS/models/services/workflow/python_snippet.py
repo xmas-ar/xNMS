@@ -2,10 +2,10 @@ from sqlalchemy import ForeignKey, Integer
 from traceback import extract_tb, format_exc
 from wtforms.widgets import TextArea
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import HiddenField, StringField
-from eNMS.models.automation import Service
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import HiddenField, StringField
+from xNMS.models.automation import Service
 
 
 class PythonSnippetService(Service):

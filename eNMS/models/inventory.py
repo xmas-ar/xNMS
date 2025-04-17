@@ -4,10 +4,10 @@ from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import backref, deferred, relationship
 from sqlalchemy.schema import UniqueConstraint
 
-from eNMS.controller import controller
-from eNMS.models.base import AbstractBase
-from eNMS.database import db
-from eNMS.variables import vs
+from xNMS.controller import controller
+from xNMS.models.base import AbstractBase
+from xNMS.database import db
+from xNMS.variables import vs
 
 
 class Object(AbstractBase):

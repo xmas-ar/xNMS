@@ -9,11 +9,11 @@ accessible by users with admin privileges:
 
 - `Fetch Git Configurations`: Loads the latest device configurations from the
   git 'configurations' repository into the database for each matching inventory
-  device. This is performed automatically when eNMS starts up: the git
+  device. This is performed automatically when xNMS starts up: the git
   configurations repository is quietly cloned and loaded into the database.
   This feature allows manual pulling of updated configurations data.
 - `Scan Cluster Subnet`: Populates the `Administration -> Servers` table with
-  related instances where eNMS has been deployed as a cluster of Servers.
+  related instances where xNMS has been deployed as a cluster of Servers.
 - `Parameters`: Tune the notification banner settings. See
   [Notification Banner](#notification-banner) below for usage.
 
@@ -49,24 +49,24 @@ found in either the `Parameters` section of the `Admin Panel` or in
 
 ## Database: Migration, Backup and Restore
 
-The eNMS migration system handles exporting the complete database
+The xNMS migration system handles exporting the complete database
 content into YAML files. By providing a directory name and selecting
-which eNMS object types to export/backup, eNMS serializes the stored
-objects into the directory `eNMS/files/migrations/directory_name`. These
+which xNMS object types to export/backup, xNMS serializes the stored
+objects into the directory `xNMS/files/migrations/directory_name`. These
 yaml files can then be copied into the same directory on a new instance
-of eNMS, where the Import function can be used to
+of xNMS, where the Import function can be used to
 import/restore the configuration and living data of those object types.
-These migration files are used for migrating from one version of eNMS to
-the next version. They are also used for Backup and Restore of eNMS. The
+These migration files are used for migrating from one version of xNMS to
+the next version. They are also used for Backup and Restore of xNMS. The
 migration system is accessed from the `Admin` icon at the top of the
 UI or from the REST API.
 
 ![Migrations](../_static/administration/migrations.png)
 
 `Migration Import/Export` Restore/Import database on a newly created
-  instance of eNMS:
+  instance of xNMS:
 
-- Launch the GUI and login into a freshly built/installed eNMS system. 
+- Launch the GUI and login into a freshly built/installed xNMS system. 
 - Ensure that the migration YAML files are present in the desired folder.
 - At the top of the UI screen, Click the `Admin` button.
 - Click `Migration Import/Export` and select options, all the object
@@ -86,7 +86,7 @@ UI or from the REST API.
 !!! note
 
     If migrating data onto an existing instance (as opposed to a
-    fresh instance) of eNMS, you can select the option
+    fresh instance) of xNMS, you can select the option
     `Empty Database before Import` to empty the database before starting the
     migration.
 
@@ -108,8 +108,8 @@ Deletes historical results, logs, and changelogs
   
 ## Inventory Import/Export
 
-eNMS inventory devices and links topology can be exported and Imported into an
+xNMS inventory devices and links topology can be exported and Imported into an
 Excel based format. When executing the `Excel export` function, the file will
-be exported to the `eNMS/files/spreadsheets` folder on the local VM. When
+be exported to the `xNMS/files/spreadsheets` folder on the local VM. When
 executing the `Excel import` function, the application will request for the
 desired file from the browser.

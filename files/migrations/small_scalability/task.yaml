@@ -20,7 +20,7 @@
 - admin_only: true
   creator: ''
   crontab_expression: ''
-  description: Monitor eNMS cluster
+  description: Monitor xNMS cluster
   devices: []
   end_date: ''
   frequency: 15

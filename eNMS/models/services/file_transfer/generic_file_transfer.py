@@ -6,9 +6,9 @@ from sqlalchemy import Boolean, Float, ForeignKey, Integer
 from sqlalchemy.orm import relationship
 from wtforms.validators import InputRequired
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import (
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import (
     BooleanField,
     FloatField,
     HiddenField,
@@ -18,8 +18,8 @@ from eNMS.fields import (
     SelectField,
     StringField,
 )
-from eNMS.models.automation import Service
-from eNMS.variables import vs
+from xNMS.models.automation import Service
+from xNMS.variables import vs
 
 
 class GenericFileTransferService(Service):

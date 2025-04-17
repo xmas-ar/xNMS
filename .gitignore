@@ -8,7 +8,7 @@ __pycache__/
 *.log
 *.log.*
 
-# created by eNMS
+# created by xNMS
 logs
 network_data
 files/services/*

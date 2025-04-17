@@ -1,4 +1,4 @@
 docs/* linguist-vendored
 
-eNMS/static/lib/* linguist-vendored
-eNMS/static/fonts/* linguist-vendored
+xNMS/static/lib/* linguist-vendored
+xNMS/static/fonts/* linguist-vendored

@@ -46,7 +46,7 @@ class Server(Flask):
                     "timestamp": str(datetime.now()),
                     "user": getenv("USER"),
                 },
-                auth=HTTPBasicAuth(getenv("ENMS_USER"), getenv("ENMS_PASSWORD")),
+                auth=HTTPBasicAuth(getenv("xNMS_USER"), getenv("xNMS_PASSWORD")),
                 verify=False if getenv("VERIFY_CERTIFICATE", True) == "False" else True,
             )
             return jsonify(True)

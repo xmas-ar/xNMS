@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google" content="notranslate" />
     {% endblock meta %}
-    <title>eNMS | {% block title %}{% endblock %}</title>
+    <title>xNMS | {% block title %}{% endblock %}</title>
     {% block stylesheets %}
     <link
       href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}"
@@ -93,17 +93,17 @@
     <div id="sidebar" class="left_column">
       <center>
         {% set logo_size = "17" if current_user.small_menu else "30" %}
-        <h3 id="eNMS" class="logo unselectable" style="font-size:{{ logo_size }}px">
-          eNMS
+        <h3 id="xNMS" class="logo unselectable" style="font-size:{{ logo_size }}px">
+          xNMS
         </h3>
         <img
-          id="img-enms"
+          id="img-xNMS"
           src="{{ url_for('static', filename='img/logo.png') }}"
           style="width: 30px; display: none;"
         />
         {% set version_size = "15" if current_user.small_menu else "20" %}
         <h3
-          id="eNMS-version"
+          id="xNMS-version"
           class="version unselectable"
           style="font-size: {{ version_size }}px;"
         >
@@ -166,7 +166,7 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
               <div class="nav toggle">
-                <a onclick="eNMS.base.fullScreen()"
+                <a onclick="xNMS.base.fullScreen()"
                   ><i class="glyphicon glyphicon-fullscreen"></i
                 ></a>
               </div>
@@ -184,7 +184,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li>
-                      <a onclick="eNMS.administration.showProfile()"
+                      <a onclick="xNMS.administration.showProfile()"
                         ><i class="fa fa-user pull-right"></i>Profile</a
                       >
                     </li>
@@ -209,7 +209,7 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     {% for theme, values in themes["themes"].items() %}
                     <li>
-                      <a onclick="eNMS.base.switchTheme('{{ theme }}')"
+                      <a onclick="xNMS.base.switchTheme('{{ theme }}')"
                         >{{ values["name"] }}</a
                       >
                     </li>
@@ -218,7 +218,7 @@
                 </li>
                 <li role="presentation" class="nav-item dropdown">
                   <a
-                    onclick="eNMS.base.createAlerts()"
+                    onclick="xNMS.base.createAlerts()"
                     class="dropdown-toggle info-number"
                     style="cursor: pointer;"
                     data-toggle="dropdown"
@@ -249,7 +249,7 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    onclick="eNMS.administration.displayFiles()"
+                    onclick="xNMS.administration.displayFiles()"
                     style="cursor: pointer;"
                   >
                     <img
@@ -263,7 +263,7 @@
                 {% if user.is_admin %}
                 <li class="nav-item">
                   <a
-                    onclick="eNMS.base.openPanel({
+                    onclick="xNMS.base.openPanel({
                       name: 'administration', title: 'Administration Panel', size: 'auto'
                       })"
                     style="cursor: pointer;"
@@ -290,7 +290,7 @@
     {% endblock body %} {% block javascripts %}
     <script src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}"></script>
     <script>
-      window.eNMS = {};
+      window.xNMS = {};
       const applicationPath = {{ application_path|d("")|tojson|safe }};
       const filePath = {{ file_path|tojson|safe }};
       const page = "{{ endpoint }}";

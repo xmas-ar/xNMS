@@ -5,19 +5,19 @@ from sqlalchemy.orm import backref, relationship
 from sqlalchemy.schema import UniqueConstraint
 from wtforms.validators import NumberRange
 
-from eNMS.database import db
-from eNMS.models.base import AbstractBase
-from eNMS.forms import ServiceForm
-from eNMS.fields import (
+from xNMS.database import db
+from xNMS.models.base import AbstractBase
+from xNMS.forms import ServiceForm
+from xNMS.fields import (
     BooleanField,
     HiddenField,
     InstanceField,
     IntegerField,
     SelectField,
 )
-from eNMS.models.automation import Service
-from eNMS.runner import Runner
-from eNMS.variables import vs
+from xNMS.models.automation import Service
+from xNMS.runner import Runner
+from xNMS.variables import vs
 
 
 class Workflow(Service):

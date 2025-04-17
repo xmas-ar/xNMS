@@ -1,6 +1,6 @@
 # Service Types
 
-eNMS provides a rich suite of Service Types for managing and interacting 
+xNMS provides a rich suite of Service Types for managing and interacting 
 with network equipment. 
 
 ## Ansible Playbook Service
@@ -26,7 +26,7 @@ service's result, later in a workflow:
 
 ## Generic File Transfer Service
 
-Transfer a single file to/from the eNMS server to the device using
+Transfer a single file to/from the xNMS server to the device using
 either SFTP or SCP:
 
 - [Generic File Transfer Service](servicetypes/generic_filetransfer.md).
@@ -54,7 +54,7 @@ of recipients:
 ## Mattermost Notification Service
 
 This service will send a message to a mattermost server that is
-configured in the eNMS settings:
+configured in the xNMS settings:
 
 - [Mattermost Notification Service](servicetypes/mattermost_notification.md).
 
@@ -134,19 +134,19 @@ Send an XML payload to a device netconf interface using Scrapli:
 ## Slack Notification Service
 
 This service will send a message to the slack server that is configured
-in the eNMS settings:
+in the xNMS settings:
 
 - [Slack Notification Service](servicetypes/slack_notification.md).
 
 ## Topology Import Service
 
-Import the network topology from an instance of LibreNMS, Netbox or OpenNMS:
+Import the network topology from an instance of LibrxNMS, Netbox or OpenNMS:
 
 - [Topology Import Service](servicetypes/topology_import.md).
 
 ## UNIX Command Service
 
-Runs a UNIX command **on the server where eNMS is installed**:
+Runs a UNIX command **on the server where xNMS is installed**:
 
 - [Unix Command Service](servicetypes/unix_command.md).
 

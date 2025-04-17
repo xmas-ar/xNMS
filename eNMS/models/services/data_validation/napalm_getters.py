@@ -1,10 +1,10 @@
 from sqlalchemy import ForeignKey, Integer
 
-from eNMS.database import db
-from eNMS.forms import NapalmForm
-from eNMS.fields import HiddenField, SelectMultipleField
-from eNMS.models.automation import ConnectionService
-from eNMS.variables import vs
+from xNMS.database import db
+from xNMS.forms import NapalmForm
+from xNMS.fields import HiddenField, SelectMultipleField
+from xNMS.models.automation import ConnectionService
+from xNMS.variables import vs
 
 
 class NapalmGettersService(ConnectionService):

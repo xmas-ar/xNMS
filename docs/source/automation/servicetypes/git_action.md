@@ -14,7 +14,7 @@ Perform a GIT action on a set of files used or created by a workflow.
 
 - `Path to Local Git Repository`: Path to store the repository in locally
 
-- `Path is relative to eNMS folder`: True if using a relative path; False for an absolute path
+- `Path is relative to xNMS folder`: True if using a relative path; False for an absolute path
 
 - `Path to Remote Git Repository`: Path to the repository on the remote server
 

@@ -21,7 +21,7 @@
 - "admin_only": !!bool "true"
   "creator": ""
   "crontab_expression": ""
-  "description": "Monitor eNMS cluster"
+  "description": "Monitor xNMS cluster"
   "devices": []
   "end_date": ""
   "frequency": !!int "15"

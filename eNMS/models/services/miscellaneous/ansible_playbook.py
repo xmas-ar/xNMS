@@ -4,17 +4,17 @@ from sqlalchemy import Boolean, ForeignKey, Integer
 from subprocess import check_output
 from traceback import format_exc
 
-from eNMS.database import db
-from eNMS.forms import ServiceForm
-from eNMS.fields import (
+from xNMS.database import db
+from xNMS.forms import ServiceForm
+from xNMS.fields import (
     BooleanField,
     DictField,
     HiddenField,
     SelectField,
     StringField,
 )
-from eNMS.models.automation import Service
-from eNMS.variables import vs
+from xNMS.models.automation import Service
+from xNMS.variables import vs
 
 
 class AnsiblePlaybookService(Service):

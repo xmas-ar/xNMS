@@ -1,5 +1,5 @@
 - authentication: database
-  email: admin@enms.io
+  email: admin@xNMS.io
   get_requests: [/view_service_results, /user_table, /device_table, /form/unix_command_service,
     /form/pool_objects, /form/add_services_to_workflow, /form/rest_call_service, /form/swiss_army_knife_service,
     /session_table, /form/changelog, /server_table, /form/device_filtering, /download_file,

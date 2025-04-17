@@ -597,7 +597,7 @@
   "workflow": "(R) Unix Command & Chell, Ping Service, Jump on Connect mechanism"
 - "color": "green"
   "destination": "[(R) Unix Command & Chell, Ping Service, Jump on Connect mechanism]\
-    \ Unix shell: ping eNMS server from remote server"
+    \ Unix shell: ping xNMS server from remote server"
   "label": "success"
   "name": "[Regression Workflow: Unix Command & Chell, Ping Service, Jump on Connect\
     \ mechanism] 2021-04-24 08:58:40.197740"
@@ -613,14 +613,14 @@
   "name": "[Regression Workflow: Unix Command & Chell, Ping Service, Jump on Connect\
     \ mechanism] 2021-04-24 08:58:40.197754"
   "source": "[(R) Unix Command & Chell, Ping Service, Jump on Connect mechanism] Unix\
-    \ shell: ping eNMS server from remote server"
+    \ shell: ping xNMS server from remote server"
   "subtype": "success"
   "type": "workflow_edge"
   "workflow": "(R) Unix Command & Chell, Ping Service, Jump on Connect mechanism"
 - "color": "green"
   "destination": "[Topology Import Services] OpenNMS Import"
   "label": "success"
-  "name": "[Regression Workflow: Topology Import (netbox, librenms, opennms)] 2021-04-24\
+  "name": "[Regression Workflow: Topology Import (netbox, librxNMS, opennms)] 2021-04-24\
     \ 08:58:40.197770"
   "source": "[Shared] Start"
   "subtype": "success"
@@ -629,7 +629,7 @@
 - "color": "green"
   "destination": "[Shared] End"
   "label": "success"
-  "name": "[Regression Workflow: Topology Import (netbox, librenms, opennms)] 2021-04-24\
+  "name": "[Regression Workflow: Topology Import (netbox, librxNMS, opennms)] 2021-04-24\
     \ 08:58:40.197786"
   "source": "[Topology Import Services] OpenNMS Import"
   "subtype": "success"
@@ -1725,7 +1725,7 @@
   "type": "workflow_edge"
   "workflow": "Mail Notifications"
 - "color": "green"
-  "destination": "[(R) Netmiko File Transfer Service] Check no file in enms_files\
+  "destination": "[(R) Netmiko File Transfer Service] Check no file in xNMS_files\
     \ directory"
   "label": "success"
   "name": "2021-07-05 04:40:26.340471"
@@ -1737,7 +1737,7 @@
   "destination": "[(R) Netmiko File Transfer Service] Transfer netmiko_file"
   "label": "success"
   "name": "2021-07-05 04:44:41.263847"
-  "source": "[(R) Netmiko File Transfer Service] Check no file in enms_files directory"
+  "source": "[(R) Netmiko File Transfer Service] Check no file in xNMS_files directory"
   "subtype": "success"
   "type": "workflow_edge"
   "workflow": "(R) Netmiko File Transfer Service"

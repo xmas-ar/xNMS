@@ -28,7 +28,7 @@ function install() {
   elif [ "$install" = "mysql" ]; then
     sudo apt install -y mysql-server libmysqlclient-dev python3-mysqldb
     sudo pip3 install mysqlclient
-    sudo mysql -u root --password=password -e 'CREATE DATABASE enms;'
+    sudo mysql -u root --password=password -e 'CREATE DATABASE xNMS;'
     sudo mysql -u root --password=password -e 'set global max_connections = 2000;'
     # to change auth_plugin to mysql_native_password and set password to root:
     # sudo mysql
@@ -36,16 +36,16 @@ function install() {
   elif [ "$install" = "postgresql" ]; then
     sudo apt-get install -y postgresql libpq-dev postgresql-client
     sudo pip3 install psycopg2
-    sudo -u postgres psql -c "CREATE DATABASE enms;"
+    sudo -u postgres psql -c "CREATE DATABASE xNMS;"
     sudo -u postgres psql -c "CREATE USER root WITH PASSWORD 'password';"
-    sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE enms TO root;"
-  elif [ "$install" = "enms" ]; then
+    sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE xNMS TO root;"
+  elif [ "$install" = "xNMS" ]; then
     sudo apt-get install -y python3-pip sshpass npm
     for file in build/requirements/*; do pip3 install -r $file; done
     sudo npm install -g prettier eslint eslint-config-google
   elif [ "$install" = "nginx" ]; then
     sudo apt-get install -y nginx
-    sudo cp ${path:-$PWD}/build/nginx/enms.conf /etc/nginx/sites-enabled
+    sudo cp ${path:-$PWD}/build/nginx/xNMS.conf /etc/nginx/sites-enabled
     sudo systemctl restart nginx
   elif [ "$install" = "redis" ]; then
     sudo apt-get install -y redis-server
@@ -83,7 +83,7 @@ function uninstall() {
   elif [ "$uninstall" = "nginx" ]; then
     sudo nginx -s stop
     sudo apt-get -y remove --purge nginx
-    sudo rm /etc/nginx/sites-enabled/enms.conf
+    sudo rm /etc/nginx/sites-enabled/xNMS.conf
   elif [ "$uninstall" = "redis" ]; then
     sudo apt-get -y remove redis-server
   elif [ "$uninstall" = "tacacs" ]; then
@@ -118,7 +118,7 @@ function help() {
     Programs:
       mysql / postgresql
       vault
-      enms (git, pip, requirements)
+      xNMS (git, pip, requirements)
       nginx
       redis
   "

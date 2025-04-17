@@ -9,14 +9,14 @@ from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import deferred, relationship
 
-from eNMS.controller import controller
-from eNMS.database import db
-from eNMS.environment import env
-from eNMS.models.base import AbstractBase
-from eNMS.models.inventory import Device  # noqa: F401
-from eNMS.models.administration import User  # noqa: F401
-from eNMS.runner import Runner
-from eNMS.variables import vs
+from xNMS.controller import controller
+from xNMS.database import db
+from xNMS.environment import env
+from xNMS.models.base import AbstractBase
+from xNMS.models.inventory import Device  # noqa: F401
+from xNMS.models.administration import User  # noqa: F401
+from xNMS.runner import Runner
+from xNMS.variables import vs
 
 
 class Service(AbstractBase):
