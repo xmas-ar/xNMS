@@ -93,11 +93,11 @@ body {
 }
 
 table.dataTable tr.odd {
-  background-color: #5b5b5b;
+  background-color: #1b1b1d;
 }
 
 table.dataTable tr.even {
-  background-color: #5b5b5b;
+  background-color: #1b1b1d;
 }
 
 table.dataTable tr:hover {
