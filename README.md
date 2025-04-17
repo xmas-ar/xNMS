@@ -120,9 +120,10 @@ You can follow us on _[Twitter](https://twitter.com/AutomationEnms)_ or _[Linked
 
 ## Quick Install
     Install python 3.8+ (earlier versions not supported)
-    git clone https://github.com/afourmy/eNMS.git
-    cd eNMS
+    git clone https://github.com/xmas-ar/xNMS.git
+    cd xNMS
     pip3 install -r build/requirements/requirements.txt
     export FLASK_APP=app.py
-    flask run --host=0.0.0.0
+    nohup flask run --host=enms.orchest.net > flask.log 2>&1 &
+
     Log in (default credentials: admin / admin)
