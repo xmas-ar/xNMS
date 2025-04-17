@@ -101,7 +101,7 @@ table.dataTable tr.even {
 }
 
 table.dataTable tr:hover {
-  background-color: #462323;
+  background-color: #484848;
 }
 
 /* Color of text input in forms */
