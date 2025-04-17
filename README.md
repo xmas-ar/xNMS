@@ -3,11 +3,11 @@
 <h1 align="center">Forked from eNMS, maintained by xmas-ar</h1>
 
 
-Fork changelog:
+xNMS changelog:
   - **28/03/2025**: Modified topology_import service .py to disable https check with Netbox and corrected device.role.
   - **WIP**: Adding service template for L2 service configuration (vpls, telco standard, junos based).
   - **WIP**: Adding service template for interface unit description correction (based of VPLS config).
-  - 
+  - **WIP**: Adding service template for EVPN-VXLAN Deployment (Juniper QFX Line).
 
 
 
