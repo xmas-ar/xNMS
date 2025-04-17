@@ -70,7 +70,7 @@ body {
 }
 
 .accordion .panel-heading {
-  background: #f2f5f7;
+  background: #313131;
   background-color: #202123;
 }
 
@@ -79,7 +79,7 @@ body {
 }
 
 .accordion .panel:hover {
-  background: #f2f5f7;
+  background: #313131;
 }
 
 .wizard_horizontal ul.wizard_steps li a:before {
