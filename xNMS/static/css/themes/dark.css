@@ -23,7 +23,7 @@
 /* Main Page */
 body {
   background: #202123;
-  color: #484848;
+  color: #e0e0e0;
 }
 
 .left_column {
@@ -109,18 +109,18 @@ table.dataTable tr:hover {
 .select2-selection,
 .select2-container--default {
   color: #484848;
-  background-color: #cccccc !important;
+  background-color: #484848 !important;
 }
 
 /* Color of lists in forms */
 .btn-default {
-  background-color: #cccccc;
+  background-color: #484848;
 }
 
 /* Color of pagination buttons in workflow builder */
 .pagination > li > a,
 .pagination > li > span {
-  background-color: #cccccc;
+  background-color: #484848;
 }
 
 /* Color of upper menu on hover */
