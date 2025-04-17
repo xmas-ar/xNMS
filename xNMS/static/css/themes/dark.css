@@ -40,11 +40,11 @@ body {
 
 .nav-sm .nav.child_menu li.active,
 .nav-sm .nav.side-menu li.active-sm {
-  border-right: 5px solid #d62b1e;
+  border-right: 5px solid #484848;
 }
 
 .nav-sm > .nav.side-menu > li.active-sm > a {
-  color: #d62b1e !important;
+  color: #484848 !important;
 }
 
 .nav_menu {
@@ -58,7 +58,7 @@ body {
 
 .nav.side-menu > li.active,
 .nav.side-menu > li.current-page {
-  border-right: 5px solid #d62b1e;
+  border-right: 5px solid #484848;
 }
 
 .nav.side-menu > li.active > a {
@@ -88,7 +88,7 @@ body {
 
 .wizard_horizontal ul.wizard_steps li a.done .step_no,
 .wizard_horizontal ul.wizard_steps li a.done:before {
-  background: #d62b1e;
+  background: #484848;
   color: #fff;
 }
 
@@ -108,7 +108,7 @@ table.dataTable tr:hover {
 .form-control,
 .select2-selection,
 .select2-container--default {
-  color: #d62b1e;
+  color: #484848;
   background-color: #cccccc !important;
 }
 
@@ -126,7 +126,7 @@ table.dataTable tr:hover {
 /* Color of upper menu on hover */
 .top_nav .nav .open > a,
 .top_nav .nav > li > a:hover {
-  background-color: #462323;
+  background-color: #484848;
 }
 
 .navbar-default {
