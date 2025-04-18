@@ -15,7 +15,7 @@ ___
 
 xNMS is a vendor-agnostic NMS designed for building workflow-based network automation solutions.
 
-![xNMS](docs/source/_static/base/workflow.png)
+![xNMS](docs/source/_static/base/4.6.1 workflow.png)
 
 It encompasses the following aspects of network automation:
   - **Configuration Management Service**: Backup with Git, change and rollback of configurations.
