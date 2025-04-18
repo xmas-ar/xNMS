@@ -25,7 +25,7 @@ It encompasses the following aspects of network automation:
   - **Validation Services**: Validate data about the state of a device with Netmiko and NAPALM.
   - **Ansible Service**: Store and run Ansible playbooks.
   - **REST Service**: Send REST calls with variable URL and payload.
-  - **Python Script Service**: Any python script can be integrated into the web UI. eNMS will automatically generate
+  - **Python Script Service**: Any python script can be integrated into the web UI. xNMS will automatically generate
 a form in the UI for the script input parameters.
   - **Workflows**: Services can be combined together graphically in a workflow.
   - **Scheduling**: Services and workflows can be scheduled to start at a later time, or run periodically with CRON.
@@ -66,7 +66,7 @@ Geographical View                |  Network Builder
 
 ## 3. Service creation
 
-xNMS comes with a number of "default services" leveraging libraries such as `ansible`, `requests`, `netmiko`, `napalm`  to perform simple automation tasks. However, absolutely any python script can be turned into a service. If your python script takes input parameters, eNMS will automatically generate a form in the web UI.
+xNMS comes with a number of "default services" leveraging libraries such as `ansible`, `requests`, `netmiko`, `napalm`  to perform simple automation tasks. However, absolutely any python script can be turned into a service. If your python script takes input parameters, xNMS will automatically generate a form in the web UI.
 
 Services can be combined into a workflow.
 
