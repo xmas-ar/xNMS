@@ -115,6 +115,7 @@ table.dataTable tr:hover {
 /* Color of lists in forms */
 .btn-default {
   background-color: #484848;
+  color: #fff;
 }
 
 /* Color of pagination buttons in workflow builder */
@@ -142,3 +143,4 @@ table.dataTable tr:hover {
 .modal-body {
   background-color: #202123;
 }
+

@@ -1,5 +1,6 @@
 #builder {
   height: calc(100vh - 80px);
+  background-color: #ffffff;
 }
 
 /* Prevent Chrome from highlight the builder div with an outline */

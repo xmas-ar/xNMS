@@ -730,7 +730,7 @@ function displayCalendar(calendarType) {
     id: calendarType,
     content: `
       <div class="modal-body">
-        <div id="calendar" style="height: 500px"></div>
+        <div id="calendar" style="height: 1000px"></div>
       </div>`,
     callback: () => {
       call({
