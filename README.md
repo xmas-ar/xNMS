@@ -45,7 +45,7 @@ A dashboard provides a graphical overview of your network with dynamic charts.
 
 Inventory                           |  Dashboard
 :----------------------------------:|:-----------------------------------:
-![Inventory](docs/source/_static/base/inventory.png) |  ![Dashboard](docs/source/_static/base/dashboard.png)
+![Inventory](docs/source/_static/base/4.6.1-devices.png) |  ![Dashboard](docs/source/_static/base/4.6.1-dashboard.png)
 
 - Docs: _[Network Creation](https://enms.readthedocs.io/en/latest/inventory/network_creation/)_
 
