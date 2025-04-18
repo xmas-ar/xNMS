@@ -80,7 +80,7 @@
               class="panel-collapse collapse in"
               role="tabpanel"
             >
-              <div class="panel-body" style="background-color: #fafafa;">
+              <div class="panel-body">
                 {% for field_name in form.group_properties["step1-1"] %} {{
                 block_field(form, field_name) }} {% endfor %}
               </div>
@@ -113,7 +113,7 @@
               class="panel-collapse collapse in"
               role="tabpanel"
             >
-              <div class="panel-body" style="background-color: #fafafa;">
+              <div class="panel-body">
                 {% for field_name in form.group_properties["step1-2"] %} {{
                 block_field(form, field_name) }} {% endfor %}
               </div>
@@ -146,7 +146,7 @@
               class="panel-collapse collapse in"
               role="tabpanel"
             >
-              <div class="panel-body" style="background-color: #fafafa;">
+              <div class="panel-body">
                 {% for field_name in form.group_properties["step1-3"] %} {{
                 block_field(form, field_name) }} {% endfor %}
               </div>
@@ -180,7 +180,7 @@
               class="panel-collapse collapse in"
               role="tabpanel"
             >
-              <div class="panel-body" style="background-color: #fafafa;">
+              <div class="panel-body">
                 {% for property, values in form.custom_properties.items() %} {% set
                 label %} {% if "help" in values %}
                 <label for="{{ property }}" help="{{ values['help'] }}">
@@ -233,7 +233,7 @@
                 class="panel-collapse collapse in"
                 role="tabpanel"
               >
-                <div class="panel-body" style="background-color: #fafafa;">
+                <div class="panel-body">
                   {{ block_field(form, "owners") }} {% for property in
                   form.rbac_properties %} {{ block_field(form, property) }} {% endfor %}
                   {{ block_field(form, "restrict_to_owners") }}
@@ -322,7 +322,7 @@
               class="panel-collapse collapse in"
               role="tabpanel"
             >
-              <div class="panel-body" style="background-color: #fafafa;">
+              <div class="panel-body">
                 {% for field_name in form.group_properties["step3-1"] %} {{
                 block_field(form, field_name) }} {% endfor %}
               </div>
@@ -397,7 +397,7 @@
               class="panel-collapse collapse in"
               role="tabpanel"
             >
-              <div class="panel-body" style="background-color: #fafafa;">
+              <div class="panel-body">
                 {% for field_name in form.group_properties["step4-1"] %} {{
                 block_field(form, field_name) }} {% endfor %}
               </div>

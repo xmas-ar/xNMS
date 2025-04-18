@@ -13,7 +13,7 @@
       data-toggle="collapse"
       href="#collapse-step4-1"
     >
-      <h4 class="panel-title" style="color: #000;">
+      <h4 class="panel-title">
         Successful Results
       </h4>
     </a>
@@ -22,7 +22,7 @@
       class="panel-collapse collapse"
       role="tabpanel"
     >
-      <div class="panel-body" style="background-color: #fafafa;">
+      <div class="panel-body" >
         {% for result in results %}
           {% if result["success"] %}
             <pre>
@@ -42,7 +42,7 @@
       data-toggle="collapse"
       href="#collapse-step4-2-1"
     >
-      <h4 class="panel-title" style="color: #000;">
+      <h4 class="panel-title">
         Failed Results
       </h4>
     </a>
@@ -51,7 +51,7 @@
       class="panel-collapse collapse"
       role="tabpanel"
     >
-      <div class="panel-body" style="background-color: #fafafa;">
+      <div class="panel-body" >
         {% for result in results %}
           {% if not result["success"] %}
             <pre>

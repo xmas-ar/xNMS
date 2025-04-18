@@ -132,6 +132,24 @@ ul.bar_tabs {
   color: #fff;
 }
 
+.panel-heading.collapsed {
+  background: #313131;
+}
+
+/* Color for forms background */ 
+.jsPanel .jsPanel-content {
+  background-color: #202123 !important;
+}
+
+/* Color for forms workflow title */ 
+.h4 {
+  color: #ffffff;
+}
+
+.panel-title {
+  color: #ffffff !important;
+}
+
 /* Color of pagination buttons in workflow builder */
 .pagination > li > a,
 .pagination > li > span {
