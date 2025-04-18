@@ -1,4 +1,4 @@
-<h1 align="center">xNMS</h1>
+<h1 align="center">xNMS by Pathgate</h1>
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
 
 Latest version: ***4.6.1***
