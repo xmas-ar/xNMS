@@ -1,7 +1,7 @@
 <h1 align="center">xNMS</h1>
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
 
-Latest version: 4.6.1
+Latest version: ***4.6.1***
 Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
 
 xNMS Added Services:
@@ -108,5 +108,5 @@ ___
     pip3 install -r build/requirements/requirements.txt
     export FLASK_APP=app.py
     nohup flask run --host=IPADDRESSorFQDN > flask.log 2>&1 &
-
-    Log in (default credentials: admin / admin)
+    
+    Log in to port :5000 (default credentials: admin / admin)
