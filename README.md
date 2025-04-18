@@ -15,7 +15,10 @@ ___
 
 <h1 align="center"># Introduction</h1>
 
+<p align="center">
 xNMS is a vendor-agnostic NMS designed for building workflow-based network automation solutions.
+</p>
+
 
 ![xNMS](docs/source/_static/base/4.6.1workflow.png)
 
