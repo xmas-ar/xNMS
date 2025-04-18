@@ -30,11 +30,12 @@ a form in the UI for the script input parameters.
 
 <h1 align="center"># Architecture</h1>
 
-![xNMS System Overview](docs/source/_static/eNMS_overview.PNG)
-
+<p align="center">
+  <img src="docs/source/_static/eNMS_overview.PNG" alt="xNMS System Overview">
+</p>
 ___
 
-# Main features
+<h1 align="center"># Main features</h1>
 
 ## 1. Network creation
 
