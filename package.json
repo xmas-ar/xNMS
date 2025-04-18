@@ -1,6 +1,6 @@
 {
   "name": "xNMS",
-  "version": "4.6.0",
+  "version": "4.6.1",
   "description": "An enterprise-grade vendor-agnostic network automation platform.",
   "scripts": {
     "prettier": "prettier --config build/linting/.prettierrc --ignore-path build/linting/.prettierignore --write xNMS/**/* setup/**/*",

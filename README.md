@@ -1,16 +1,13 @@
 <h1 align="center">xNMS</h1>
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
 
+Latest version: 4.6.1
+Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
 
-xNMS changelog:
- - **2025:** Forked from eNMS, maintained by xmas-ar.
- - Modified topology_import service .py to disable https check with Netbox and corrected device.role.
- - Modified dark theme for a more pleasent tone.
+xNMS Added Services:
  - **WIP**: Adding service template for L2 service configuration (vpls, telco standard, junos based).
  - **WIP**: Adding service template for interface unit description correction (based of VPLS config).
  - **WIP**: Adding service template for EVPN-VXLAN Deployment (Juniper QFX Line).
-
-
 
 ___
 
