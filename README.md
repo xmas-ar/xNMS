@@ -1,8 +1,8 @@
 <h1 align="center">xNMS by Pathgate</h1>
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
 
-Latest version: ***4.6.1***
-Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
+• Latest version: **4.6.1** / Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
+
 
 ***xNMS roadmap 2025:***
  - Service template VPLS-E2E configuration (vpls, telco standard, junos based).
@@ -22,7 +22,7 @@ xNMS is a vendor-agnostic NMS designed for building workflow-based network autom
 
 ![xNMS](docs/source/_static/base/4.6.1workflow.png)
 
-It encompasses the following aspects of network automation:
+Our tool manages the following aspects of network automation:
   - **Configuration Management Service**: Backup with Git, change and rollback of configurations.
   - **Validation Services**: Validate data about the state of a device with Netmiko and NAPALM.
   - **Ansible Service**: Store and run Ansible playbooks.
