@@ -1,8 +1,8 @@
 {
   "app": {
     "config_mode": "debug",
-    "documentation_url": "https://xNMS.readthedocs.io/en/latest/",
-    "git_repository": "git@github.com:afourmy/gitpython-test.git",
+    "documentation_url": "https://eNMS.readthedocs.io/en/latest/",
+    "git_repository": "git@github.com:xmas-ar/gitpython-test.git",
     "max_content_length": 104857600,
     "plugin_path": "xNMS/plugins",
     "session_timeout_minutes": 30,

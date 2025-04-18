@@ -1,13 +1,14 @@
 <h1 align="center">xNMS</h1>
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
-<h1 align="center">Forked from eNMS, maintained by xmas-ar</h1>
 
 
 xNMS changelog:
-  - **28/03/2025**: Modified topology_import service .py to disable https check with Netbox and corrected device.role.
-  - **WIP**: Adding service template for L2 service configuration (vpls, telco standard, junos based).
-  - **WIP**: Adding service template for interface unit description correction (based of VPLS config).
-  - **WIP**: Adding service template for EVPN-VXLAN Deployment (Juniper QFX Line).
+ - **2025:** Forked from eNMS, maintained by xmas-ar.
+ - Modified topology_import service .py to disable https check with Netbox and corrected device.role.
+ - Modified dark theme for a more pleasent tone.
+ - **WIP**: Adding service template for L2 service configuration (vpls, telco standard, junos based).
+ - **WIP**: Adding service template for interface unit description correction (based of VPLS config).
+ - **WIP**: Adding service template for EVPN-VXLAN Deployment (Juniper QFX Line).
 
 
 
@@ -17,14 +18,14 @@ ___
 
 xNMS is a vendor-agnostic NMS designed for building workflow-based network automation solutions.
 
-[![eNMS](docs/source/_static/base/workflow.png)](https://www.demo.enms.io/workflow_builder)
+![xNMS](docs/source/_static/base/workflow.png)
 
 It encompasses the following aspects of network automation:
   - **Configuration Management Service**: Backup with Git, change and rollback of configurations.
   - **Validation Services**: Validate data about the state of a device with Netmiko and NAPALM.
   - **Ansible Service**: Store and run Ansible playbooks.
   - **REST Service**: Send REST calls with variable URL and payload.
-  - **Python Script Service**: Any python script can be integrated into the web UI. eNMS will automatically generate
+  - **Python Script Service**: Any python script can be integrated into the web UI. xNMS will automatically generate
 a form in the UI for the script input parameters.
   - **Workflows**: Services can be combined together graphically in a workflow.
   - **Scheduling**: Services and workflows can be scheduled to start at a later time, or run periodically with CRON.
@@ -32,7 +33,7 @@ a form in the UI for the script input parameters.
 
 # Architecture
 
-[![eNMS System Overview](docs/source/_static/eNMS_overview.PNG)](https://enms.readthedocs.io/en/latest/)
+![xNMS System Overview](docs/source/_static/eNMS_overview.PNG)
 
 ___
 
@@ -47,35 +48,35 @@ A dashboard provides a graphical overview of your network with dynamic charts.
 
 Inventory                           |  Dashboard
 :----------------------------------:|:-----------------------------------:
-[![Inventory](docs/source/_static/base/inventory.png)](https://www.demo.enms.io/table/device) |  [![Dashboard](docs/source/_static/base/dashboard.png)](https://www.demo.enms.io/dashboard)
+![Inventory](docs/source/_static/base/inventory.png) |  ![Dashboard](docs/source/_static/base/dashboard.png)
 
 - Docs: _[Network Creation](https://enms.readthedocs.io/en/latest/inventory/network_creation/)_
 
 ## 2. Network visualization
 
-eNMS can display your network on a world map (Google Map or Open Street Map).
+xNMS can display your network on a world map (Google Map or Open Street Map).
 Each device is displayed at its GPS coordinates.
 Network topology diagrams can be created using devices and links from inventory, and adding labels for clarity.
 
 Geographical View                |  Network Builder
 :-------------------------------:|:-------------------------------:
-[<img src="docs/source/_static/visualization/network_view.png" alt="Geographical View"/>](https://www.demo.enms.io/visualization/geographical_view) | [<img src="docs/source/_static/base/network_builder.png" alt="Network Builder"/>](https://www.demo.enms.io/visualization/logical_view)
+<img src="docs/source/_static/visualization/network_view.png" alt="Geographical View"/> | <img src="docs/source/_static/base/network_builder.png" alt="Network Builder"/>
 
 - Docs: _[Network Visualization](https://enms.readthedocs.io/en/latest/inventory/network_visualization/)_
 
 ## 3. Service creation
 
-eNMS comes with a number of "default services" leveraging libraries such as `ansible`, `requests`, `netmiko`, `napalm`  to perform simple automation tasks. However, absolutely any python script can be turned into a service. If your python script takes input parameters, eNMS will automatically generate a form in the web UI.
+xNMS comes with a number of "default services" leveraging libraries such as `ansible`, `requests`, `netmiko`, `napalm`  to perform simple automation tasks. However, absolutely any python script can be turned into a service. If your python script takes input parameters, xNMS will automatically generate a form in the web UI.
 
 Services can be combined into a workflow.
 
-[![Workflow Builder](docs/source/_static/base/workflow.png)](https://www.demo.enms.io/workflow_builder)
+![Workflow Builder](docs/source/_static/base/workflow.png)
 
 - Docs: _[Services](https://enms.readthedocs.io/en/latest/automation/services/)_, _[Workflow System](https://enms.readthedocs.io/en/latest/automation/workflows/)_
 
 ## 5. Configuration Management
 
-eNMS can be used as a device configuration backup tool, like Oxidized/Rancid, with the following features:
+xNMS can be used as a device configuration backup tool, like Oxidized/Rancid, with the following features:
 
   - Poll network devices and store the latest configuration in the database
   - Store any operational data that can be retrieved from the device CLI (e.g ``show version``, ``get facts`` etc.)
@@ -87,7 +88,7 @@ eNMS can be used as a device configuration backup tool, like Oxidized/Rancid, wi
 
 Search Configuration                          |  Compare Configuration
 :--------------------------------------------:|:-------------------------------:
-[![Search](docs/source/_static/base/configuration_search.png)](https://www.demo.enms.io/table/configuration) |  [![History](docs/source/_static/base/configuration_history.png)](https://www.demo.enms.io/table/configuration)
+![Search](docs/source/_static/base/configuration_search.png) |  ![History](docs/source/_static/base/configuration_history.png)
 
 - Docs: _[Configuration Management](https://enms.readthedocs.io/en/latest/inventory/configuration_management/)_
 
@@ -95,28 +96,13 @@ Search Configuration                          |  Compare Configuration
 
 While services can be run directly and immediately from the UI, you can also schedule them to run at a later time, or periodically by defining a frequency or a CRON expression. All scheduled tasks are displayed in a calendar.
 
-[![Calendar](docs/source/_static/base/calendar.png)](https://www.demo.enms.io/table/task)
+![Calendar](docs/source/_static/base/calendar.png)
 
-Services can also be executed programmatically: eNMS has a REST API and a CLI interface that can be used to create, update and delete any type of objects, but also to trigger the execution of a service.
+Services can also be executed programmatically: xNMS has a REST API and a CLI interface that can be used to create, update and delete any type of objects, but also to trigger the execution of a service.
 
 - Docs: _[Scheduling](https://enms.readthedocs.io/en/latest/automation/scheduling/)_
 
 ___
-
-# Getting started
-
-## Online content
-
-You can follow us on _[Twitter](https://twitter.com/AutomationEnms)_ or _[Linkedin](https://www.linkedin.com/company/enms-automation)_ to receive notifications about new training content and releases.
-
-## Training Videos
-
-- _[eNMS Installation](https://www.youtube.com/watch?v=Zu2iLNaZDQc)_
-- _[Overview of eNMS](https://www.youtube.com/watch?v=XwU0yom_aY0&t=1205s)_
-
-## Podcasts
-
-- A _[podcast about eNMS and network automation](https://www.pythonpodcast.com/enms-network-automation-episode-232/)_
 
 ## Quick Install
     Install python 3.8+ (earlier versions not supported)

@@ -9,14 +9,14 @@ following sections give details for setting up a production environment.
 
 The first step is to download the application. The user can download the
 latest release of xNMS directly to the browser by going to the
-[Release section](https://github.com/xNMS-automation/xNMS/releases) of
+[Release section](https://github.com/xmas-ar/xNMS/releases) of
 xNMS github repository.
 
 The other option is to clone the master branch of the git repository
 from github:
 
     # download the code from github:
-    git clone https://github.com/xNMS-automation/xNMS.git
+    git clone https://github.com/xmas-ar/xNMS.git
     cd xNMS
 
 Once the application is installed, the user must go to the `xNMS` folder and
