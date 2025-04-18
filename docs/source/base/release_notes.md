@@ -3,9 +3,9 @@
 
 Version 4.6.1: xNMS-fork
 -------------------------
-- Forked from eNMS, maintained by xmas-ar.
+- Forked from eNMS 4.6.0.
 - Modified topology_import service .py to disable https check with Netbox and corrected device.role.
-- Modified dark theme for a more pleasent tone.
+- Modified dark theme for a more pleasent tone, fixed inconsistencies and builder colors.
 - Fixed full-calendar view coloring in dark mode.
 
 Version 4.6.0: Clustering
