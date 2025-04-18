@@ -17,7 +17,8 @@
       "network": [22, 22]
     },
     "layers": {
-      "osm": "https://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      "osm": "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      "dark_matter": "https://api.maptiler.com/tiles/darkmatter/{z}/{x}/{y}.png?key=HJEZOZHdtwS4u6xJvOMT",
       "gm": "https://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s=Ga"
     }
   },
