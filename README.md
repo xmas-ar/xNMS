@@ -28,7 +28,7 @@ a form in the UI for the script input parameters.
   - **Scheduling**: Services and workflows can be scheduled to start at a later time, or run periodically with CRON.
   - **Event-driven automation**: Services and workflows can be triggered from the REST API.
 
-# Architecture
+<h1 align="center"># Architecture</h1>
 
 ![xNMS System Overview](docs/source/_static/eNMS_overview.PNG)
 
