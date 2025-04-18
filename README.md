@@ -1,6 +1,7 @@
 <h1 align="center">xNMS</h1>
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
-<h1 align="center">Forked from eNMS, maintained by xmas-ar</h1>
+
+*Forked from eNMS, maintained by xmas-ar.
 
 
 xNMS changelog:
