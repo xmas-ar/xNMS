@@ -4,10 +4,12 @@
 Latest version: ***4.6.1***
 Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
 
-xNMS Added Services:
- - **WIP**: Adding service template for L2 service configuration (vpls, telco standard, junos based).
- - **WIP**: Adding service template for interface unit description correction (based of VPLS config).
- - **WIP**: Adding service template for EVPN-VXLAN Deployment (Juniper QFX Line).
+***xNMS roadmap:***
+ - Service template VPLS-E2E configuration (vpls, telco standard, junos based).
+ - Service template Interface description correction (based of VPLS config).
+ - Service template for EVPN-VXLAN config creation (Juniper QFX Line).
+ - Service template for MPLS Link deployment (Juniper MX/ACX line).
+ - Dashboard facelift.
 
 ___
 
