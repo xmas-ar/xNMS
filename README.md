@@ -68,7 +68,7 @@ xNMS comes with a number of "default services" leveraging libraries such as `ans
 
 Services can be combined into a workflow.
 
-![Workflow Builder](docs/source/_static/base/4.6.1-workflow.png)
+![Workflow Builder](docs/source/_static/base/4.6.1-workflow-zoom.png)
 
 - Docs: _[Services](https://enms.readthedocs.io/en/latest/automation/services/)_, _[Workflow System](https://enms.readthedocs.io/en/latest/automation/workflows/)_
 
