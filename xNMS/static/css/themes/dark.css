@@ -136,3 +136,9 @@ table.dataTable tr:hover {
 .light-bg {
   background-color: #202123;
 }
+
+/* Color of pop-up windows or forms */
+
+.modal-content {
+  background-color: #202123;
+}
