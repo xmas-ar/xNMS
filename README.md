@@ -4,7 +4,7 @@
 forked from eNMS 4.6.0 / xNMS Latest version: **4.6.1** / Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
 
 
-***xNMS roadmap 2025:***
+***Feature roadmap:***
  - Service template VPLS-E2E configuration (vpls, telco standard, junos based).
  - Service template Interface description correction (based of VPLS config).
  - Service template for EVPN-VXLAN config creation (Juniper QFX Line).
