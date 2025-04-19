@@ -1,7 +1,7 @@
 <h1 align="center">xNMS by Pathgate</h1>
 <h2 align="center">An enterprise-grade vendor-agnostic network automation platform.</h2>
 
-• Latest version: **4.6.1** / Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
+forked from eNMS 4.6.0 / xNMS Latest version: **4.6.1** / Release notes: [Link](https://github.com/xmas-ar/xNMS/blob/public/docs/source/base/release_notes.md)
 
 
 ***xNMS roadmap 2025:***
